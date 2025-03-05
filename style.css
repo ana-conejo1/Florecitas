@@ -1,26 +1,36 @@
 @font-face {
-    font-family: 'Glitten';
+    font-family: 'GLITTEN CAPS';
     src: url('../assets/fuentes/GLITTEN-ALL-CAPS.TTF') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'Glitten Regular';
+    src: url('../assets/fuentes/GLITTEN-REGULAR.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Raleway';
+    src: url('../assets/fuentes/Raleway-VariableFont_wght.ttf') format('truetype');
+}
 
 .perseflora{
-    font-family: Glitten;
-    font-size: 40px;
-    font-weight: 500;
+    font-family: 'GLITTEN CAPS';
+    font-size: 60px;
+    font-weight: 100;
 }
 
 .titulos{
-    font-family: 'Glitten';
-    font-size: 300 px;
+    font-family: 'Raleway';
+    font-size: 30 px;
     font-weight: bold;
 }
 
 header nav{
     width: 100%;
-    height: 60px;
-    font-size: 16px;
+    height: 70px;
+    font-size: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -47,16 +57,18 @@ header nav{
 .suculenta{
     max-width: 100%;
 }
-.card{
+.CARDS .card{
+    border: none;
+}
+.CARDS .card-body{
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #B34A4C;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    margin: 10px;
-    padding: 10px;
+    justify-content: right;
+    align-items: right;
+    background-color: rgba(179, 74, 76, 0.5);
+    border-radius: 30px;
+    padding: 30px;
+    margin: 50px 30x;
 }
