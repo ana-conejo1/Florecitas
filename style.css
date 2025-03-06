@@ -174,3 +174,7 @@ header nav{
     }
     
 }
+.footer-logo {
+    max-width: 80px; /* Ajusta el tamaño del logo */
+    height: auto;
+}
