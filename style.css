@@ -1,0 +1,180 @@
+@font-face {
+    font-family: 'GLITTEN CAPS';
+    src: url('../assets/fuentes/GLITTEN-ALL-CAPS.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Glitten Regular';
+    src: url('../assets/fuentes/GLITTEN-REGULAR.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Raleway';
+    src: url('../assets/fuentes/Raleway-VariableFont_wght.ttf') format('truetype');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+}
+
+.perseflora{
+    font-family: 'GLITTEN CAPS';
+    font-size: 60px;
+    font-weight: 100;
+}
+
+.titulos{
+    font-family: 'Raleway';
+    font-size: 40 px;
+    font-weight: bold;
+}
+
+header nav{
+    width: 100%;
+    height: 70px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    background-color: palevioletred;
+}
+
+.nav-item a{
+    color: #734854;
+}
+
+.nav-item a:hover{
+    color: #292528;
+}
+
+#app{
+    color:#734854
+}
+
+
+/*//ABOUT US//*/
+.suculenta{
+    max-width: 100%;
+}
+.CARDS .card{
+    border: none;
+}
+.CARDS .card-body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: right;
+    background-color: rgba(179, 74, 76, 0.5);
+    border-radius: 30px;
+    padding: 30px;
+    margin: 50px 30x;
+}
+
+/*//EQUIPO///*/
+
+.team-section{
+    width:100%
+}
+.team-section .container{
+    width: 100%;
+    margin: auto;
+}
+.team-section .container .row{
+    width: 100%;
+    margin: auto;
+}
+.team-section .container .row .title{
+    text-align: center;
+    margin-top: 50px;
+}
+.team-section .container .row .title h1{
+    font-size: 35px;
+    text-transform:uppercase;
+    letter-spacing: 1.5px;
+    color: #734854;
+}
+/*.team-section .container .row .title p{
+    font-size: 18px;
+    font-family: sans-serif;
+    margin: 30px 0px;
+    color: #a3a3a3;
+}*/
+
+/**********TEAM CARD**********/
+.team-section .container .team-card{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+    margin-top: 50px;
+    justify-content: center;
+}
+.team-section .container .team-card .card{
+    width: 100%;
+    background-color: beige;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor:pointer;
+}
+.team-section .container .team-card .card:hover{
+    background-color: #734854;
+    transition:0.3s;
+}
+.team-section .container .team-card .card .image-section img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    /*overflow: hidden;*/
+    border:6px solif #fff;
+}
+.team-section .container .team-card .card .content{
+    width: 100%;
+}
+.team-section .container .team-card .card .content h3{
+    font-size: 27px;
+    margin-top: 10px;
+    letter-spacing: 1.5px;
+    color: #734854;
+}
+.team-section .container .team-card .card .content h4{
+    font-size: 27px;
+    margin-top: 10px;
+    letter-spacing: 1.5px;
+    color: palevioletred;
+}
+.team-section .container .team-card .card .content p{
+    font-size: 15px;
+    margin: 16px 0px;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+    color: #734854;
+}
+@media screen and (max-width: 900px){
+    .team-section .container .team-card{
+        grid-template-columns:repeat(2, 1fr);
+    }
+    
+}
+@media screen and (max-width: 768px){
+    .team-section .container .team-card{
+        grid-template-columns:repeat(2, 1fr);
+    }
+    
+}
+.footer-logo {
+    max-width: 80px; /* Ajusta el tamaño del logo */
+    height: auto;
+}
