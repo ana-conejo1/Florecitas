@@ -1,180 +1,330 @@
-@font-face {
-    font-family: 'GLITTEN CAPS';
-    src: url('../assets/fuentes/GLITTEN-ALL-CAPS.TTF') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Glitten Regular';
-    src: url('../assets/fuentes/GLITTEN-REGULAR.TTF') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Raleway';
-    src: url('../assets/fuentes/Raleway-VariableFont_wght.ttf') format('truetype');
-}
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Raleway', sans-serif;
 }
 
-.perseflora{
-    font-family: 'GLITTEN CAPS';
-    font-size: 60px;
-    font-weight: 100;
+/* Ocultar menú hamburguesa en pantallas grandes */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
 }
 
-.titulos{
-    font-family: 'Raleway';
-    font-size: 40 px;
-    font-weight: bold;
+.menu-toggle div {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: 0.4s;
 }
 
-header nav{
-    width: 100%;
+/* Barra de navegación */
+.navbar {
     height: 70px;
-    font-size: 20px;
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     position: fixed;
-    z-index: 1;
-    background-color: palevioletred;
+    z-index: 3;
+    overflow-x: hidden;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+    top: 0;
 }
 
-.nav-item a{
-    color: #734854;
+.logo-page {
+    display: flex;
+    align-items: center;
 }
 
-.nav-item a:hover{
-    color: #292528;
+.logo-page h5 {
+    font-size: 35px;
+    color: #333;
+    line-height: 60px;
 }
 
-#app{
-    color:#734854
+.logo-page img {
+    height: 50px;
+    margin-left: 30px;
+    margin-right: 10px;
+    line-height: 50px;
 }
 
+.nav {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
 
-/*//ABOUT US//*/
-.suculenta{
+.nav-item a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+    transition: color 0.3s ease;
+}
+
+.nav-item a:hover {
+    color: #007bff;
+}
+
+/* Footer */
+footer {
+    background-color: #6b5037;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.container {
     max-width: 100%;
-}
-.CARDS .card{
-    border: none;
-}
-.CARDS .card-body{
-    width: 100%;
-    height: 100%;
+    margin: 0 10px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: right;
-    align-items: right;
-    background-color: rgba(179, 74, 76, 0.5);
-    border-radius: 30px;
-    padding: 30px;
-    margin: 50px 30x;
 }
 
-/*//EQUIPO///*/
-
-.team-section{
-    width:100%
-}
-.team-section .container{
-    width: 100%;
-    margin: auto;
-}
-.team-section .container .row{
-    width: 100%;
-    margin: auto;
-}
-.team-section .container .row .title{
-    text-align: center;
-    margin-top: 50px;
-}
-.team-section .container .row .title h1{
-    font-size: 35px;
-    text-transform:uppercase;
-    letter-spacing: 1.5px;
-    color: #734854;
-}
-/*.team-section .container .row .title p{
-    font-size: 18px;
-    font-family: sans-serif;
-    margin: 30px 0px;
-    color: #a3a3a3;
-}*/
-
-/**********TEAM CARD**********/
-.team-section .container .team-card{
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 40px;
-    margin-top: 50px;
-    justify-content: center;
-}
-.team-section .container .team-card .card{
-    width: 100%;
-    background-color: beige;
-    border-radius: 20px;
-    padding: 20px;
+.row {
     display: flex;
-    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.col-cuenta {
+    margin-left: 15px;
+    flex-direction: column;
+}
+
+.col-cuenta .titulo {
+    margin-left: 15px;
+}
+
+.col-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
     align-items: center;
-    cursor:pointer;
 }
-.team-section .container .team-card .card:hover{
-    background-color: #734854;
-    transition:0.3s;
+
+.col img {
+    max-width: 250px;
+    height: 130px;
 }
-.team-section .container .team-card .card .image-section img{
+
+ul {
+    list-style: none;
+    padding: 0;
+    color: #ffffff;
+    text-align: left;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s ease-in-out;
+}
+
+ul li a:hover {
+    color: #007bff;
+}
+
+h5 {
+    color: #ffffff;
+}
+
+.titulo {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.titulo h5 {
+    font-family: 'Belanosima', sans-serif;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+/* Responsive */
+
+@media (max-width: 510px) {
+    .row {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .col {
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .col img {
+        max-width: 100px;
+        height: auto;
+        padding: 10px;
+    }
+
+    h5 {
+        font-size: 0.5rem;
+    }
+
+    ul {
+        font-size: 0.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #f8f9fa;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 10px 0;
+    }
+
+    .nav-item {
+        text-align: center;
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+/* Contenido de nosotros */
+.about-us {
+    padding-left: 30px;
+}
+
+.row-about {
+    margin-top: 90px;
+    padding: 10px;
+}
+
+.col-about {
+    margin-top: 45px;
+}
+
+.row-about p {
+    font-size: 16px;
+    margin-top: 20px;
+    text-align: justify;
+    padding-right: 40px;
+}
+
+.row-about h1 {
+    font-size: 25px;
+}
+
+/* Estilo para la sección .row-text y .row-equipo */
+
+.row-text, .row-equipo {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    align-items: stretch;
+}
+
+.col-item {
+    flex: 1;
+    max-width: calc(33.33% - 20px);
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 30px;
+    background-color: #f1b1b1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 10px;
+}
+
+.col-item h2 {
+    font-size: 24px;
+}
+
+.col-item p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.col-item ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.col-item li {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: black;
+}
+
+/* Imágenes del equipo */
+.col-item {
+    margin: 30px 0;
+    gap: 20px;
+    align-items: center;
+}
+
+.img-circle {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    /*overflow: hidden;*/
-    border:6px solif #fff;
+    object-fit: cover;
+    align-self: center;
+    margin-bottom: 20px;
 }
-.team-section .container .team-card .card .content{
-    width: 100%;
+
+/* Carrusel */
+.swiper-tittle h1 {
+    margin-bottom: 30px;
 }
-.team-section .container .team-card .card .content h3{
-    font-size: 27px;
-    margin-top: 10px;
-    letter-spacing: 1.5px;
-    color: #734854;
+
+.swiper {
+    width: calc(100% - 60px);
+    height: 100%;
+    padding: 0 30px;
+    box-sizing: border-box;
+    margin: 0 auto;
 }
-.team-section .container .team-card .card .content h4{
-    font-size: 27px;
-    margin-top: 10px;
-    letter-spacing: 1.5px;
-    color: palevioletred;
+
+.swiper-slide {
+    text-align: center;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    background-color: hsl(359, 42%, 80%);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
 }
-.team-section .container .team-card .card .content p{
-    font-size: 15px;
-    margin: 16px 0px;
-    letter-spacing: 1.5px;
-    line-height: 1.5;
-    color: #734854;
+
+.title-card {
+    font-size: 25px;
 }
-@media screen and (max-width: 900px){
-    .team-section .container .team-card{
-        grid-template-columns:repeat(2, 1fr);
-    }
-    
+
+.subtitle-card {
+    font-size: 20px;
 }
-@media screen and (max-width: 768px){
-    .team-section .container .team-card{
-        grid-template-columns:repeat(2, 1fr);
-    }
-    
+
+.card-text {
+    font-size: 16px;
+    text-align: justify;
 }
-.footer-logo {
-    max-width: 80px; /* Ajusta el tamaño del logo */
-    height: auto;
+
+.swiper-tittle {
+    margin: 0 10px;
 }
