@@ -10,6 +10,8 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!--Libreria-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 </head>
 
@@ -20,83 +22,108 @@
     </header>
 
     <!--Contenido pagina-->
-    <section class="about-us">
-        <div class="row row-about">
-            <div class="col-about col-6">
-                <h1>Nosotros</h1>
-                <p ">
-                    En Perseflora, nos especializamos en impulsar el crecimiento de viveros locales en Xochimilco, a
-                    través de la creación y gestión de tiendas en
-                    línea que permitan a nuestros clientes conectar de manera más efectiva con su comunidad y su
-                    mercado. Nuestra misión es ofrecer un servicio
-                    integral, desde el diseño y desarrollo de e-commerce, hasta la implementación de estrategias de
-                    marketing digital, asegurando que cada vivero
-                    pueda aprovechar al máximo las oportunidades que brinda la venta online.
-                </p>
-                <p>Este proyecto es una invitación a reflexionar sobre nuestra relación con el entorno y cómo podemos
-                    contribuir a su cuidado
-                    de manera sencilla y accesible.</p>
-                <p>Con Perseflora, no solo estás impulsando tu negocio, sino también participando activamente en la
-                    protección de la biodiversidad local, promoviendo el consumo responsable y la sostenibilidad.
-                    Queremos que cada venta, cada planta, sea una forma de acercarnos más a la naturaleza y al cuidado
-                    de nuestro planeta.</p><br>
-                <h3 style="color: #b29c2e;">¡Únete a nosotros en este viaje hacia un futuro más verde!</h3>
+    <main>
+        <div class="container-fluid">
+            <div class="row g-2 row-about">
+                <div class="col-md-6 pe-4">
+                    <h1>Nosotros</h1>
+                    <p>
+                            En Perseflora, nos especializamos en impulsar el crecimiento de viveros locales en Xochimilco, a
+                            través de la creación y gestión de tiendas en
+                            línea que permitan a nuestros clientes conectar de manera más efectiva con su comunidad y su
+                            mercado. Nuestra misión es ofrecer un servicio
+                            integral, desde el diseño y desarrollo de e-commerce, hasta la implementación de estrategias de
+                            marketing digital, asegurando que cada vivero
+                            pueda aprovechar al máximo las oportunidades que brinda la venta online.
+                        </p>
+                        <p>Este proyecto es una invitación a reflexionar sobre nuestra relación con el entorno y cómo podemos
+                            contribuir a su cuidado
+                            de manera sencilla y accesible.</p>
+                        <h4 style=" color: #b29c2e; font-family: raleway; font-weight: bold;">¡Únete a nosotros en este
+                        viaje hacia un futuro más verde!</h4>
+                </div>
+                <div class="col-md-6 d-flex justify-content-center align-items-center">
+                    <img src="./assets/Pictures/About.png" alt="img-about"">
+                </div>
             </div>
-            <div class="col-6">
-                <img src="./assets/Pictures/maceta.jpg" alt="img-about" style="height: 450px;;">
+        </div>
+        <!--Card mision,vision y valores-->
+        <div class="container px-4 py-3 pb-3" id="custom-cards">
 
+            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-3">
+                <div class="col">
+                    <div class="card card-cover h-100 overflow-hidden rounded-4 shadow-lg"
+                        style="background-color: #B34A4C;">
+                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                            <h3 class="pt-2 mt-3 mb-4 display-6 lh-1 fw-bold">Mision</h3>
+                            <ul class="d-flex list-unstyled ">
+                                <li class="d-flex align-items-center">
+                                    <p style="text-align: justify;">Ser la plataforma digital que conecta con clientes que buscan productos únicos,
+                                        impulsando su
+                                        crecimiento y visibilidad en el mercado. Buscamos ofrecer una experiencia de
+                                        compra sencilla y
+                                        accesible, promoviendo el comercio local, la diversidad cultural y la
+                                        sostenibilidad. </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card card-cover h-100 overflow-hidden rounded-4 shadow-lg"
+                        style="background-color: #B34A4C;">
+                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                            <h3 class="pt-2 mt-3 mb-4 display-6 lh-1 fw-bold">Vision</h3>
+                            <ul class="d-flex list-unstyled">
+                                <li class="d-flex align-items-center">
+                                    <p style="text-align: justify;"> Convertirnos en el vivero líder en Xochimilco reconocido por nuestra innovación y
+                                    calidad en
+                                    productos de jardinería. Aspiramos a ser un referente en la creación de espacios
+                                    verdes
+                                    sostenibles, conectando a las personas con la naturaleza y fomentando una comunidad
+                                    apasionada
+                                    por el cuidado de las plantas.</p>
+                                </li>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card card-cover h-100 overflow-hidden rounded-4 shadow-lg"
+                        style="background-color: #B34A4C;">
+                        <div class="d-flex flex-column h-100 p-5 pb-3">
+                            <h3 class="pt-2 mt-3  mb-4 display-6 lh-1 fw-bold text-white">Valores</h3>
+                            <ul class="align-items-center list-unstyled text-white">
+                                <li>Innovación</li>
+                                <li>Sostenibilidad</li>
+                                <li>Calidad</li>
+                                <li>Accesibilidad</li>
+                                <li>Raíces culturales</li>
+                                <li>Alegría</li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
 
-        <div class="row-text">
-            <div class="col-4 col-item">
-                <div>
-                    <h2>Mision</h2>
-                </div>
-                <p>Ser la plataforma digital que conecta con clientes que buscan productos únicos, impulsando su
-                    crecimiento y visibilidad en el mercado. Buscamos ofrecer una experiencia de compra sencilla y
-                    accesible, promoviendo el comercio local, la diversidad cultural y la sostenibilidad. </p>
-
-            </div>
-            <div class="col-4 col-item">
-                <div>
-                    <h2>Vision</h2>
-                </div>
-                <p>Convertirnos en el vivero líder en Xochimilco reconocido por nuestra innovación y calidad en
-                    productos de jardinería. Aspiramos a ser un referente en la creación de espacios verdes
-                    sostenibles, conectando a las personas con la naturaleza y fomentando una comunidad apasionada
-                    por el cuidado de las plantas.</p>
-
-            </div>
-            <div class="col-4 col-item ">
-                <div>
-                    <h2>Valores</h2>
-                </div>
-                <ul>
-                    <li>Innovación</li>
-                    <li>Sostenibilidad</li>
-                    <li>Calidad</li>
-                    <li>Accesibilidad</li>
-                    <li>Raíces culturales</li>
-                    <li>Alegría</li>
-                </ul>
-
-            </div>
-
-        </div>
         <!--Slider-->
         <div class="swiper mySwiper swiper-initialized swiper-horizontal swiper-backface-hidden">
             <div class="swiper-tittle">
                 <h1>Equipo</h1>
             </div>
 
-            <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-973.333px, 0px, 0px); transition-delay: 0ms;">
-                <div class="swiper-slide" style="width: 213.333px; margin-right: 30px;">
+            <div class="swiper-wrapper"
+                style="transition-duration: 0ms; transform: translate3d(-973.333px, 0px, 0px); transition-delay: 0ms;">
+                <div class="swiper-slide">
                     <img src="./assets/Pictures/Karla_Alonso.JPG" class="img-circle" alt="">
                     <div>
                         <h3 class="title-card">Karla Alonso</h3>
-                        <h4 class="subtitle-card">Desarrolladora Web</h4><br>
+                        <h4 class="subtitle-card">Desarrolladora Web</h4>
                         <p class="card-text">Profesional en análisis de datos con enfoque en Desarrollo
                             Full Stack. Destaco por mi capacidad analítica, adaptación y
                             habilidades para la resolución de problemas. He participado en
@@ -105,12 +132,12 @@
                             procesos y resultados </p>
                     </div>
                 </div>
-                <div class="swiper-slide" style="width: 213.333px; margin-right: 30px;">
-                    
+                <div class="swiper-slide">
+
                     <img src="./assets/Pictures/Ana_Conejo.png" class="img-circle" alt="">
                     <div>
                         <h3 class="title-card">Ana Conejo</h3>
-                        <h4 class="subtitle-card">Desarrolladora Web</h4><br>
+                        <h4 class="subtitle-card">Desarrolladora Web</h4>
                         <p class="card-text">Profesional en análisis de datos con enfoque en Desarrollo
                             Full Stack. Destaco por mi capacidad analítica, adaptación y
                             habilidades para la resolución de problemas. He participado en
@@ -121,10 +148,10 @@
                 </div>
                 <div class="swiper-slide" ">
                     
-                    <img src="./assets/Pictures/Paola-Espinosa.png" class="img-circle" alt="">
+                    <img src=" ./assets/Pictures/Paola-Espinosa.png" class="img-circle" alt="">
                     <div>
                         <h3 class="title-card">Paola Espinoza</h3>
-                        <h4 class="subtitle-card">Desarrolladora Web</h4><br>
+                        <h4 class="subtitle-card">Desarrolladora Web</h4>
                         <p class="card-text">Profesional en análisis de datos con enfoque en Desarrollo
                             Full Stack. Destaco por mi capacidad analítica, adaptación y
                             habilidades para la resolución de problemas. He participado en
@@ -135,35 +162,10 @@
                 </div>
                 <div class="swiper-slide"">
                     
-                    <img src="./assets/Pictures/Diana Alvarez.png" class="img-circle" alt="">
+                    <img src=" ./assets/Pictures/Diana Alvarez.png" class="img-circle" alt="">
                     <div>
                         <h3 class="title-card">Diana Alvarez</h3>
-                        <h4 class="subtitle-card">Desarrolladora Web</h4><br>
-                            <p class="card-text">Profesional en análisis de datos con enfoque en Desarrollo
-                                Full Stack. Destaco por mi capacidad analítica, adaptación y
-                                habilidades para la resolución de problemas. He participado en
-                                proyectos de diversos entornos dinámicos y
-                                multidisciplinarios, generando un impacto positivo en los
-                                procesos y resultados </p>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    
-                    <img src="./assets/Pictures/Karen-Olan.jpg" class="img-circle" alt="">
-                    <div>
-                        <h3 class="title-card">Karen Olan</h3>
-                        <h4 class="subtitle-card">Desarrolladora Web</h4><br>
-                            <p class="card-text">Desarrolladora web con experiencia en JavaScript, Java, Spring Boot y licenciada en Mercadotecnia.
-                                He trabajado en optimización de procesos, análisis de datos y liderazgo de equipos aplicando metodologías ágiles. 
-                                Este eCommerce refleja mi compromiso con la innovación y el crecimiento digital.</p>
-                    </div>
-                </div>
-                <div class="swiper-slide" >
-                    
-                    <img src="./assets/Pictures/Liz_Arcadia .jpg" class="img-circle" alt="">
-                    <div>
-                        <h3 class="title-card">Liz Arcadia</h3>
-                        <h4 class="subtitle-card">Desarrolladora Web</h4><br>
+                        <h4 class="subtitle-card">Desarrolladora Web</h4>
                         <p class="card-text">Profesional en análisis de datos con enfoque en Desarrollo
                             Full Stack. Destaco por mi capacidad analítica, adaptación y
                             habilidades para la resolución de problemas. He participado en
@@ -173,22 +175,53 @@
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    
+
+                    <img src="./assets/Pictures/Karen-Olan.jpg" class="img-circle" alt="">
+                    <div>
+                        <h3 class="title-card">Karen Olan</h3>
+                        <h4 class="subtitle-card">Desarrolladora Web</h4>
+                        <p class="card-text">Desarrolladora web con experiencia en JavaScript, Java, Spring Boot y
+                            licenciada en Mercadotecnia.
+                            He trabajado en optimización de procesos, análisis de datos y liderazgo de equipos,
+                            aplicando metodologías ágiles para ofrecer soluciones eficientes.
+                            Este eCommerce refleja mi compromiso con la innovación y el crecimiento digital.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+
+                    <img src="./assets/Pictures/Liz_Arcadia .jpg" class="img-circle" alt="">
+                    <div class="swiper-info">
+                        <h3 class="title-card">Liz Arcadia</h3>
+                        <h4 class="subtitle-card">Desarrolladora Web</h4>
+                        <p class="card-text">Profesional en análisis de datos con enfoque en Desarrollo
+                            Full Stack. Destaco por mi capacidad analítica, adaptación y
+                            habilidades para la resolución de problemas. He participado en
+                            proyectos de diversos entornos dinámicos y
+                            multidisciplinarios, generando un impacto positivo en los
+                            procesos y resultados </p>
+                    </div>
+
+
+                </div>
+                <div class="swiper-slide">
+
                     <img src="./assets/Pictures/Jessica-Perez.png" class="img-circle" alt="">
                     <div>
                         <h3 class="title-card">Jessica Perez</h3>
-                        <h4 class="subtitle-card">Desarrolladora Web</h4><br>
-                        <p class="card-text">Ingeniera en Administración de Sistemas con experiencia en desarrollo Full Stack, especializada en Java 
-                            y conocimientos en tecnologías frontend como JavaScript, CSS, HTML y PHP. He trabajado en el E-commerce Perseflora bajo 
+                        <h4 class="subtitle-card">Desarrolladora Web</h4>
+                        <p class="card-text">Ingeniera en Administración de Sistemas con experiencia en desarrollo Full
+                            Stack, cuento con experiencia en lenguaje Java, conocimientos en tecnologías frontend como
+                            JavaScript, CSS, HTML. He trabajado en el
+                            E-commerce Perseflora bajo
                             la metodología SCRUM y desarrollando funcionalidades en backend y frontend.</p>
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    
+
                     <img src="./assets/Pictures/Erandi-Sanchez.jpg" class="img-circle" alt="">
                     <div>
                         <h3 class="title-card">Erandi Sanchez</h3>
-                        <h4 class="subtitle-card">Desarrolladora Web</h4><br>
+                        <h4 class="subtitle-card">Desarrolladora Web</h4>
                         <p class="card-text">Profesional en análisis de datos con enfoque en Desarrollo
                             Full Stack. Destaco por mi capacidad analítica, adaptación y
                             habilidades para la resolución de problemas. He participado en
@@ -210,16 +243,24 @@
                 <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 7"></span>
             </div>
             <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+
         </div>
 
-    </section>
-
+    </main>
 
 
     <!--Pie de pagina-->
-    <div id="footer"></div>
+    <footer>
+        <div id="footer"></div>
+    </footer>
+
+    <!--Javascript-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
     <script src="script.js"></script>
+
 </body>
 
 </html>
