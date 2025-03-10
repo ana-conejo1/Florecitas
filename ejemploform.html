@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIENDA DEPORTIVA</title>
+    <link rel = "stylesheet" href = "style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    
+</head>
+<body>
+
+    <!--FORMULARIO-->
+    <div class = "container">
+            <div class= "form-content" id="form"> 
+                <h1 id="title">Contáctanos</h1>
+                
+                <form id="registrationForm">
+                    <div class = "input-group">
+                        <div class = "input-field" id="nameInput">
+                            <i class = "fa-solid fa-user"></i>
+                            <input type="text" id="Nombre" name="username" placeholder="Nombre"/>
+                        </div>
+                        <div class = "input-field" id="mailInput">
+                            <i class = "fa-solid fa-user"></i>
+                            <input type="email" id="e-mail" name="email" placeholder="E-mail"/>
+                        </div>
+                        <div class = "input-field" id="comentarioInput">
+                            <i class = "fa-solid fa-user"></i>
+                            <input type="text" id="Comentario" name="comentario" placeholder="Comentario" />
+                        </div>
+                        <div class="btn-field">
+                            <button id = "comentar" type="submit">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+                <div id="errorMessages"></div>
+            </div>
+    </div>
+    <script src = "formularioejemplo.js"> </script>
+</body>
+</html> 
