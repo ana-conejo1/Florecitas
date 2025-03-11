@@ -79,7 +79,7 @@ input::placeholder{
 
 .btn-field button {
     flex: basis 30%;
-    font-size: 16px;
+    font-size: 20px;
     background-color: #6B5037;
     color: rgb(252, 250, 249);
     height: 40px;
@@ -89,6 +89,7 @@ input::placeholder{
     cursor: pointer;
     transition: background 1s;
     position: relative;
+    margin-left: 380px;
 }
 
 .input-group {
