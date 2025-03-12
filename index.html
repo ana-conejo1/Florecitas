@@ -22,141 +22,221 @@
     </header>
 
     <!-- Contenido principal -->
-    <main class="container-fluid">
-      <div class="container-fluid position-relative">
-        <div class="row">
-          <div class="col-12 text-center my-5">
+    <main class="container-fluid py-5">
+      <div class="container">
+        <!-- Sección: Productos destacados -->
+        <div class="row text-center mb-5">
+          <div class="col-12">
             <h1 class="display-4">Productos destacados</h1>
+            <h2>Descuentos</h2>
           </div>
         </div>
+      </div>
 
-        <div class="row">
-          <div class="col-md-6">
-            <img
-              src="assets/Pictures/home-page/cuidados-plant.jpg"
-              class="img-fluid"
-              alt="Imagen destacada"
-            />
+      <!-- Sección: Imágenes destacadas -->
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-md-6">
+          <img
+            src="assets/Pictures/home-page/echeveria-pulidonis.avif"
+            class="img-fluid rounded-circle"
+            alt="Imagen 1"
+          />
+        </div>
+        <div class="col-md-6">
+          <img
+            src="https://placehold.co/362x350"
+            class="img-fluid rounded-circle"
+            alt="Imagen 2"
+          />
+        </div>
+      </div>
+      <div class="container-fluid my-4">
+        <div class="col-12">
+          <div
+            class="py-3 rounded shadow text-center text-white"
+            style="
+              height: 120px;
+              background-color: #c2a609ed;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-weight: bold;
+              text-transform: uppercase;
+            "
+          >
+            <h2>DESCUENTOS</h2>
           </div>
-          <div class="col-md-6">
-            <div class="bg-light p-4">
-              <h2 class="text-center">Descuentos</h2>
+        </div>
+      </div>
+
+      <div class="row align-items-center mb-5">
+        <!-- Columna para el título "¿Sabías que?" -->
+        <div class="col-md-5 text-center">
+          <h2 style="color: #e91e63; font-size: 60px">¿Sabías que?</h2>
+        </div>
+
+        <!-- Columna para el texto -->
+        <div class="col-md-6">
+          <p class="text-justify"style="font-size: 18px;"></p>
+            Existe una amplia variedad de suculentas, con formas, colores y
+            tamaños distintos. Su porte medio y belleza propia del desierto las
+            convierten en las perfectas compañeras si lo que deseas es tener
+            plantas de fácil cuidado.
+          </p>
+        </div>
+      </div>
+
+      <!-- Segunda fila con imagen y bloque de texto -->
+      <div class="row align-items-center mb-5">
+        <!-- Columna para la imagen (pegada a la columna de texto) -->
+        <div class="col-md-6 text-center d-flex align-items-center pr-0">
+          <img
+            src="assets/Pictures/home-page/cuidados-plant.jpg"
+            class="img-fluid"
+            alt="Imagen destacada"
+          />
+        </div>
+
+        <!-- Columna para el bloque de texto (más alta y pegada a la imagen) -->
+        <div
+          class="col-md-6 text-center d-flex align-items-center pl-0"
+          style="min-height: 100%"
+        >
+          <div class="bg-light p-4 rounded shadow w-100">
+            <h2 style="color: #b575e4">
+              Elemento para conocer más sobre las suculentas
+            </h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección: Cuidados básicos -->
+      <div class="row text-center mb-4">
+        <div class="col-12">
+          <h2 class="text" style="color: #e91e63; font-size: 36px">
+            Cuidados básicos para plantas
+          </h2>
+        </div>
+      </div>
+
+      <div class="row text-center mb-5">
+        <!-- Tarjeta 1: Luz adecuada -->
+        <div class="col-md-3 d-flex align-items-stretch">
+          <div class="card shadow-sm w-100 h-100">
+            <img
+              src="https://img.freepik.com/fotos-premium/tres-plantas-suculentas-pequenas-ollas-blancas-escritorio-contra-pared-madera_926199-1941084.jpg"
+              class="card-img-top"
+              alt="Luz adecuada"
+              style="height: 200px; object-fit: cover"
+            />
+            <div class="card-body d-flex flex-column text-center">
+              <h5 class="card-title">Bríndales la luz adecuada</h5>
+              <p class="card-text">
+                Las suculentas necesitan luz solar directa y brillante para crecer, por lo que es ideal que reciban al menos 6 horas de luz al día.
+              </p>
             </div>
           </div>
         </div>
 
-        <div class="row my-5">
-          <div class="col-md-6">
+        <!-- Tarjeta 2: Riego adecuado -->
+        <div class="col-md-3 d-flex align-items-stretch">
+          <div class="card shadow-sm w-100 h-100">
             <img
-              src="assets/Pictures/home-page/echeveria-pulidonis.avif"
-              class="img-fluid rounded-circle"
-              alt="Imagen 1"
+              src="https://planterista.com/wp-content/uploads/2024/02/Rega_das_suculentas.webp"
+              class="card-img-top"
+              alt="Riego adecuado"
+              style="height: 200px; object-fit: cover"
             />
-          </div>
-          <div class="col-md-6">
-            <img
-              src="https://placehold.co/362x350"
-              class="img-fluid rounded-circle"
-              alt="Imagen 2"
-            />
-          </div>
-        </div>
-
-        <div class="row my-5">
-          <div class="col-md-6">
-            <h2 class="text-center text-primary">¿Sabías que?</h2>
-            <p class="text-justify">
-              Existe una amplia variedad de suculentas, con formas, colores y
-              tamaños distintos. Su porte medio y belleza propia del desierto
-              las convierten en las perfectas compañeras si lo que deseas es
-              tener plantas de fácil cuidado.
-            </p>
-          </div>
-          <div class="col-md-6">
-            <img
-              src="https://placehold.co/434x409"
-              class="img-fluid rounded-circle"
-              alt="Imagen 3"
-            />
-          </div>
-        </div>
-
-        <div class="row my-5">
-          <div class="col-12 text-center">
-            <h2 class="text-primary">Cuidados básicos para plantas</h2>
-          </div>
-        </div>
-
-        <div class="row my-5">
-          <div class="col-md-3">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title text-center">
-                  Brindales la luz adecuada
-                </h5>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title text-center">
-                  Riega cuando el suelo esté seco al tacto.
-                </h5>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title text-center">
-                  Asegúrate de que la maceta tenga agujeros para el drenaje
-                </h5>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title text-center">
-                  Fertiliza una vez al mes durante la temporada de crecimiento
-                </h5>
-              </div>
+            <div class="card-body d-flex flex-column text-center">
+              <h5 class="card-title">
+                La frecuencia de riego 
+              </h5>
+              <p class="card-text">
+                Riega cuando el suelo esté seco al tacto evita el exceso de agua para prevenir la pudrición de las
+                raíces.
+              </p>
             </div>
           </div>
         </div>
 
-        <div class="row my-5">
-          <div class="col-md-6">
+        <!-- Tarjeta 3: Drenaje adecuado -->
+        <div class="col-md-3 d-flex align-items-stretch">
+          <div class="card shadow-sm w-100 h-100">
             <img
-              src="https://placehold.co/1002x403"
-              class="img-fluid"
-              alt="Imagen 4"
+              src="https://d17jkdlzll9byv.cloudfront.net/wp-content/uploads/2019/04/drenaje-maceta.jpg"
+              class="card-img-top"
+              alt="Drenaje adecuado"
+              style="height: 200px; object-fit: cover"
             />
+            <div class="card-body d-flex flex-column text-center">
+              <h5 class="card-title">
+                Drenaje adecuado
+              </h5>
+              <p class="card-text">
+                Procura usar macetas con buen drenaje,para evitar que el suelo se encharque, lo que puede provocar la pudrición de las raíces.
+              </p>
+            </div>
           </div>
-          <div class="col-md-6">
-            <div class="bg-light p-4">
-              <h2 class="text-center">
-                Elemento para conocer más sobre las suculentas
-              </h2>
+        </div>
+
+        <!-- Tarjeta 4: Fertilización -->
+        <div class="col-md-3 d-flex align-items-stretch">
+          <div class="card shadow-sm w-100 h-100">
+            <img
+              src="https://planterista.com/wp-content/uploads/2024/02/potting_succulents-1024x649.webp"
+              class="card-img-top"
+              alt="Fertilización de suculentas"
+              style="height: 200px; object-fit: cover"
+            />
+            <div class="card-body d-flex flex-column text-center">
+              <h5 class="card-title">
+                Fertilizar las suculentas
+              </h5>
+              <p class="card-text">
+                Se fertilizan en primavera y otoño, cuando comienzan a crecer o acumular alimento para la temporada.
+              </p>
             </div>
           </div>
         </div>
       </div>
-      <!-- Título de invitación -->
-      <h2 id="gameTitle">¡PONTE A PRUEBA!</h2>
 
-      <!-- Contenedor del juego -->
-      <div class="iframe-container" id="gameContainer">
-        <iframe
-          id="gameFrame"
-          class="rounded shadow"
-          src="https://wordwall.net/es/embed/5ca1eaeabb3c4805ae7ab89da29893d9?themeId=51&templateId=8&fontStackId=0"
-          width="800"
-          height="450"
-          frameborder="0"
-          allowfullscreen
-        ></iframe>
+      <!-- Sección: Juego interactivo -->
+      <div class="row text-center mb-5">
+        <div class="col-12">
+          <h2
+            id="gameTitle"
+            class="text"
+            style="color: #e91e63; font-size: 36px"
+          >
+            ¡PONTE A PRUEBA!
+          </h2>
+          <p style="font-size: 18px; color: #333">
+            ¿Estás listo para poner a prueba tus conocimientos sobre suculentas?
+            ¡Este juego interactivo es la manera perfecta de aprender más sobre
+            estas plantas fascinantes mientras te diviertes! Responde
+            correctamente a las preguntas y demuestra lo que sabes.
+          </p>
+          <p style="font-size: 18px; color: #333">
+            ¡Haz clic en el siguiente botón y empieza a jugar! No solo
+            aprenderás datos interesantes sobre las suculentas, sino que también
+            disfrutarás de una experiencia interactiva que pondrá a prueba tu
+            memoria y atención.
+          </p>
+          <div
+            class="iframe-container d-flex justify-content-center mt-3"
+            id="gameContainer"
+          >
+            <iframe
+              id="gameFrame"
+              class="rounded shadow"
+              src="https://wordwall.net/es/embed/5ca1eaeabb3c4805ae7ab89da29893d9?themeId=51&templateId=8&fontStackId=0"
+              width="800"
+              height="450"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
       </div>
     </main>
 
