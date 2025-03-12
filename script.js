@@ -17,7 +17,7 @@ fetch(`footer.html`)
   .catch(error => {
     console.log(`Error al cargar footer:`, error);
   });
-  
+
 //Dinamismo a la parte de equipo
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: 3,
@@ -45,29 +45,30 @@ var swiper = new Swiper(".mySwiper", {
   }
 });
 
+// Efecto maquina de escribir
 var app = document.getElementById('app');
 
-var typewriter = new Typewriter(app,{
+var typewriter = new Typewriter(app, {
   loop: true
 });
 
 typewriter.typeString('¡Únete a nosotras en este viaje hacia un futuro más verde!')
-  .pauseFor(1000)
-  .deleteAll()
-  .pauseFor(2500)
-  .deleteAll()
-  .start();
+.pauseFor(1000)
+.deleteAll()
+.pauseFor(2500)
+.deleteAll()
+.start();
 
-  var text = document.getElementById('text');
+var text = document.getElementById('text');
 
-  var typewriter = new Typewriter( text,{
-    loop: true
-  });
-  
-  typewriter.typeString('Desarrolladoras')
-    .pauseFor(1000)
-    .deleteAll()
-    .pauseFor(1000)
-    .deleteAll()
-    .start();
-  
+var typewriter = new Typewriter(text, {
+  loop: true
+});
+
+typewriter.typeString('Desarrolladoras')
+.pauseFor(1000)
+.deleteAll()
+.pauseFor(1000)
+.deleteAll()
+.start();
+
