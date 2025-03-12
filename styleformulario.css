@@ -4,6 +4,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-sizing: border-box;
     text-decoration: none;
+<<<<<<< HEAD
     width: 100%;
     height: 100%;
 }
@@ -13,17 +14,26 @@ html {
     padding: 0;
     width: 100%;
     height: 100%;
+=======
+>>>>>>> 7c01bde678c7b0d5a8d1cb642dfbd5f4d457f41c
 }
 
 .container {
     width: 100%;
+<<<<<<< HEAD
     min-height: 100vh;
+=======
+    height: 100vh;
+>>>>>>> 7c01bde678c7b0d5a8d1cb642dfbd5f4d457f41c
     background-color:#C8A176;
     display: flex;
     align-items: center;
     justify-content: center;
+<<<<<<< HEAD
     position: relative;
     margin: 0;
+=======
+>>>>>>> 7c01bde678c7b0d5a8d1cb642dfbd5f4d457f41c
 }
 
 .form-content {
@@ -32,9 +42,13 @@ html {
     background-color: #B95D90;
     padding: 50px 60px 70px;
     text-align: center;
+<<<<<<< HEAD
     margin: 0 auto;
     border-radius: 25px;
     position: relative;
+=======
+    border-radius: 25px;
+>>>>>>> 7c01bde678c7b0d5a8d1cb642dfbd5f4d457f41c
 }
 
 .form-content h1 {
@@ -49,12 +63,20 @@ html {
     width: 30px;
     height: 4px;
     border-radius: 3px;
+<<<<<<< HEAD
     background: rgb(250, 252, 252);
     position: absolute;
     bottom: -10px;
     left: 50%;
     transform: translate(-50%);
     position: relative;
+=======
+    background: rgb(255, 255, 255);
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translate(-50%);
+>>>>>>> 7c01bde678c7b0d5a8d1cb642dfbd5f4d457f41c
 }
 
 .input-field {
@@ -103,7 +125,11 @@ input::placeholder{
     cursor: pointer;
     transition: background 1s;
     position: relative;
+<<<<<<< HEAD
     
+=======
+    margin-left: 380px;
+>>>>>>> 7c01bde678c7b0d5a8d1cb642dfbd5f4d457f41c
 }
 
 .input-group {
