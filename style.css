@@ -337,4 +337,12 @@ p {
         object-fit: contain;
     }
 
+    h2, .card-title {
+        color: #E91E63; /* Color rosa intenso */
+      }
+      
+      p, .card-body h5 {
+        font-size: 1.2rem; /* Aumenta el tamaño de la fuente en las descripciones */
+      }
+    
 }
