@@ -154,7 +154,7 @@ p {
     flex-direction: column;
     justify-content: center;
     box-sizing: border-box;
-    background-color: hsl(60, 21%, 63%);
+    background-color: #b4b48d;
     border-radius: 20px;
     padding: 25px;
     transition: transform 0.3s ease-in-out;
@@ -339,7 +339,7 @@ p {
     }
 
     h2, .card-title {
-        color: #E91E63; /* Color rosa intenso */
+        color: #ffffff; /* Color rosa intenso */
       }
       
       p, .card-body h5 {

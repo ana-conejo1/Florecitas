@@ -71,4 +71,3 @@ typewriter.typeString('Desarrolladoras')
 .pauseFor(1000)
 .deleteAll()
 .start();
-
