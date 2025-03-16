@@ -30,7 +30,7 @@
                         <a class="nav-link text-white" href="about.html">Acerca de</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Productos</a>
+                        <a class="nav-link text-white" href="catalago.html">Productos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="registro-productos.html">Inventario</a>
@@ -41,17 +41,41 @@
                     <li>
                         <a class="navbar-brand d-inline-flex text-white" href="#"><i class="bi bi-cart3""></i></a>
                     </li>
-                    <li>
-                        <a class="navbar-brand d-inline-flex text-white"" href=" #"><i class="bi bi-person style="color: white;"></i></a>
-                    </li>
+                    <div class="dropdown">
+                        <a href="#" class="navbar-brand d-inline-flex text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person fs-5" style="color: white;"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end text-small" id="userMenu">
+                            <!-- Este contenido se actualizará dinámicamente -->
+                        </ul>
+                    </div>
                     
                 </ul>
             </div>
         </div>
     </nav>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+     <!-- Modal de confirmación de cierre de sesión -->
+     <div class="modal fade" id="signOutModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="signOutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title text-black fs-5" id="signOutModalLabel">Cerrar sesión</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p style="font-family: Raleway;">¿Estás seguro de que deseas cerrar sesión?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Cerrar sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    
 </body>
 </html>

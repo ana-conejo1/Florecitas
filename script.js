@@ -18,6 +18,39 @@ fetch(`footer.html`)
     console.log(`Error al cargar footer:`, error);
   });
 
+// verificar si se inicio sesion
+window.onload = function () {
+  const loggedInUser = JSON.parse(localStorage.getItem("login_success"));
+  const userMenu = document.getElementById('userMenu');
+
+  if (loggedInUser) {
+      userMenu.innerHTML = `
+          <li><a class="dropdown-item" href="#">Mi Perfil</a></li>
+          <li><a class="dropdown-item" href="#">Configuración</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><button class="dropdown-item" id="signOutButton">Cerrar sesión</button></li>
+      `;
+
+      // Cerrar sesión
+      document.getElementById("signOutButton").addEventListener("click", function () {
+          localStorage.removeItem("login_success"); 
+          alert("Has cerrado sesión.");
+          window.location.reload();
+      });
+  } else {
+      userMenu.innerHTML = `
+          <li><a class="dropdown-item" href="login.html">Iniciar sesión</a></li>
+          <li><a class="dropdown-item" href="register.html">Registrarse</a></li>
+      `;
+  }
+};
+
+
+function redirectTo(page) {
+    window.location.href = page;
+}
+
+
 //Dinamismo a la parte de equipo
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: 3,
