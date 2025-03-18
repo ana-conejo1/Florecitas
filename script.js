@@ -8,6 +8,10 @@ fetch(`navbar.html`)
     console.log(`Error al cargar navbar:`, error);
   });
 
+// Descuentos
+
+
+
 // Footer
 fetch(`footer.html`)
   .then(response => response.text()) // Se añadió return aquí
@@ -70,4 +74,3 @@ typewriter.typeString('¡Únete a nosotras en este viaje hacia un futuro más ve
     .pauseFor(1000)
     .deleteAll()
     .start();
-  

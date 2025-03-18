@@ -17,6 +17,66 @@
     src: url('./assets/fuentes/Raleway-VariableFont_wght.ttf') format('truetype');
 }
 
+/*Carrusel*/
+.carousel-indicators button {
+    background-color: rgba(60, 255, 0, 0.322) !important; 
+    width: -100px; 
+    height: -100px;
+    border-radius: 50%; 
+    border: 1px solid black; 
+}
+  
+.carousel-indicators .active {
+    background-color: rgb(24, 16, 1) !important; /* Color diferente para el activo */
+}
+
+.contenedor {
+    display: flex;
+    gap: 15px; 
+    justify-content: center; /* Centrar horizontalmente *//
+}
+
+.mi-boton {
+    background-color: #B29C2E; 
+    border-color: #C8A176; 
+    color: white; /* Color texto  */
+}
+  
+.mi-boton:hover {
+    background-color: #C8A176; /* Color al pasar el mouse */
+    border-color: #C8A176;
+}
+.carousel-destacados button {
+    background-color: #C8A176 !important; 
+    border-radius: 0%; 
+    border: 1px solid black; 
+}
+
+.star {
+    font-size: 1.5rem;
+    color: #ccc;
+}
+.star.selected {
+    color: gold;
+}
+
+.card .img-fluid.rounded-circle {
+    width: 100px;  /* Ajusta este tamaño según lo necesites */
+    height: 100px; /* Mantén la proporción cuadrada */
+}
+.carousel-caption h5 {
+    color: #C8A176; /* Amarillo dorado */
+}
+
+.carousel-caption p {
+    color: #ffffff; /* Naranja */
+}
+.carousel-caption h5, 
+.carousel-caption p {
+    text-shadow: 3px 3px 10px #C8A176; /* Sombra amarilla */
+}
+
+ 
 /* Ajuste general */
 * {
     margin: 0;
@@ -138,6 +198,7 @@ p {
 }
 
 /* Carrusel */
+
 .swiper-wrapper {
     align-items: stretch;
     margin-bottom: 50px;
@@ -194,10 +255,10 @@ p {
     width: 15px; 
     height: 15px; 
     border-radius: 50%;
-  }
+}
 .swiper-pagination-bullet-active {
     background-color: #B92D90; 
-  }
+}
 
 /* Responsive */
 @media (max-width: 540px) {

@@ -13,6 +13,8 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
   </head>
 
   <body>
@@ -21,42 +23,146 @@
       <div id="navbar"></div>
     </header>
 
-    <!-- Contenido principal -->
-    <main class="container-fluid py-5">
-      <div class="container">
-        <!-- Sección: Productos destacados -->
-        <div class="row text-center mb-5">
-          <div class="col-12">
-            <h1 class="display-4">Productos destacados</h1>
-            <h2>Descuentos</h2>
+    
+    <div class="alert alert-warning text-center" role="alert">
+      🎉 ¡Celebra tu cumpleaños con nosotros! Usa <b>#FELIZCUMPLE</b> y obtén <b>10% de descuento</b> en tu compra. 🌿🎁
+  </div>
+
+    <!--Carrusel-->
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      </div>
+      <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./assets/Pictures/suculentas_home/pexels-element5-1470171.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-block">
+              <h5 class="text-warning-emphasis">¡Bienvenido a Perseflora!</h5>
+              <p class="text-warning-emphasis">Descubre las incleíbles categorías creadas especialmente para ti.</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="./assets/Pictures/suculentas_home/minimal.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-block">
+              <h5>Minimal Suc</h5>
+              <p>Espacios con elegancia y estilo.</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="./assets/Pictures/suculentas_home/home1.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-block">
+              <h5>Verde Kawaii</h5>
+              <p>Suculentas tiernas y divertidas.</p>
+            </div>
+          </div>
+      
+          <div class="carousel-item">
+            <img src="./assets/Pictures/suculentas_home/regalo.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-block">
+              <h5>Detalles vivos</h5>
+              <p>Regalos que crecen.</p>
+            </div>
           </div>
         </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
       </div>
 
+    <!-- Contenido principal -->
+
+      <div style="height: 30px;"></div> 
+      <div class="contenedor">
+      <button class="btn mi-boton" type="submit">Registrate</button>
+      <button class="btn mi-boton" type="submit">Productos</button>
+      </div>
+
+      <main class="container-fluid py-5">
+        <div class="container">
+          <div class="row text-center mb-5">
+            <div class="col-12">
+              <h1 class="display-3">Productos destacados</h1>
+            </div>
+          </div>
+        </div>
+  
+          <!-- Sección: Productos destacados -->
+      <div class="container my-5">
+      <div class="row">
+
+                <div class="col-md-4">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Suculenta Elegante</h5>
+                            <p class="card-text">Ideal para decoración minimalista.</p>
+                            <p class="text-success fw-bold">$150 MXN</p>
+                            <a href="#" class="btn btn-warning">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title"> Maceta Floral</h5>
+                            <p class="card-text">Dale vida a tu espacio con esta maceta colorida.</p>
+                            <p class="text-success fw-bold">$180 MXN</p>
+                            <a href="#" class="btn btn-warning">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Pack Solar</h5>
+                            <p class="card-text">Tres suculentas resistentes al sol en oferta.</p>
+                            <p class="text-success fw-bold">$250 MXN</p>
+                            <a href="#" class="btn btn-warning">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
       <!-- Sección: Imágenes destacadas -->
-      <div class="row justify-content-center text-center mb-5">
-        <div class="col-md-6">
-          <img
-            src="assets/Pictures/home-page/echeveria-pulidonis.avif"
-            class="img-fluid rounded-circle"
-            alt="Imagen 1"
-          />
+ 
+      <div class="container">
+        <div class="row align-items-center mb-5">
+          <!-- Columna de la imagen a la izquierda -->
+          <div class="col-md-6 text-md-start text-center">
+            <img src="./assets/Pictures/Fotos de suculentas/pexels-valeriiamiller-2516658.jpg" alt="Descripción" class="img-fluid rounded-circle">
+          </div>
+      
+          <!-- Columna de texto y botón a la izquierda -->
+          <div class="col-md-6 text-md-start text-center">
+            <p>Descubre nuestros productos más vendidos.</p>
+            <button class="btn btn-secondary">Ver más</button>
+          </div>
         </div>
-        <div class="col-md-6">
-          <img
-            src="https://placehold.co/362x350"
-            class="img-fluid rounded-circle"
-            alt="Imagen 2"
-          />
-        </div>
+
       </div>
       <div class="container-fluid my-4">
         <div class="col-12">
           <div
             class="py-3 rounded shadow text-center text-white"
             style="
-              height: 120px;
-              background-color: #c2a609ed;
+              height: 60px;
+              background-color: #B34A4C;
               display: flex;
               align-items: center;
               justify-content: center;
@@ -64,11 +170,97 @@
               text-transform: uppercase;
             "
           >
-            <h2>DESCUENTOS</h2>
+            <h2>Valoraciones de neustros clientes</h2>
           </div>
         </div>
       </div>
 
+      
+        <!-- Fila para los comentarios -->
+        <div class="row">
+          <!-- Columna para el primer comentario -->
+          <div class="col-md-4 mb-4">
+            <div class="card p-4">
+              <div class="d-flex align-items-center mb-3">
+                <!-- Imagen circular del usuario -->
+                <img src="./assets/Pictures/suculentas_home/pexels-cottonbro-5971247.jpg" alt="User" class="img-fluid rounded-circle me-3">
+                <strong>Margarita Ayala</strong>
+              </div>
+      
+              <!-- Sistema de estrellas para calificación -->
+              <div class="mb-3">
+                <div id="star-rating">
+                  <span class="star selected">&#9733;</span>
+                  <span class="star selected">&#9733;</span>
+                  <span class="star selected">&#9733;</span>
+                  <span class="star selected">&#9733;</span>
+                  <span class="star selected">&#9733;</span>
+                </div>
+              </div>
+      
+              <!-- Comentario -->
+              <div class="mb-3">
+                <p class="text-muted">"Me encantan los productos de la linea Minimal Suc. Llegó rápido y en perfectas condiciones!"</p>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Columna para el segundo comentario -->
+          <div class="col-md-4 mb-4">
+            <div class="card p-4">
+              <div class="d-flex align-items-center mb-3">
+                <!-- Imagen circular del usuario -->
+                <img src="./assets/Pictures/suculentas_home/pexels-beatriz-fernandes-3765504-10459606.jpg" alt="User" class="img-fluid rounded-circle me-3">
+                <strong>Rebeca Trejo</strong>
+              </div>
+      
+              <!-- Sistema de estrellas para calificación -->
+              <div class="mb-3">
+                <div id="star-rating">
+                  <span class="star selected">&#9733;</span>
+                  <span class="star selected">&#9733;</span>
+                  <span class="star selected">&#9733;</span>
+                  <span class="star selected">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                </div>
+              </div>
+      
+              <!-- Comentario -->
+              <div class="mb-3">
+                <p class="text-muted">"Buen producto, estoy muy satisfecha con la compra, mi oficina se ve llena de vida."</p>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Columna para el tercer comentario -->
+          <div class="col-md-4 mb-4">
+            <div class="card p-4">
+              <div class="d-flex align-items-center mb-3">
+                <!-- Imagen circular del usuario -->
+                <img src="./assets/Pictures/suculentas_home/pexels-danxavier-1212984.jpg" alt="User" class="img-fluid rounded-circle me-3">
+                <strong>Oscar Luna</strong>
+              </div>
+      
+              <!-- Sistema de estrellas para calificación -->
+              <div class="mb-3">
+                <div id="star-rating">
+                  <span class="star selected">&#9733;</span>
+                  <span class="star selected">&#9733;</span>
+                  <span class="star selected">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                </div>
+              </div>
+      
+              <!-- Comentario -->
+              <div class="mb-3">
+                <p class="text-muted">"El producto es bueno, el empaque es bueno para que la planta se conserve. En general, es una compra que valió la pena."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
       <div class="row align-items-center mb-5">
         <!-- Columna para el título "¿Sabías que?" -->
         <div class="col-md-5 text-center">
