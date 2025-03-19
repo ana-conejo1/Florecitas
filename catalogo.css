@@ -1,0 +1,26 @@
+/* Estilos para la página de catálogo */
+/*Categorias principales*/
+
+.category-btn {
+    width: 100%; /* Que se adapte al contenedor */
+    /*max-width: 350px; /* Máximo tamaño */
+    height: 350px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    /*background-color: white;*/
+    border: none;
+    /*margin: 50px; /* Mayor separación entre los botones */
+    background-size: cover;
+    background-position: center;
+    animation: bounce 1s infinite; /* Animación de rebote continuo */
+}
+.minimal { 
+    background-image: url("./assets/Pictures/maceta.jpg");
+}
+.kawaii { 
+    background-color: #2fe60b; 
+}
+.detalles { 
+    background-color: #61025c; 
+}
