@@ -29,20 +29,37 @@
                 <div class="col-md-4 col-12 mb-2">
                     <button class="category-btn detalles" onclick="showProducts('detalles')">Detalles Vivos</button>
                 </div>
+            </div>
         </div>
     <!--Productos-->
-    <div class="container mt-4 py-4 titulo bg-light">
+        <div class="container mt-4 py-4 titulo bg-light">
         <div class="row">
-            <div class="col-2 text-start">
+            <!--Primera columna-->
+            <div class="col-md-2 text-start">
                 <p>Filtros</p>
             </div>
-            <div class="col-10 text-start">
-                <h3> | Catálogo</h3>
-                <h1>Explora nuestros productos</h1>
-                <input type="text" id="search" placeholder="Buscar producto">
-                <button onclick="searchProduct()">Buscar</button>
+            
+            <!--Segunda columna-->
+            <div class="col-md-10 text-start">
+                <div class="row">
+                    <div class="col-12">
+                        <h3> | Catálogo</h3>
+                        <h1>Explora nuestros productos</h1>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <input type="text" id="search" placeholder="Buscar producto" class="form-control">
+                    </div>
+                    <div class="col-12 mb-3">
+                        <button class="btn btn-primary" onclick="searchProduct()">Buscar</button>
+                    </div>
+                <!--Tarjetas de productos-->
+                <div class=" col-12">
+                    <div id="product-list" class="d-flex justify-content-center flex-wrap product-container p-3 m-3"></div>
+                </div>
+            </div>     
+        </div> 
+        <script src="catalogo.js"></script> <!--Agregamos el archivo de javascript de catalogo-->   
         </div>
-    </div>
 </main>
     <!--Pie de pagina-->
     <footer>

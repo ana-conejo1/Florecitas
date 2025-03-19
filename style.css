@@ -340,11 +340,11 @@ p {
     }
     h2, .card-title {
         color: #ffffff; /* Color rosa intenso */
-      }
+    }
       
-      p, .card-body h5 {
+    p, .card-body h5 {
         font-size: 1.2rem; /* Aumenta el tamaño de la fuente en las descripciones */
-      }
+    }
     
 }
 
@@ -361,7 +361,7 @@ p {
     font-weight: bold;
     color:rgb(0, 29, 2); /* Color blanco */
     
-    animation: bounce 1s infinite; /* Animación de rebote continuo */
+    /*animation: bounce 1s infinite;  Animación de rebote continuo */
     
      /* Evita que se repita */
 }

@@ -1,26 +1,56 @@
 /* Estilos para la página de catálogo */
 /*Categorias principales*/
 
-.category-btn {
-    width: 100%; /* Que se adapte al contenedor */
-    /*max-width: 350px; /* Máximo tamaño */
-    height: 350px;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    font-weight: bold;
-    /*background-color: white;*/
+/* TARJETAS DE PRODUCTOS */
+/*
+.product-container {
+    display: none;
+    margin-top: 200px;
+}
+
+
+.product-list {
+    border: 1px solid;
+    perspective: 1000px;
+    display: inline-block;
+    margin: 20px;
+    text-align: center;
+}
+
+.card {
+    width: 300px;
+    height: 400px;
+    background-color: #E6007E;
+    color: white;
     border: none;
-    /*margin: 50px; /* Mayor separación entre los botones */
-    background-size: cover;
-    background-position: center;
-    animation: bounce 1s infinite; /* Animación de rebote continuo */
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
 }
-.minimal { 
-    background-image: url("./assets/Pictures/maceta.jpg");
+
+.card:hover {
+    transform: rotateY(180deg);
 }
-.kawaii { 
-    background-color: #2fe60b; 
+*/
+.card .front, .card .back {
+    /*position: absolute;*/
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    
+    
+    padding: 10px;
 }
-.detalles { 
-    background-color: #61025c; 
+
+.card .back {
+    transform: rotateY(180deg);
+    background-color: #b3005e;
+}
+
+.card img {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    border-radius: 5px;
 }
