@@ -16,7 +16,7 @@
     <header>
         <div id="navbar"></div>
     </header>
-
+    <main>
     <!--Categorías-->
         <div class="container text-center mt-5">
             <div class="row justify-content-center">
@@ -30,11 +30,20 @@
                     <button class="category-btn detalles" onclick="showProducts('detalles')">Detalles Vivos</button>
                 </div>
         </div>
-
-    <h1 class="my-4">Explora nuestros productos</h1>
-
-    
-
+    <!--Productos-->
+    <div class="container mt-4 py-4 titulo bg-light">
+        <div class="row">
+            <div class="col-2 text-start">
+                <p>Filtros</p>
+            </div>
+            <div class="col-10 text-start">
+                <h3> | Catálogo</h3>
+                <h1>Explora nuestros productos</h1>
+                <input type="text" id="search" placeholder="Buscar producto">
+                <button onclick="searchProduct()">Buscar</button>
+        </div>
+    </div>
+</main>
     <!--Pie de pagina-->
     <footer>
         <div id="footer"></div>
