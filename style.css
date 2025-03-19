@@ -1,180 +1,348 @@
 @font-face {
     font-family: 'GLITTEN CAPS';
-    src: url('../assets/fuentes/GLITTEN-ALL-CAPS.TTF') format('truetype');
+    src: url('./assets/fuentes/GLITTEN-ALL-CAPS.TTF') format('truetype');
     font-weight: normal;
     font-style: normal;
-}
-@font-face {
-    font-family: 'Glitten Regular';
-    src: url('../assets/fuentes/GLITTEN-REGULAR.TTF') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Raleway';
-    src: url('../assets/fuentes/Raleway-VariableFont_wght.ttf') format('truetype');
 }
 
-*{
+@font-face {
+    font-family: 'Glitten Regular';
+    src: url('./assets/fuentes/GLITTEN-REGULAR.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('./assets/fuentes/Raleway-VariableFont_wght.ttf') format('truetype');
+}
+
+/* Ajuste general */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Raleway', sans-serif;
 }
 
-.perseflora{
-    font-family: 'GLITTEN CAPS';
-    font-size: 60px;
-    font-weight: 100;
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-.titulos{
-    font-family: 'Raleway';
-    font-size: 40 px;
+/* Footer */
+footer {
+    background-color: #6b5037;
+    padding: 30px 0;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.col-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+    align-items: center;
+}
+
+.col img {
+    max-width: 250px;
+    height: 130px;
+}
+
+.col-footer ul {
+    list-style: none;
+    padding: 0;
+    color: #ffffff;
+    text-align: left;
+}
+
+.col-footer ul li {
+    font-family: Raleway;
+    margin-bottom: 8px;
+
+}
+
+.col-footer ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s ease-in-out;
+}
+
+.col-footer ul li a:hover {
+    color: #007bff;
+}
+
+h2 {
+    color: #ffffff;
+    font-family: Glitten Regular;
+    font-size: 30px;
+}
+
+.titulo {
+    margin-bottom: 10px;
+    text-align: left;
     font-weight: bold;
 }
 
-header nav{
-    width: 100%;
-    height: 70px;
-    font-size: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    z-index: 1;
-    background-color: palevioletred;
+p {
+    font-size: 16px;
+    font-family: raleway;
+
 }
 
-.nav-item a{
-    color: #734854;
+.titulo h4 {
+    font-family: raleway italic;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: bold;
 }
 
-.nav-item a:hover{
-    color: #292528;
+/* Contenido de nosotros */
+.row-about {
+    margin-top: 10px;
+    padding: 10px;
+    margin-left: 15px;
 }
 
-#app{
-    color:#734854
+.row-about p {
+    font-size: 16px;
+    text-align: justify;
 }
 
+.row-about h1 {
+    font-size: 30px;
+    font-family: glitten regular;
+    margin-top: 30px;
+}
 
-/*//ABOUT US//*/
-.suculenta{
+.row-about img {
     max-width: 100%;
-}
-.CARDS .card{
-    border: none;
-}
-.CARDS .card-body{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: right;
-    align-items: right;
-    background-color: rgba(179, 74, 76, 0.5);
-    border-radius: 30px;
-    padding: 30px;
-    margin: 50px 30x;
+    width: auto;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    object-fit: contain;
 }
 
-/*//EQUIPO///*/
-
-.team-section{
-    width:100%
-}
-.team-section .container{
-    width: 100%;
-    margin: auto;
-}
-.team-section .container .row{
-    width: 100%;
-    margin: auto;
-}
-.team-section .container .row .title{
-    text-align: center;
-    margin-top: 50px;
-}
-.team-section .container .row .title h1{
-    font-size: 35px;
-    text-transform:uppercase;
-    letter-spacing: 1.5px;
-    color: #734854;
-}
-/*.team-section .container .row .title p{
-    font-size: 18px;
-    font-family: sans-serif;
-    margin: 30px 0px;
-    color: #a3a3a3;
-}*/
-
-/**********TEAM CARD**********/
-.team-section .container .team-card{
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 40px;
-    margin-top: 50px;
-    justify-content: center;
-}
-.team-section .container .team-card .card{
-    width: 100%;
-    background-color: beige;
-    border-radius: 20px;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor:pointer;
-}
-.team-section .container .team-card .card:hover{
-    background-color: #734854;
-    transition:0.3s;
-}
-.team-section .container .team-card .card .image-section img{
+/* Imágenes del equipo */
+.img-circle {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    /*overflow: hidden;*/
-    border:6px solif #fff;
+    object-fit: cover;
+    align-self: center;
+    margin-bottom: 20px;
 }
-.team-section .container .team-card .card .content{
-    width: 100%;
+
+/* Carrusel */
+.swiper-wrapper {
+    align-items: stretch;
+    margin-bottom: 50px;
 }
-.team-section .container .team-card .card .content h3{
-    font-size: 27px;
-    margin-top: 10px;
-    letter-spacing: 1.5px;
-    color: #734854;
+
+.swiper-tittle h1 {
+    margin-bottom: 30px;
+    font-family: glitten regular;
+    align-items: first baseline;
 }
-.team-section .container .team-card .card .content h4{
-    font-size: 27px;
-    margin-top: 10px;
-    letter-spacing: 1.5px;
-    color: palevioletred;
+
+.swiper-slide {
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    background-color: #b4b48d;
+    border-radius: 20px;
+    padding: 25px;
+    transition: transform 0.3s ease-in-out;
+    max-width: 100%;
 }
-.team-section .container .team-card .card .content p{
-    font-size: 15px;
-    margin: 16px 0px;
-    letter-spacing: 1.5px;
-    line-height: 1.5;
-    color: #734854;
+
+.title-card {
+    font-size: 25px;
 }
-@media screen and (max-width: 900px){
-    .team-section .container .team-card{
-        grid-template-columns:repeat(2, 1fr);
+
+.subtitle-card {
+    font-size: 20px;
+}
+
+.card-text {
+    font-size: 16px;
+    text-align: justify;
+}
+
+.swiper-tittle {
+    margin: 0 8px;
+    text-align: center;
+}
+
+.bi-github {
+    color: black;
+    font-size: 1.8rem; 
+    padding: 0 5px;
+}
+
+.bi-linkedin {
+    font-size: 1.8rem;
+    padding: 0 5px; 
+}
+
+.swiper-pagination-bullet {
+    width: 15px; 
+    height: 15px; 
+    border-radius: 50%;
+  }
+.swiper-pagination-bullet-active {
+    background-color: #B92D90; 
+  }
+
+
+/* Responsive */
+@media (max-width: 540px) {
+    .row {
+        flex-direction: row;
+        justify-content: space-between;
+
     }
-    
-}
-@media screen and (max-width: 768px){
-    .team-section .container .team-card{
-        grid-template-columns:repeat(2, 1fr);
+
+    .col-footer {
+        flex: 1;
+        min-width: 120px;
     }
-    
+
+    .col img {
+        max-width: 110px;
+        height: auto;
+        padding: 10px;
+    }
+
+    .titulo h4 {
+        font-family: raleway italic;
+        font-size: 2.5rem;
+        font-weight: bold;
+
+    }
+
+    .col-footer ul {
+        font-family: raleway;
+        font-size: 1rem;
+
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    #logo-text {
+        margin-bottom: 30px;
+    }
+
+    .swiper-wrapper {
+        flex: 1 0 100%;
+    }
+
+    .row-about {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .row-about p {
+        font-size: 2rem;
+    }
+
+    .row-about h1 {
+        font-size: 2.5rem;
+    }
+
+    .row-about h4 {
+        font-size: 1.6rem;
+    }
+
+    .row-about img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        object-fit: contain;
+    }
+
 }
-.footer-logo {
-    max-width: 80px; /* Ajusta el tamaño del logo */
-    height: auto;
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: row;
+    }
+
+    .col-footer {
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .col img {
+        max-width: 110px;
+        height: auto;
+        padding: 10px;
+    }
+
+    .titulo h4 {
+        font-family: Raleway italic;
+        font-size: 1.2rem;
+        font-weight: bold;
+
+    }
+
+    .col-footer ul {
+        font-family: Raleway;
+        font-size: 0.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+
+    .swiper-wrapper {
+        flex: 1 0 100%;
+    }
+
+    about-us {
+        flex-direction: column;
+    }
+
+    .row-about {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .row-about p {
+        font-size: 1.2rem;
+    }
+
+    .row-about h1 {
+        font-size: 2.5rem;
+    }
+
+    .row-about h4 {
+        font-size: 1.3rem;
+    }
+
+    .row-about img {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        object-fit: contain;
+    }
+    h2, .card-title {
+        color: #ffffff; /* Color rosa intenso */
+      }
+      
+      p, .card-body h5 {
+        font-size: 1.2rem; /* Aumenta el tamaño de la fuente en las descripciones */
+      }
+    
 }
