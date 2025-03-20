@@ -18,7 +18,7 @@ let products = [
     info: 'Suculenta con ojas color verde oscuro, de interior, no necesita muhco riego y es fácil de cuidar',
     category: "kawaii"
     },
-    
+        
 ]
 
 ///MOSTRAR PRODUCTOS////
