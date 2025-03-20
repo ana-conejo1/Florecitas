@@ -199,14 +199,15 @@ function showProducts(category) {
                         <h4>${product.nombreComun}</h4>
                         <h5>${product.nombreCientifico}</h5>
                         <p>$${product.precio} | ${product.tamano} cm</p>
+                        <!-- Botón Agregar al Carrito -->
+                        <button class="add-to-cart-btn" onclick="addToCart('${category}', '${product.name}')">Comprar</button>
                     </div>
                     <div class="back">
                         <i class="bi bi-droplet-fill"></i>
                         <p>${product.info}</p>
                     </div>
                 </div>
-                <!-- Botón Agregar al Carrito -->
-                <button class="add-to-cart-btn" onclick="addToCart('${category}', '${product.name}')">Comprar</button>
+                
             </div>
         `;
         productList.appendChild(productCard);
