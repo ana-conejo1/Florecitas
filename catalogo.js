@@ -18,6 +18,23 @@ let products = [
     info: 'Suculenta con ojas color verde oscuro, de interior, no necesita muhco riego y es fácil de cuidar',
     category: "kawaii"
     },
+    {
+        id: "002",
+        nombreComun: 'Haworthia /"ventana catedral /w"',
+        nombreCientifico: 'Haworthia cymbiformis',
+        tamano: "25x30x25",
+        peso: 300,
+        unidadesInventario: 5,
+        precio: 125,
+        luz: 'indirecta',
+        temperatura: 'calido',
+        riego: "moderado",
+        detallesRiego:"dejar secar el suelo antes de volver a regar",
+        imagen: '../assets/Pictures/Suculentas/haworthia-cymbiformis.png',
+        toxicidad: 'no',
+        info: 'Suculenta con ojas color verde oscuro, de interior, no necesita muhco riego y es fácil de cuidar',
+        category: "kawaii"
+        },
     
 ]
 
@@ -42,14 +59,15 @@ function showProducts(category) {
                         <h4>${product.nombreComun}</h4>
                         <h5>${product.nombreCientifico}</h5>
                         <p>$${product.precio} | ${product.tamano} cm</p>
+                        <!-- Botón Agregar al Carrito -->
+                        <button class="add-to-cart-btn" onclick="addToCart('${category}', '${product.name}')">Comprar</button>
                     </div>
                     <div class="back">
                         <i class="bi bi-droplet-fill"></i>
                         <p>${product.info}</p>
                     </div>
                 </div>
-                <!-- Botón Agregar al Carrito -->
-                <button class="add-to-cart-btn" onclick="addToCart('${category}', '${product.name}')">Comprar</button>
+                
             </div>
         `;
         productList.appendChild(productCard);
