@@ -18,23 +18,6 @@ let products = [
     info: 'Suculenta con ojas color verde oscuro, de interior, no necesita muhco riego y es fácil de cuidar',
     category: "kawaii"
     },
-    {
-        id: "002",
-        nombreComun: 'Haworthia /"ventana catedral /w"',
-        nombreCientifico: 'Haworthia cymbiformis',
-        tamano: "25x30x25",
-        peso: 300,
-        unidadesInventario: 5,
-        precio: 125,
-        luz: 'indirecta',
-        temperatura: 'calido',
-        riego: "moderado",
-        detallesRiego:"dejar secar el suelo antes de volver a regar",
-        imagen: '../assets/Pictures/Suculentas/haworthia-cymbiformis.png',
-        toxicidad: 'no',
-        info: 'Suculenta con ojas color verde oscuro, de interior, no necesita muhco riego y es fácil de cuidar',
-        category: "kawaii"
-        },
     
 ]
 
