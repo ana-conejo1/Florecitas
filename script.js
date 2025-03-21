@@ -8,8 +8,7 @@ fetch(`navbar.html`)
     console.log(`Error al cargar navbar:`, error);
   });
 
-// Descuentos
-
+// Producto destacados
 
 
 // Footer
