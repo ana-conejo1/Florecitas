@@ -1,194 +1,81 @@
-///////// DICCIONARIO DE PRODUCTOS //////////
+/////////////// Lineas 1 a 70: FORMULARIO DE INGRESO DE PRODUCTOS //////////
+/* Al presionar "Submit" en el formulario se recibe toda la información añadida 
+    Se guardan en variables, y se colocan como parámetros del método ProductsController.addItem*/
+//////////Codigo obtenido de la tarea 4 para agregar un nuevo Item
+// Initialize a new TaskManager with currentId set to 0
+const itemsController = new ProductsController(0);//se inicializa el controlador de productos con ID 0
 
-let products = [
-{
-id: "001",
-nombreComun: 'Haworthia /"ventana catedral /"',
-nombreCientifico: 'Haworthia cymbiformis',
-tamano: "25x30x25",
-peso: 300,
-unidadesInventario: 5,
-precio: 125,
-luz: 'indirecta',
-temperatura: 'calido',
-riego: "moderado",
-detallesRiego:"dejar secar el suelo antes de volver a regar",
-imagen: 'assets/Pictures/Suculentas/haworthia-ventana catedral.png',
-toxicidad: 'no',
-info: 'Suculenta con ojas color verde oscuro, de interior, no necesita muhco riego y es fácil de cuidar',
-category: "Minimal Suc"
-},
-{
-id: "002",
-nombreComun: 'Echeveria Barbillion',
-nombreCientifico: 'Echeveria Barbillion',
-tamano: "10x15x20",
-peso: 300,
-unidadesInventario: 5,
-precio: 150,
-luz: 'indirecta',
-temperatura: 'calido',
-riego: "moderado",
-detallesRiego:"Regar cada 7-10 días en verano y cada 2-3 semanas en invierno.",
-imagen: 'assets/Pictures/Suculentas/echeverria barbillion.png',
-toxicidad: 'no',
-info: 'Suculenta con hojas en forma de roseta, de color verde azulado con bordes rosados. Ideal para interiores o exteriores con buena luz.',
-category: "Minimal Suc"
-},
-{
-id: "003",
-nombreComun: 'Planta de Jade',
-nombreCientifico: 'Crassula Ovata',
-tamano: "20x30x40",
-peso: 2000,
-unidadesInventario: 5,
-precio: 400,
-luz: 'indirecta',
-temperatura: 'fresca',
-riego: "moderado",
-detallesRiego:"Regar cada 10-14 días en verano y cada 3-4 semanas en invierno.",
-imagen: 'assets/Pictures/Suculentas/crassula ovata.png',
-toxicidad: 'no',//tóxica para mascotas
-info: 'Planta suculenta de hojas carnosas y tallos gruesos, símbolo de prosperidad.',
-category: "Minimal Suc"
-},
-{
-id: "004",
-nombreComun: 'Cola de burro',
-nombreCientifico: ' Sedum Morganianum',
-tamano: "10x15x60",
-peso: 500,
-unidadesInventario: 5,
-precio: 250,
-luz: 'indirecta',
-temperatura: 'fresca',
-riego: "moderado",
-detallesRiego:"Regar cada 7-10 días en verano y cada 2-3 semanas en invierno.",
-imagen: 'assets/Pictures/Suculentas/sedum morganianum.png',
-toxicidad: 'no',
-info: 'Suculenta colgante con hojas en forma de lágrima, perfecta para macetas colgantes.',
-category: "Verde Kawaii"
-},
-{
-id: "005",
-nombreComun: 'Planta de collar de corazones',
-nombreCientifico: 'Crassula Marnieriana',
-tamano: "10x20x30",
-peso: 250,
-unidadesInventario: 5,
-precio: 250,
-luz: 'indirecta',
-temperatura: 'fresca',
-riego: "moderado",
-detallesRiego:"Regar cada 7-10 días en verano y cada 2-3 semanas en invierno.",
-imagen: 'assets/Pictures/Suculentas/crassula marnierana.png',
-toxicidad: 'no',
-info: 'Suculenta compacta con hojas apiladas en forma de collar, ideal para terrarios.',
-category: "Verde Kawaii"
-},
-{
-id: "006",
-nombreComun: 'Planta de rosario',
-nombreCientifico: 'Curio Rowleyanus',
-tamano: "10x15x60",
-peso: 400,
-unidadesInventario: 5,
-precio: 250,
-luz: 'indirecta',
-temperatura: 'fresca',
-riego: "moderado",
-detallesRiego:"Regar cada 7-10 días en verano y cada 2-3 semanas en invierno.",
-imagen: 'assets/Pictures/Suculentas/curio rowleyanus.png',
-toxicidad: 'no', //Si se ingiere
-info: 'Suculenta colgante con hojas redondas que parecen guisantes, ideal para macetas colgantes.',
-category: "Verde Kawaii"
-},
-{
-id: "007",
-nombreComun: 'Crassula variegada',
-nombreCientifico: 'Crassula Rogersii Variegata',
-tamano: "10x15x60",
-peso: 400,
-unidadesInventario: 5,
-precio: 250,
-luz: 'indirecta',
-temperatura: 'fresca',
-riego: "moderado",
-detallesRiego:"Regar cada 7-10 días en verano y cada 2-3 semanas en invierno.",
-imagen: 'assets/Pictures/Suculentas/curio rowleyanus.png',
-toxicidad: 'no', //Si se ingiere
-info: 'Suculenta colgante con hojas redondas que parecen guisantes, ideal para macetas colgantes.',
-category: "Detalles vivos"
-},
-{
-id: "008",
-nombreComun: 'Cotiledón Ondulado',
-nombreCientifico: 'Cotyledon Undulata',
-tamano: "20x30x40",
-peso: 700,
-unidadesInventario: 5,
-precio: 350,
-luz: 'directa',
-temperatura: 'fresca',
-riego: "minimo",
-detallesRiego:"Regar cada 10-14 días en verano y cada 3-4 semanas en invierno.",
-imagen: 'assets/Pictures/Suculentas/cotyledon undulata.png',
-toxicidad: 'no', //Si se ingiere
-info: 'Suculenta con hojas onduladas y cubiertas de una capa blanca (pruina), ideal para exteriores.',
-category: "Detalles vivos"
-},
-{
-id: "009",
-nombreComun: 'Chocolate Soldier',
-nombreCientifico: 'Kalanchoe tomentosa',
-tamano: "15x20x30",
-peso: 200,
-unidadesInventario: 5,
-precio: 250,
-luz: 'indirecta',
-temperatura: 'fresca',
-riego: "minimo",
-detallesRiego:"Regar cada 7-10 días en verano y cada 2-3 semanas en invierno.",
-imagen: 'assets/Pictures/Suculentas/chocolate soldier.png',
-toxicidad: 'no', //Para mascotas
-info: 'Ideal para interiores con buena luz o exteriores con sombra parcial. No requiere mucho mantenimiento y es perfecta para principiantes.',
-category: "Detalles vivos"
-},
-{
-id: "010",
-nombreComun: 'Aloe vera',
-nombreCientifico: 'Aloe barbadensis miller',
-tamano: "30x30x60",
-peso: 2500,
-unidadesInventario: 5,
-precio: 150,
-luz: 'indirecta',
-temperatura: 'fresca',
-riego: "minimo",
-detallesRiego:"Regar cada 10-14 días en verano y cada 3-4 semanas en invierno.",
-imagen: 'assets/Pictures/Suculentas/aloe vera.png',
-toxicidad: 'no', //Para mascotas
-info: 'Es una planta resistente y de bajo mantenimiento, perfecta para interiores o exteriores.',
-category: "Detalles vivos"
-},
-]
+// Select the New Task Form
+const newItemForm = document.querySelector('#newItemForm'); ///Este ID debe estar en el formularioProductos.html
 
-///MOSTRAR PRODUCTOS////
+// Add an 'onsubmit' event listener
+newItemForm.addEventListener('submit', (event) => { ///esto debería estar en el html de formulario de productos (id=submit)
+    // Prevent default action
+    event.preventDefault();
 
-function showProducts(category) {
-    console.log('Mostrando productos para la categoría:', category);
-    // Resto del código...
-    const productList = document.getElementById("product-list");
-    productList.innerHTML = ""; //Limpiar la lista de productos
+    // Select the inputs
+    const newItemNombreComunInput = document.querySelector('#newItemNombreComunInput');
+    const newItemNombreCientificoInput = document.querySelector('#newItemNombreCientificoInput');
+    const newItemTamanoInput = document.querySelector('#newItemTamanoInput');
+    const newItemPesoInput = document.querySelector('#newItemPesoInput');
+    const newUnidadesInventarioInput = document.querySelector('#newUnidadesInventarioInput');
+    const newPrecioInput = document.querySelector('#newItemPrecioInput');
+    const newItemLuzInput = document.querySelector('#newItemLuzInput');
+    const newItemRiegoInput = document.querySelector('#newItemRiegoInput');
+    const newItemDetallesRiegoInput = document.querySelector('#newItemDetallesRiegoInput');
+    // la imagen no viene en el ejemplo const newItemImagenInput = document.querySelector('#newItemImagenInput');
+    const newItemToxicidadInput = document.querySelector('#newItemToxicidadInput');
+    const newItemCategoriaInput = document.querySelector('#newItemCategoriaInput'); //Sellecciona el nombre ingresado en el formulario
+    const newItemInfo = document.querySelector('#newItemInfo'); //Selecciona la descripción ingresada en el formulario
 
-    const filteredProducts=products.filter(product => product.category === category);
+    /*
+        Validation code here
+    */
 
-    //Mostrar productos filtrado
-    filteredProducts.forEach(product => {
-        const productCard = document.createElement('div');
-                productCard.className = 'card';
-                productCard.innerHTML = `
-                    <div class="front">
+    // Get the values of the inputs
+    const nombreComun = newItemNombreComunInput.value;
+    const nombreCientifico = newItemNombreCientificoInput.value;
+    const tamano = newItemTamanoInput.value;
+    const peso = newItemPesoInput.value;
+    const unidadesInventario = newUnidadesInventarioInput.value;
+    const precio = newPrecioInput.value;
+    const luz = newItemLuzInput.value;
+    const riego = newItemRiegoInput.value;
+    const detallesRiego = newItemDetallesRiegoInput.value;
+    // la imagen no viene en el ejemplo const imagen = newItemImagenInput.value;
+    const toxicidad = newItemToxicidadInput.value;
+    const categoria = newItemCategoriaInput.value;
+    const info = newItemInfo.value;
+    
+    const createdAt = new Date();
+
+    // Add the task to the task manager
+    itemsController.addItem(nombreComun, nombreCientifico, tamano, peso, unidadesInventario, 
+        precio, luz, riego, detallesRiego, toxicidad, info, categoria, createdAt);
+
+    // Clear the form
+    newItemNombreComunInput.value = '';
+    newItemNombreCientificoInput.value = '';
+    newItemTamanoInput.value = '';
+    newItemPesoInput.value = '';
+    newUnidadesInventarioInput.value = '';
+    newPrecioInput.value = '';
+    newItemLuzInput.value = '';
+    newItemRiegoInput.value = '';
+    newItemDetallesRiegoInput.value = '';
+    // la imagen no viene en el ejemplo newItemImagenInput.value = '';
+    newItemToxicidadInput.value = '';
+    newItemCategoriaInput.value = '';
+    newItemInfo.value = '';
+});
+
+/////////////// Lineas 72 a 100: CREAR TARJETAS DE PRODUCTOS /////////
+
+function addItemCard(product){ ////////así está basado en el ejemplo
+    const itemHTML =`
+    
+        <div class="card" style="width: 18rem;"> 
+            <div class="front">
                         <i class="bi bi-droplet-fill"></i>
                         <img src="${product.imagen}" alt="${product.nombreCientifico}">
                         <h4>${product.nombreComun}</h4>
@@ -202,35 +89,30 @@ function showProducts(category) {
                         <p>${product.info}</p>
                     </div>
                 </div>
-                
             </div>
         `;
-        productList.appendChild(productCard);
-    });
-    console.log('Productos mostrados:', filteredProducts);
-    //productList.style.display = "flex";
-
+    const itemsContainer = document.getElementById("list-items");
+    itemsContainer.innerHTML += itemHTML;
 }
 
-showProducts('kawaii');
-
-/* ////Card container con función for/////
-const cardContainer = document.getElementById('card-container');
-
-function displayProduct(){
-    //Create card
-    let card = document.createElement("div");
-    //Card should have a category
-    //card.classList.add("card","i.categoria");
-    card.classList.add("card");
-    //image div
-    let imgContainer = document.createElement("img");
-    image.setAttribute("src", i.image);
-    imgContainer.appendChild(image);
-    card.appendChild(imgContainer);
+function loadCardsListFromItemsController(){
+    for(var i = 0, size = itemsController.items.length; i < size ; i++){
+        const item = itemsController.items[i];
+        addItemCard(item);
+    }
 }
 
+loadStorageSampleData();
+itemsController.loadItemsFromLocalStorage();
+loadCardsListFromItemsController();
 
-for (let i = 0; i < products.length; i++) {
-    displayProduct();
-}*/
+
+////Falta averiguar cómo filtrar los productos por categoria o por sus propiedades, 
+////anteriormente se usaba una función llamada:
+/*
+    function filterProducts(category) {
+        console.log('Filtrando productos por categoría:', category);
+            filteredProducts.forEach(product => {
+                --imprime la tarjeta--
+            })
+*/

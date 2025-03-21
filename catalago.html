@@ -46,20 +46,16 @@
                 <div class="col-md-10 text-start">
                     <div class="row">
                         <div class="col-12">
-                            <h3> | Catálogo</h3>
                             <h1>Explora nuestros productos</h1>
-                        </div>
-                        <div class="col-12 mb-3">
-                            <input type="text" id="search" placeholder="Buscar producto" class="form-control">
-                        </div>
-                        <div class="col-12 mb-3">
-                            <button class="btn btn-primary" onclick="searchProduct()">Buscar</button>
                         </div>
 
                         <!--Tarjetas de productos-->
                         <div class="col-12">
                             <div id="product-list" class="d-flex justify-content-center flex-wrap product-container p-3 m-3">
-                                <!-- Parte Frontal -->
+                                <div id="list-items"></div>
+                            </div>
+                            <!--Tarjeta de producto EJEMPLO-->
+                                <!-- Parte Frontal 
                                 <div class="card front" style="width: 18rem;">
                                     <img src="/assets/Pictures/home-page/green-prince.jpg" class="card-img-top">
                                     <h5 class="card-title text-center">Suculenta</h5>
@@ -68,16 +64,15 @@
                                         <button type="button" class="btn btn-sm btn-outline-secondary">icono</button>
                                             <button type="button" class="btn btn-sm btn-outline-secondary">icono</button>
                                         </div>
-                                    </div>
-                                    <!-- Parte Trasera -->
+                                    </div>-->
+                                    <!-- Parte Trasera 
                                     <div class="back" style="width: 18rem;">
                                         <div class="card-body text-center">
                                             <p class="card-text text-white">Este es el Green Prince, una planta elegante y fácil de
                                                 cuidar. Ideal para interiores.</p>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                </div>-->
                         </div>
                     </div>
                 </div>
@@ -90,12 +85,16 @@
         <div id="footer"></div>
     </footer>
 
+    
+    <!--Javascript-->
+    <script src="script.js"></script>
+    <script src="./lista-de-productos/ProductController.js"></script>
+    <script src="./catalago.js"></script>
+
     <!--Boostrap CDN-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <!--Javascript-->
-    <script src="script.js"></script>
 
 </body>
 
