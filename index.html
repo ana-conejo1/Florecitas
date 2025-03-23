@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PerseFlora</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PerseFlora</title>
-  <link rel="icon" type="image/png" href="./assets/Pictures/Logo.png">
-  <!-- Bootstrap 4 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-  <link rel="stylesheet" href="style.css" />
-</head>
+    <!-- Bootstrap 4 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
 <body>
   <!--Barra de navegacion-->
@@ -18,59 +21,118 @@
     <div id="navbar"></div>
   </header>
 
-  <!-- Contenido principal -->
-  <main class="container-fluid py-5">
-    <div class="container">
-      <!-- Sección: Productos destacados -->
-      <div class="row text-center mb-5">
-        <div class="col-12">
-          <h1 class="display-4">Productos destacados</h1>
-          <h2>Descuentos</h2>
-        </div>
-      </div>
-    </div>
+    
+    <div class="alert alert-warning text-center" role="alert">
+      🎉 ¡Celebra tu cumpleaños con nosotros! Usa <b>#FELIZCUMPLE</b> y obtén <b>10% de descuento</b> en tu compra. 🌿🎁
+  </div>
 
-      <!-- Sección: Imágenes destacadas -->
-      <div class="row justify-content-center text-center mb-5">
-        <div class="col-md-6">
-          <img
-            src="assets/Pictures/home-page/echeveria-pulidonis.avif"
-            class="img-fluid rounded-circle"
-            alt="Imagen 1"
-          />
+    <!--Carrusel-->
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      </div>
+      <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./assets/Pictures/suculentas_home/pexels-element5-1470171.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-block">
+                <h5>¡Bienvenido a Perseflora!</h5>
+                <p>Descubre las increíbles categorías creadas especialmente para ti.</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="./assets/Pictures/suculentas_home/minimal.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-block">
+              <h5>Minimal Suc</h5>
+              <p>Espacios con elegancia y estilo.</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="./assets/Pictures/suculentas_home/home1.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-block">
+              <h5>Verde Kawaii</h5>
+              <p>Suculentas tiernas y divertidas.</p>
+            </div>
+          </div>
+      
+          <div class="carousel-item">
+            <img src="./assets/Pictures/suculentas_home/regalo.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-block">
+              <h5>Detalles vivos</h5>
+              <p>Regalos que crecen.</p>
+            </div>
+          </div>
         </div>
-        <div class="col-md-6">
-          <img
-            src="https://placehold.co/362x350"
-            class="img-fluid rounded-circle"
-            alt="Imagen 2"
-          />
-        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
       </div>
 
-      <div class="container-fluid my-4">
-        <div class="col-12">
-          <div
-            class="py-3 rounded shadow text-center text-white"
-            style="
-              height: 120px;
-              background-color: #c2a609ed;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              font-weight: bold;
-              text-transform: uppercase;
-            ">
-          <h2>DESCUENTOS</h2>
-        </div>
+      <div style="height: 30px;"></div> 
+      <div class="contenedor">
+      <button class="btn mi-boton" type="submit">Registrate</button>
+      <button class="btn mi-boton" type="submit">Productos</button>
       </div>
-    </div>
 
-    <div class="row align-items-center mb-5">
-      <!-- Columna para el título "¿Sabías que?" -->
-      <div class="col-md-5 text-center">
-        <h2 style="color: #e91e63; font-size: 60px">¿Sabías que?</h2>
-      </div>
+
+      <main class="container-fluid py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                  <h2 style="color: #e91e63; font-size: 60px">Productos destacados</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="circle-cards-container">
+          <div class="circle-card">
+            <div class="circle-card-inner">
+              <div class="circle-card-front">
+                <img src="./assets/Pictures/Fotos de suculentas/pexels-nietjuhart-776656.jpg" alt="Imagen 1">
+              </div>
+              <div class="circle-card-back">
+                <p>🌿✨ ¡Llévate 3 y paga solo 2! ✨🌿</p>
+              </div>
+            </div>
+          </div>
+          <div class="circle-card">
+            <div class="circle-card-inner">
+              <div class="circle-card-front">
+                <img src="./assets/Pictures/home-page/string-pearl.jpg" alt="Imagen 2">
+              </div>
+              <div class="circle-card-back">
+                <p>¡La favorita!✨</p>
+              </div>
+            </div>
+          </div>
+          <div class="circle-card">
+            <div class="circle-card-inner">
+              <div class="circle-card-front">
+                <img src="./assets/Pictures/home-page/sedium.jpg" alt="Imagen 3">
+              </div>
+              <div class="circle-card-back">
+                <p>🌿La imprescindible.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+   
+
+      <div class="row align-items-center mb-5">
+        <!-- Columna para el título "¿Sabías que?" -->
+        <div class="col-md-5 text-center">
+          <h2 style="color: #e91e63; font-size: 60px">¿Sabías que?</h2>
+        </div>
 
         <!-- Columna para el texto -->
         <div class="col-md-8 text-center w-100">
