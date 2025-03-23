@@ -330,6 +330,46 @@ p {
     background-color: #B92D90; 
 }
 
+/*Categorias principales*/
+.category-btn {
+    width: 100%; /* Que se adapte al contenedor */
+    max-width: 350px; /* Máximo tamaño */
+    height: 350px;
+    border-radius: 50%;
+    border: none;
+    font-size: 40px; /* Tamaño de la fuente */
+    font-family: 'GLITTEN';
+    background-color: #b4b48d;
+    animation: bounce 1s infinite;  
+}
+
+.minimal { 
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(204, 250, 193, 0.4)), 
+    url("./assets/Pictures/Fotos-de-suculentas/minimal-echeveriaLola.webp");
+}
+.kawaii { 
+    background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(238, 243, 108, 0.5)), 
+    url("./assets/Pictures/Fotos-de-suculentas/kawaii-mamilariaGracilis.webp");
+    background-size: cover; /* Ajusta la imagen dentro del botón */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.detalles { 
+    background: linear-gradient(rgba(223, 233, 222, 0.7), rgba(229, 20, 191, 0.5)), 
+    url("./assets/Pictures/Fotos-de-suculentas/detalles-crasulaOvata.avif");
+    background-size: cover; /* Ajusta la imagen dentro del botón */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/*Animación de rebote*/
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
 
 /* Responsive */
 
