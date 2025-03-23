@@ -1,12 +1,12 @@
 /* Fondo para el formulario */
 .contact-container {
     width: 100%; /* Ancho del contenedor que ocupa toda la página */
-    height: 100vh; /* Altura del contenedor, 100% de la ventana */
+    height: auto; /* Altura del contenedor, 100% de la ventana */
     display: flex;
     justify-content: center; /* Centra el formulario horizontalmente */
     align-items: center; /* Centra el formulario verticalmente */
-    background-color: #6b5037; /* Fondo marrón para el formulario */
-    padding: 20px; /* Espacio interno alrededor del contenedor */
+    background-color: #6b5037;/* Fondo marrón para el formulario */
+    padding:20px; /* Espacio interno alrededor del contenedor */
     box-sizing: border-box; /* Asegura que el padding no afecte el tamaño del contenedor */
 }
 
@@ -25,9 +25,7 @@
 /* Imagen decorativa */
 .image-container {
     margin-bottom: 20px; /* Espacio entre la imagen y el formulario */
-    
 }
-
 
 .image-container img {
     max-width: 100%;
@@ -55,11 +53,16 @@ textarea {
     height: 150px;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #ccc;
     resize: none;
+    border: none;
     box-sizing: border-box; /* Aseguramos que el padding se mantenga dentro del área */
 }
 
+textarea:focus {
+    border: none; 
+    outline: 1px solid #ccc;
+    box-shadow: none; 
+}
 /* Estilo para los botones */
 .btn-field {
     width: 100%;
