@@ -38,15 +38,12 @@ footer {
     position: absolute;
     width: 100%;
     margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.col-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
-    align-items: center;
-}
-
-.col img {
+.logo-img {
     max-width: 250px;
     height: 130px;
 }
@@ -55,7 +52,6 @@ footer {
     list-style: none;
     padding: 0;
     color: #ffffff;
-    text-align: left;
 }
 
 .col-footer ul li {
@@ -82,7 +78,6 @@ h2 {
 
 .titulo {
     margin-bottom: 10px;
-    text-align: left;
     font-weight: bold;
     font-family: raleway;
 }
@@ -93,7 +88,7 @@ p {
 
 }
 
-.titulo h4 {
+.col-footer h4{
     font-family: raleway italic;
     color: #ffffff;
     font-size: 22px;
@@ -203,16 +198,6 @@ p {
 
 /* Responsive */
 @media (max-width: 540px) {
-    .row {
-        flex-direction: row;
-        justify-content: space-between;
-
-    }
-
-    .col-footer {
-        flex: 1;
-        min-width: 120px;
-    }
 
     .col img {
         max-width: 110px;
@@ -220,17 +205,16 @@ p {
         padding: 10px;
     }
 
-    .titulo h4 {
-        font-family: raleway italic;
-        font-size: 2.5rem;
-        font-weight: bold;
-
-    }
-
     .col-footer ul {
         font-family: raleway;
         font-size: 1rem;
 
+    }
+    .col-footer h4{
+        font-family: raleway italic;
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: white;
     }
 
     h2 {
@@ -273,13 +257,8 @@ p {
 }
 
 @media (max-width: 768px) {
-    .row {
-        flex-direction: row;
-    }
-
-    .col-footer {
-        flex: 1;
-        min-width: 120px;
+    .col-footer{
+        justify-content: center;
     }
 
     .col img {
@@ -288,7 +267,7 @@ p {
         padding: 10px;
     }
 
-    .titulo h4 {
+    .col-footer h4 {
         font-family: Raleway italic;
         font-size: 1.2rem;
         font-weight: bold;
