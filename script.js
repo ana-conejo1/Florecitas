@@ -1,5 +1,3 @@
-
-//############## Navbar##################
 /*Permite llamar a la barra de navegación en todas las páginas que se requiera*/
 fetch(`navbar.html`)
   .then(response => response.text()) // Se añadió return aquí
@@ -10,7 +8,7 @@ fetch(`navbar.html`)
     console.log(`Error al cargar navbar:`, error);
   });
 
-//########333 Footer #################
+// Footer
 fetch(`footer.html`)
   .then(response => response.text()) // Se añadió return aquí
   .then(data => {
@@ -20,7 +18,7 @@ fetch(`footer.html`)
     console.log(`Error al cargar footer:`, error);
   });
 
-//##########33 verificar si se inicio sesion #############
+// verificar si se inicio sesion
 window.onload = function () {
   const loggedInUser = JSON.parse(localStorage.getItem("login_success"));
   const userMenu = document.getElementById('userMenu');
@@ -80,7 +78,7 @@ var swiper = new Swiper(".mySwiper", {
   }
 });
 
-//###### Efecto maquina de escribir ########3
+//###### Efecto maquina de escribir ########
 var app = document.getElementById('app');
 
 var typewriter = new Typewriter(app, {
@@ -96,17 +94,17 @@ typewriter.typeString('¡Únete a nosotras en este viaje hacia un futuro más ve
 
 var text = document.getElementById('text');
 
-var typewriter = new Typewriter(text, {
-  loop: true
-});
-
-typewriter.typeString('Desarrolladoras')
-.pauseFor(1000)
-.deleteAll()
-.pauseFor(1000)
-.deleteAll()
-.start();
-
+  var typewriter = new Typewriter( text,{
+    loop: true
+  });
+  
+  typewriter.typeString('Desarrolladoras')
+    .pauseFor(1000)
+    .deleteAll()
+    .pauseFor(1000)
+    .deleteAll()
+    .start();
+  
 /*############### CARRUSEL DE IMÁGENES ###############*/
 document.addEventListener("DOMContentLoaded", function () {
   var swiper = new Swiper("#teamSection .team-carousel", {
