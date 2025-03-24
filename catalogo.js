@@ -1,3 +1,5 @@
+///////Crear una función que cambie los iconos dependiendo de las propiedades del item
+
 document.addEventListener('DOMContentLoaded', function() {
     fetch('listaobjetos.json')
         .then(response => response.json())
@@ -12,59 +14,60 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Verifica que cada producto tenga las propiedades necesarias
                 if (product.imagen && product.info && product.nombreComun && product.nombreCientifico && product.precio) {
                     //////FUCION PARA CAMBIAR LOS ICONOS
-                    let riegoIcon=product.riego;
-                    let luzIcon=product.luz;
-                    let temperaturaIcon=product.temperatura;
-                    let toxicidadIcon=product.toxicidad;
-                    console.log("Se guardaron las variables", riegoIcon, luzIcon, temperaturaIcon, toxicidadIcon);
-                    try{
-                        switch (riegoIcon) {
-                        
-                            case 'abundante':
-                                riegoIcon= 'bi bi-droplet-fill';
-                                break;
-                            case 'moderado':
-                                riegoIcon= 'bi bi-droplet-half';
-                                break;
-                            case 'minimo':
-                                riegoIcon= 'bi bi-droplet';
-                                break;
-                        } 
-                
-                        switch (product.luz) {
+                        let riegoIcon=product.riego;
+                        let luzIcon=product.luz;
+                        let temperaturaIcon=product.temperatura;
+                        let toxicidadIcon=product.toxicidad;
+                        console.log("Se guardaron las variables", riegoIcon, luzIcon, temperaturaIcon, toxicidadIcon);
+                        try{
+                            switch (riegoIcon) {
                             
-                            case 'directa':
-                                luzIcon= 'bi bi-brightness-high-fill';
-                                break;
-                            case 'indirecta':
-                                luzIcon= 'bi bi-umbrella';
-                                break;
-                        } 
-                
-                        switch (product.temperatura) {
-                            case 'calido':
-                                temperaturaIcon= 'bi bi-thermometer-sun';
-                                break;
-                            case 'fresca':
-                                temperaturaIcon= 'bi bi-thermometer-low';
-                                break;
-                            case 'frio':
-                                temperaturaIcon= 'bi bi-thermometer-snow';
-                                break;
+                                case 'abundante':
+                                    riegoIcon= 'bi bi-droplet-fill';
+                                    break;
+                                case 'moderado':
+                                    riegoIcon= 'bi bi-droplet-half';
+                                    break;
+                                case 'minimo':
+                                    riegoIcon= 'bi bi-droplet';
+                                    break;
+                            } 
+                    
+                            switch (product.luz) {
+                                
+                                case 'directa':
+                                    luzIcon= 'bi bi-brightness-high-fill';
+                                    break;
+                                case 'indirecta':
+                                    luzIcon= 'bi bi-umbrella';
+                                    break;
+                            } 
+                    
+                            switch (product.temperatura) {
+                                case 'calido':
+                                    temperaturaIcon= 'bi bi-thermometer-sun';
+                                    break;
+                                case 'fresca':
+                                    temperaturaIcon= 'bi bi-thermometer-low';
+                                    break;
+                                case 'frio':
+                                    temperaturaIcon= 'bi bi-thermometer-snow';
+                                    break;
+                            }
+                            
+                            switch (product.toxicidad) {
+                                case 'toxico':
+                                    toxicidadIcon= 'bi bi-heartbreak';
+                                    break;
+                                case 'no':
+                                    toxicidadIcon= 'bi bi-heart-fill';
+                                    break;
+                            }
                         }
-                        
-                        switch (product.toxicidad) {
-                            case 'toxico':
-                                toxicidadIcon= 'bi bi-heartbreak';
-                                break;
-                            case 'no':
-                                toxicidadIcon= 'bi bi-heart-fill';
-                                break;
+                        catch(error){
+                            console.error('Error al cambiar los iconos:', error);
                         }
-                    }
-                    catch(error){
-                        console.error('Error al cambiar los iconos:', error);
-                    }
+                    
                     const card = document.createElement('div');
                     card.classList.add('me-3');
                     card.innerHTML = `
