@@ -2,11 +2,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const productForm = document.getElementById("productForm");
     const productContainer = document.getElementById("productContainer");
 
-    // 📌 Evento para agregar productos
+    // Evento para agregar productos
     productForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        // 📌 Capturar valores de los campos del formulario
+        // Capturar valores de los campos del formulario
         const idProducto = document.getElementById("idProducto").value.trim();
         const nombreComun = document.getElementById("nombreComun").value.trim();
         const nombreCientifico = document.getElementById("nombreCientifico").value.trim();
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const info = document.getElementById("info").value.trim();
         const category = document.getElementById("category").value.trim();
 
-        // 🚨 Validación de campos vacíos
+        // Validación de campos vacíos
         if (!idProducto || !nombreComun || !nombreCientifico || !tamano || !peso || !unidadesInventario || !precio || !luz || !temperatura || !riego || !detallesRiego || !imagen || !toxicidad || !info || !category) {
             alert("Todos los campos son obligatorios.");
             return;
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(error => console.error("Error al agregar producto:", error));
     });
 
-    // 📌 Función para mostrar productos en la página
+    // Función para mostrar productos en la página
     function mostrarProductosEnPagina(productos) {
         productContainer.innerHTML = ""; // Limpiar contenedor
 
