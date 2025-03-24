@@ -1,16 +1,21 @@
 ///////Crear una función que cambie los iconos dependiendo de las propiedades del item
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('listaobjetos.json')
-        .then(response => response.json())
+    fetch('./formulario-inventario/items.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al cargar el archivo JSON');
+            }
+            return response.json();
+        })
         .then(data => {
             // Verifica si los productos se cargan correctamente
-            console.log(data.products);
+            console.log(data);
 
             const catalogo = document.getElementById('product-list');
 
             // Recorre los productos y genera las tarjetas
-            data.products.forEach(product => {
+            data.forEach(product => {
                 // Verifica que cada producto tenga las propiedades necesarias
                 if (product.imagen && product.info && product.nombreComun && product.nombreCientifico && product.precio) {
                     //////FUCION PARA CAMBIAR LOS ICONOS
