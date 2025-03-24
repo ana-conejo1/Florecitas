@@ -1,7 +1,7 @@
 ///////Crear una función que cambie los iconos dependiendo de las propiedades del item
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('./formulario-inventario/items.json')
+    fetch('listaobjetos.json')
         .then(response => response.json())
         .then(data => {
             // Verifica si los productos se cargan correctamente
