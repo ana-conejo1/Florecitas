@@ -11,7 +11,7 @@
         "luz": "indirecta",
         "temperatura": "calido",
         "riego": "moderado",
-        "detallesRiego": "dejar secar el suelo antes de volver a regar",
+        "detallesRiego": "Dejar secar el suelo antes de volver a regar",
         "imagen": "assets/Pictures/Suculentas/haworthia-ventana catedral.png",
         "toxicidad": "no",
         "info": "Suculenta con ojas color verde oscuro, de interior, no necesita mucho riego y es fácil de cuidar",
