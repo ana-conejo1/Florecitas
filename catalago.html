@@ -22,32 +22,61 @@
         <div class="container text-center mt-5">
             
             <div class="row justify-content-center">
-                <h1 class="titulo">Catálogo</h1>
-                <h2>Explora nuestros productos por categorías</h2>
-                <div class="col-md-4 col-12 mb-2">
-                    <button class="category-btn minimal" onclick="showProducts('minimal')">Minimal Suc.</button>
+                <div class="row mb-4 pb-2">
+                    <h1 id="productos">Catálogo de productos</h1>
+                    <h3 class="titulo">Selecciona la categoría más acorde a tu estilo ...</h3>
                 </div>
                 <div class="col-md-4 col-12 mb-2">
-                    <button class="category-btn kawaii" onclick="showProducts('kawaii')">Verde Kawaii</button>
+                    <button class="category-btn minimal" onclick="showProducts('minimal')">Minimal Suc.<span><br>Sofisticado con formas geométricas y colores neutros</span></button>
                 </div>
                 <div class="col-md-4 col-12 mb-2">
-                    <button class="category-btn detalles" onclick="showProducts('detalles')">Detalles Vivos</button>
+                    <button class="category-btn kawaii" onclick="showProducts('kawaii')">Verde Kawaii <span><br>Alegre con formas curiosas y colores vivos.</span></button>
+                </div>
+                <div class="col-md-4 col-12 mb-2">
+                    <button class="category-btn detalles" onclick="showProducts('detalles')">Detalles Vivos<span><br>Ideal para regalos y de poco cuidado.</span></button>
                 </div>
             </div>
         </div>
         <!--Productos-->
-        <div class="container mt-4 py-4 titulo bg-light">
+        <div class="productos">
             <div class="row">
                 <!--Primera columna-->
-                <div class="col-md-2 text-start">
-                    <p>Filtros</p>
+                <div class="col-md-2 pt-5 px-4 m-4">
+                    <h4 class="titulo text-center">Guía de cuidados</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item"></i>Riego
+                            <ul style="list-style : none;">
+                                <li><i class="bi bi-droplet-fill pe-3"> riego abundante</i></li>
+                                <li><i class="bi bi-droplet-half pe-3"> riego moderado</i></li>
+                                <li><i class="bi bi-droplet pe-3"> riego mínimo</i></li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item">Luz
+                            <ul style="list-style : none;">
+                                <li><i class="bi bi-brightness-high-fill"> luz directa y abundante</i></li>
+                                <li><i class="bi bi-umbrella"> poner a la sombra</i></li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item">Temperatura
+                            <ul style="list-style : none;">
+                                <li><i class="bi bi-thermometer-sun"> cálida (16 a 27°C)</i></li>
+                                <li><i class="bi bi-thermometer-snow"> fresca (-5 a 16°C)</i></li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item">Toxicidad (en mascotas)
+                            <ul style="list-style : none;">
+                                <li><i class="bi bi-heartbreak"> tóxica</i></li>
+                                <li><i class="bi bi-heart-fill"> no tóxica</i></li>
+                            </ul>
+                        </li>
+                    </ul>  
                 </div>
 
                 <!--Segunda columna-->
-                <div class="col-md-10 text-start">
+                <div class="col-md-9 text-start py-3 px-5 ">
                     <div class="row">
                         <div class="col-12">
-                            <h1>Explora nuestros productos</h1>
+                            <h2 class="titulo p-4 m-4">...O revisa el catálogo completo</h2>
                         </div>
 
                         <!--Tarjetas de productos-->
@@ -71,6 +100,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <!--Javascript-->
+    <script src="script.js"></script>
 
 </body>
 
