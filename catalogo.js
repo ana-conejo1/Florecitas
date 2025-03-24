@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     break;
                             } 
                     
-                            switch (product.luz) {
+                            switch (luzIcon) {
                                 
                                 case 'directa':
                                     luzIcon= 'bi bi-brightness-high-fill';
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     break;
                             } 
                     
-                            switch (product.temperatura) {
+                            switch (temperaturaIcon) {
                                 case 'calido':
                                     temperaturaIcon= 'bi bi-thermometer-sun';
                                     break;
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     break;
                             }
                             
-                            switch (product.toxicidad) {
+                            switch (toxicidadIcon) {
                                 case 'toxico':
                                     toxicidadIcon= 'bi bi-heartbreak';
                                     break;
@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="back rounded-4 pb-3" style="width: 18rem;">
                                 <div class="card-body text-center">
                                     <p class="card-text text-white">${product.info}</p>
+                                    <p class="card-text text-white">${product.detallesRiego}</p>
                                 </div>
                                 <button class="btn btn-primary mx-auto">Comprar</button>
                             </div>
