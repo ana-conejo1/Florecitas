@@ -1,6 +1,6 @@
-///////Crear una función que cambie los iconos dependiendo de las propiedades del item
-
 document.addEventListener('DOMContentLoaded', function() {
+    let data = []; // Variable para almacenar los productos
+    
     fetch('./formulario-inventario/items.json')
         .then(response => {
             if (!response.ok) {
@@ -8,103 +8,133 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             return response.json();
         })
-        .then(data => {
-            // Verifica si los productos se cargan correctamente
-            console.log(data);
-
-            const catalogo = document.getElementById('product-list');
-
-            // Recorre los productos y genera las tarjetas
-            data.forEach(product => {
-                // Verifica que cada producto tenga las propiedades necesarias
-                if (product.imagen && product.info && product.nombreComun && product.nombreCientifico && product.precio) {
-                    //////FUCION PARA CAMBIAR LOS ICONOS
-                        let riegoIcon=product.riego;
-                        let luzIcon=product.luz;
-                        let temperaturaIcon=product.temperatura;
-                        let toxicidadIcon=product.toxicidad;
-                        console.log("Se guardaron las variables", riegoIcon, luzIcon, temperaturaIcon, toxicidadIcon);
-                        try{
-                            switch (riegoIcon) {
-                            
-                                case 'abundante':
-                                    riegoIcon= 'bi bi-droplet-fill';
-                                    break;
-                                case 'moderado':
-                                    riegoIcon= 'bi bi-droplet-half';
-                                    break;
-                                case 'minimo':
-                                    riegoIcon= 'bi bi-droplet';
-                                    break;
-                            } 
-                    
-                            switch (luzIcon) {
-                                
-                                case 'directa':
-                                    luzIcon= 'bi bi-brightness-high-fill';
-                                    break;
-                                case 'indirecta':
-                                    luzIcon= 'bi bi-umbrella';
-                                    break;
-                            } 
-                    
-                            switch (temperaturaIcon) {
-                                case 'calido':
-                                    temperaturaIcon= 'bi bi-thermometer-sun';
-                                    break;
-                                case 'fresca':
-                                    temperaturaIcon= 'bi bi-thermometer-low';
-                                    break;
-                                case 'frio':
-                                    temperaturaIcon= 'bi bi-thermometer-snow';
-                                    break;
-                            }
-                            
-                            switch (toxicidadIcon) {
-                                case 'toxico':
-                                    toxicidadIcon= 'bi bi-heartbreak';
-                                    break;
-                                case 'no':
-                                    toxicidadIcon= 'bi bi-heart-fill';
-                                    break;
-                            }
-                        }
-                        catch(error){
-                            console.error('Error al cambiar los iconos:', error);
-                        }
-                    
-                    const card = document.createElement('div');
-                    card.classList.add('me-3');
-                    card.innerHTML = `
-                        <div class="card front rounded-4" style="width: 18rem;">
-                            <div class="card-body d-flex justify-content-center pt-4">
-                                <i class="${luzIcon} pe-3"></i>
-                                <i class="${riegoIcon} pe-3"></i>
-                                <i class="${temperaturaIcon} pe-3"></i>
-                                <i class="${toxicidadIcon}"></i>
-                            </div>
-                            <img src="${product.imagen}" class="card-img-top" alt="Imagen del producto">
-                            <!-- Parte Trasera -->
-                            <div class="back rounded-4 pb-3" style="width: 18rem;">
-                                <div class="card-body text-center">
-                                    <p class="card-text text-white">${product.info}</p>
-                                    <p class="card-text text-white">${product.detallesRiego}</p>
-                                </div>
-                                <button class="btn btn-primary mx-auto">Comprar</button>
-                            </div>
-                        </div>
-                        <h6 class="ps-3">${product.nombreComun}</h6>
-                        <p class="ps-3">${product.nombreCientifico}<br>$${product.precio}</p>
-                    `;
-                    
-                    // Añadir la tarjeta al contenedor
-                    catalogo.appendChild(card);
-                } else {
-                    console.error('Producto incompleto', product);
-                }
-            });
+        .then(products => {
+            data = products; // Almacenamos los productos en la variable data
+            showAllProducts(); // Mostramos todos los productos inicialmente
         })
         .catch(error => {
             console.error('Error al cargar los productos:', error);
         });
+
+    // Función para mostrar todos los productos
+    function showAllProducts() {
+        renderProducts(data);
+    }
+
+    // Función para filtrar productos por categoría
+    function showProducts(category) {
+        let filteredProducts = [];
+        
+        // Mapeo de categorías (para hacer coincidir los botones con las categorías del JSON)
+        const categoryMap = {
+            'minimal': 'Minimal Suc',
+            'kawaii': 'Verde Kawaii',
+            'detalles': 'Detalles vivos'
+        };
+        
+        const categoryToFilter = categoryMap[category];
+        
+        if (categoryToFilter) {
+            filteredProducts = data.filter(product => 
+                product.category === categoryToFilter
+            );
+        }
+        
+        renderProducts(filteredProducts);
+    }
+
+    // Función para renderizar los productos
+    function renderProducts(products) {
+        const catalogo = document.getElementById('product-list');
+        catalogo.innerHTML = '';
+
+        products.forEach(product => {
+            if (product.imagen && product.info && product.nombreComun && product.nombreCientifico && product.precio) {
+                // Función para cambiar los iconos
+                let riegoIcon, luzIcon, temperaturaIcon, toxicidadIcon;
+                
+                switch (product.riego) {
+                    case 'abundante':
+                        riegoIcon = 'bi bi-droplet-fill';
+                        break;
+                    case 'moderado':
+                        riegoIcon = 'bi bi-droplet-half';
+                        break;
+                    case 'minimo':
+                        riegoIcon = 'bi bi-droplet';
+                        break;
+                    default:
+                        riegoIcon = 'bi bi-droplet';
+                }
+                
+                switch (product.luz) {
+                    case 'directa':
+                        luzIcon = 'bi bi-brightness-high-fill';
+                        break;
+                    case 'indirecta':
+                        luzIcon = 'bi bi-umbrella';
+                        break;
+                    default:
+                        luzIcon = 'bi bi-umbrella';
+                }
+                
+                switch (product.temperatura) {
+                    case 'calido':
+                        temperaturaIcon = 'bi bi-thermometer-sun';
+                        break;
+                    case 'fresca':
+                        temperaturaIcon = 'bi bi-thermometer-low';
+                        break;
+                    case 'frio':
+                        temperaturaIcon = 'bi bi-thermometer-snow';
+                        break;
+                    default:
+                        temperaturaIcon = 'bi bi-thermometer';
+                }
+                
+                switch (product.toxicidad) {
+                    case 'toxico':
+                        toxicidadIcon = 'bi bi-heartbreak';
+                        break;
+                    case 'no':
+                        toxicidadIcon = 'bi bi-heart-fill';
+                        break;
+                    default:
+                        toxicidadIcon = 'bi bi-heart';
+                }
+                
+                const card = document.createElement('div');
+                card.classList.add('me-3', 'mb-4');
+                card.innerHTML = `
+                    <div class="card front rounded-4" style="width: 18rem;">
+                        <div class="card-body d-flex justify-content-center pt-4">
+                            <i class="${luzIcon} pe-3"></i>
+                            <i class="${riegoIcon} pe-3"></i>
+                            <i class="${temperaturaIcon} pe-3"></i>
+                            <i class="${toxicidadIcon}"></i>
+                        </div>
+                        <img src="${product.imagen}" class="card-img-top" alt="Imagen del producto">
+                        <!-- Parte Trasera -->
+                        <div class="back rounded-4 pb-3" style="width: 18rem;">
+                            <div class="card-body text-center">
+                                <p class="card-text text-white">${product.info}</p>
+                                <p class="card-text text-white">${product.detallesRiego}</p>
+                            </div>
+                            <button class="btn btn-primary mx-auto">Comprar</button>
+                        </div>
+                    </div>
+                    <h6 class="ps-3">${product.nombreComun}</h6>
+                    <p class="ps-3">${product.nombreCientifico}<br>$${product.precio}</p>
+                `;
+                
+                catalogo.appendChild(card);
+            } else {
+                console.error('Producto incompleto', product);
+            }
+        });
+    }
+
+    // Hacemos las funciones accesibles globalmente
+    window.showProducts = showProducts;
+    window.showAllProducts = showAllProducts;
 });
