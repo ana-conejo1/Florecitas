@@ -1,102 +1,130 @@
 const express = require('express');
 const fs = require('fs');
+const path = require('path');
 const cors = require('cors');
+const { v4: uuidv4 } = require('uuid');
 
 const app = express();
 const PORT = 3000;
-const fileJSON = 'items.json';
+const DATA_FILE = path.join(__dirname, 'items.json');
 
+// Configuración inicial
 app.use(express.json());
 app.use(cors());
 
-let itemObjects = [];
+// Inicializar el archivo de datos si no existe
+if (!fs.existsSync(DATA_FILE)) {
+    fs.writeFileSync(DATA_FILE, JSON.stringify({ productos: [] }, null, 2));
+}
 
-// Cargar productos desde el archivo JSON si existe
-if (fs.existsSync(fileJSON)) {
+// Middleware para cargar datos
+function loadData() {
     try {
-        itemObjects = JSON.parse(fs.readFileSync(fileJSON, 'utf8'));
+        const rawData = fs.readFileSync(DATA_FILE, 'utf8');
+        return JSON.parse(rawData);
     } catch (err) {
-        console.error("Error al parsear JSON:", err);
+        console.error("Error al leer el archivo de datos:", err);
+        return { productos: [] };
     }
 }
 
-// Obtener todos los productos
+// Middleware para guardar datos
+function saveData(data) {
+    try {
+        fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
+        return true;
+    } catch (err) {
+        console.error("Error al guardar datos:", err);
+        return false;
+    }
+}
+
+// Rutas CRUD
 app.get('/productos', (req, res) => {
-    res.json(itemObjects);
+    const data = loadData();
+    res.json(data.productos);
 });
 
-// Agregar un nuevo producto con validación
 app.post('/productos', (req, res) => {
-    const {
-        id,
-        nombreComun,
-        nombreCientifico,
-        tamano,
-        peso,
-        unidadesInventario,
-        precio,
-        luz,
-        temperatura,
-        riego,
-        detallesRiego,
-        imagen,
-        toxicidad,
-        info,
-        category
-    } = req.body;
+    const data = loadData();
+    const producto = req.body;
 
-    // Validar que los datos no estén vacíos
-    if (!id || !nombreComun || !nombreCientifico || !tamano || !peso || !unidadesInventario || !precio || !luz || !temperatura || !riego || !detallesRiego || !imagen || !toxicidad || !info || !category) {
-        return res.status(400).json({ error: 'Todos los campos son obligatorios' });
+    // Validación básica
+    if (!producto.nombreComun || !producto.nombreCientifico || !producto.imagen) {
+        return res.status(400).json({ error: 'Campos requeridos faltantes' });
     }
 
-    // Verificar si el producto ya existe
-    if (itemObjects.some(obj => obj.id === id)) {
-        return res.status(400).json({ error: 'El producto con este ID ya existe.' });
-    }
-
+    // Crear nuevo producto con ID único
     const nuevoProducto = {
-        id,
-        nombreComun,
-        nombreCientifico,
-        tamano,
-        peso: parseFloat(peso),
-        unidadesInventario: parseInt(unidadesInventario),
-        precio: parseFloat(precio),
-        luz,
-        temperatura,
-        riego,
-        detallesRiego,
-        imagen,
-        toxicidad,
-        info,
-        category
+        id: uuidv4(),
+        ...producto,
+        peso: parseFloat(producto.peso) || 0,
+        unidadesInventario: parseInt(producto.unidadesInventario) || 0,
+        precio: parseFloat(producto.precio) || 0
     };
 
-    itemObjects.push(nuevoProducto);
+    data.productos.push(nuevoProducto);
 
-    // Guardar en archivo JSON
-    fs.writeFile(fileJSON, JSON.stringify(itemObjects, null, 2), 'utf8', err => {
-        if (err) return res.status(500).json({ error: 'Error al guardar en archivo' });
-        res.status(201).json({ message: 'Producto agregado', product: nuevoProducto });
-    });
+    if (saveData(data)) {
+        res.status(201).json(nuevoProducto);
+    } else {
+        res.status(500).json({ error: 'Error al guardar el producto' });
+    }
 });
 
-// Eliminar un producto por ID
-app.delete('/productos/:id', (req, res) => {
+app.put('/productos/:id', (req, res) => {
+    const data = loadData();
     const { id } = req.params;
-    const index = itemObjects.findIndex(producto => producto.id === id);
+    const index = data.productos.findIndex(p => p.id === id);
 
-    if (index === -1) return res.status(404).json({ error: 'Producto no encontrado' });
+    if (index === -1) {
+        return res.status(404).json({ error: 'Producto no encontrado' });
+    }
 
-    itemObjects.splice(index, 1);
+    // Actualizar producto
+    data.productos[index] = {
+        ...data.productos[index],
+        ...req.body,
+        id, // Mantener el mismo ID
+        peso: parseFloat(req.body.peso) || data.productos[index].peso,
+        unidadesInventario: parseInt(req.body.unidadesInventario) || data.productos[index].unidadesInventario,
+        precio: parseFloat(req.body.precio) || data.productos[index].precio
+    };
 
-    // Actualizar archivo JSON
-    fs.writeFile(fileJSON, JSON.stringify(itemObjects, null, 2), 'utf8', err => {
-        if (err) return res.status(500).json({ error: 'Error al actualizar archivo' });
-        res.status(200).json({ message: `Producto con ID '${id}' eliminado` });
-    });
+    if (saveData(data)) {
+        res.json(data.productos[index]);
+    } else {
+        res.status(500).json({ error: 'Error al actualizar el producto' });
+    }
 });
 
-// Iniciar el servidor
-app.listen(PORT, () => console.log(`Servidor en http://localhost:${PORT}`));
+app.delete('/productos/:id', (req, res) => {
+    const data = loadData();
+    const { id } = req.params;
+    const index = data.productos.findIndex(p => p.id === id);
+
+    if (index === -1) {
+        return res.status(404).json({ error: 'Producto no encontrado' });
+    }
+
+    const [deletedProduct] = data.productos.splice(index, 1);
+
+    if (saveData(data)) {
+        res.json({ message: 'Producto eliminado', producto: deletedProduct });
+    } else {
+        res.status(500).json({ error: 'Error al eliminar el producto' });
+    }
+});
+
+// Servir archivos estáticos (opcional, para el frontend)
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Iniciar servidor
+app.listen(PORT, () => {
+    console.log(`Servidor Express corriendo en http://localhost:${PORT}`);
+    console.log('Endpoints disponibles:');
+    console.log('GET    /productos');
+    console.log('POST   /productos');
+    console.log('PUT    /productos/:id');
+    console.log('DELETE /productos/:id');
+});
