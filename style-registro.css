@@ -1,0 +1,7 @@
+/* Imagen de fondo */
+body {
+    background-image: url('https://www.madewithoak.co.uk/wp-content/uploads/2019/03/decor-decoration-flatlay-1470171.jpg'); /* Cambia esto por la ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
