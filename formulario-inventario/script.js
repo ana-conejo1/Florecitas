@@ -72,7 +72,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function handleFileSelect(e) {
+        console.log('handleFileSelect se ha ejecutado'); //
         const file = e.target.files[0];
+        console.log('Archivo seleccionado:', file);
         if (!file) return;
 
         // Validar tipo de archivo
@@ -189,7 +191,27 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        const imagenUrl = currentImageFile ? URL.createObjectURL(currentImageFile) : imagenUrlInput.value.trim();
+        // Si se ha seleccionado un archivo, se debe subir al servidor
+        let imagenUrl = imagenUrlInput.value.trim();
+        if (currentImageFile) {
+            const formData = new FormData();
+            formData.append('imagen', currentImageFile);
+            
+            try {
+                // Asume que tienes un endpoint para subir imágenes, por ejemplo: /upload
+                const uploadResponse = await fetch('http://localhost:3000/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+                if (!uploadResponse.ok) throw new Error('Error al subir la imagen');
+                const uploadResult = await uploadResponse.json();
+                imagenUrl = uploadResult.url; // URL permanente devuelta por el servidor
+            } catch (error) {
+                console.error('Error en la subida de imagen:', error);
+                alert('Error al subir la imagen: ' + error.message);
+                return;
+            }
+        }
 
         const producto = {
             nombreComun: document.getElementById('nombreComun').value,
@@ -215,9 +237,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 body: JSON.stringify(producto)
             });
-
+    
             if (!response.ok) throw new Error('Error al agregar producto');
-
+    
             const nuevoProducto = await response.json();
             productos.push(nuevoProducto);
             renderProducts();
@@ -229,6 +251,9 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Error al agregar producto: ' + error.message);
         }
     }
+
+    // Asegúrate de que el event listener del formulario esté asignado a esta función:
+    productForm.addEventListener('submit', handleSubmit);
 
     function openEditModal(id) {
         const producto = productos.find(p => p.id === id);

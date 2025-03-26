@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "florecitas": "file:"
+    "express": "^4.21.2",
+    "florecitas": "file:",
+    "uuid": "^11.1.0"
   }
 }

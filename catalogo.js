@@ -2,19 +2,19 @@ document.addEventListener('DOMContentLoaded', function() {
     let data = []; // Variable para almacenar los productos
     
     fetch('./formulario-inventario/items.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error al cargar el archivo JSON');
-            }
-            return response.json();
-        })
-        .then(products => {
-            data = products; // Almacenamos los productos en la variable data
-            showAllProducts(); // Mostramos todos los productos inicialmente
-        })
-        .catch(error => {
-            console.error('Error al cargar los productos:', error);
-        });
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error al cargar el archivo JSON');
+        }
+        return response.json();
+    })
+    .then(jsonData => {
+        data = jsonData.productos; // Ahora data es el array de productos
+        showAllProducts();
+    })
+    .catch(error => {
+        console.error('Error al cargar los productos:', error);
+    });
 
     // Función para mostrar todos los productos
     function showAllProducts() {
