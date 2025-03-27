@@ -7,7 +7,7 @@
 
 @font-face {
     font-family: 'Glitten Regular';
-    src: url('./assets/fuentes/GLITTEN-REGULAR.TTF') format('truetype');
+    src: url('./assets/fuentes/GLITTEN-REGULAR.OTF') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -176,6 +176,10 @@ footer {
     flex-direction: column;
     justify-content: center;
 }
+#logo-text {
+    font-family: 'Glitten Regular';
+    color:white
+}
 
 .logo-img {
     max-width: 250px;
@@ -204,9 +208,9 @@ footer {
     color: #007bff;
 }
 
-h2 {
+.footer h2 {
     color: #ffffff;
-    font-family: Glitten Regular;
+    font-family: 'Glitten Regular';
     font-size: 30px;
 }
 
@@ -243,7 +247,7 @@ p {
 
 .row-about h1 {
     font-size: 30px;
-    font-family: glitten regular;
+    font-family: 'Glitten Regular';
     margin-top: 30px;
 }
 
@@ -276,7 +280,7 @@ p {
 
 .swiper-tittle h1 {
     margin-bottom: 30px;
-    font-family: glitten regular;
+    font-family: 'Glitten Regular';
     align-items: first baseline;
 }
 
@@ -330,6 +334,22 @@ p {
     background-color: #B92D90; 
 }
 
+/******Productos*******/
+#productos {
+    font-family: 'Glitten Regular';
+    font-size: 60px;
+    color: green;
+}
+.productos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: rgb(241, 240, 240, 0.5);
+}
 /*Categorias principales*/
 .category-btn {
     width: 100%; /* Que se adapte al contenedor */
@@ -338,24 +358,36 @@ p {
     border-radius: 50%;
     border: none;
     font-size: 40px; /* Tamaño de la fuente */
-    font-family: 'GLITTEN';
-    background-color: #b4b48d;
-    animation: bounce 1s infinite;  
+    font-family: 'Glitten Regular';
+    background-color: #b4b48d; 
+    color: #041c01
+}
+.category-btn span{
+    display: inline-block;
+    
+    margin: 10px;
+    font-size: 20px;
+    font-family: 'raleway';
+    font-weight: bold;
+    
+}
+.category-btn:hover {
+    animation: bounce 1s ; /* Agrega la animación de rebote */
 }
 
 .minimal { 
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(204, 250, 193, 0.4)), 
+    background: linear-gradient(rgba(247, 247, 247, 0.7), rgba(204, 250, 193, 0.7)), 
     url("./assets/Pictures/Fotos-de-suculentas/minimal-echeveriaLola.webp");
 }
 .kawaii { 
-    background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(238, 243, 108, 0.5)), 
+    background: linear-gradient(rgba(244, 176, 226, 0.7), rgba(250, 252, 169, 0.7)), 
     url("./assets/Pictures/Fotos-de-suculentas/kawaii-mamilariaGracilis.webp");
     background-size: cover; /* Ajusta la imagen dentro del botón */
     background-repeat: no-repeat;
     background-position: center;
 }
 .detalles { 
-    background: linear-gradient(rgba(223, 233, 222, 0.7), rgba(229, 20, 191, 0.5)), 
+    background: linear-gradient(rgba(223, 233, 222, 0.7), rgba(236, 137, 172, 0.5)), 
     url("./assets/Pictures/Fotos-de-suculentas/detalles-crasulaOvata.avif");
     background-size: cover; /* Ajusta la imagen dentro del botón */
     background-repeat: no-repeat;
@@ -370,7 +402,9 @@ p {
         transform: translateY(-10px);
     }
 }
-
+.icon-red{
+    color: red;
+}
 /* Responsive */
 
 @media (max-width: 540px) {
@@ -399,6 +433,7 @@ p {
 
     #logo-text {
         margin-bottom: 30px;
+        font-family: 'Glitten Regular';
     }
 
     .swiper-wrapper {
