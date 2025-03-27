@@ -176,6 +176,10 @@ footer {
     flex-direction: column;
     justify-content: center;
 }
+#logo-text {
+    font-family: 'Glitten Regular';
+    color:white
+}
 
 .logo-img {
     max-width: 250px;
@@ -429,6 +433,7 @@ p {
 
     #logo-text {
         margin-bottom: 30px;
+        font-family: 'Glitten Regular';
     }
 
     .swiper-wrapper {

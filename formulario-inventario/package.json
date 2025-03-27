@@ -12,6 +12,10 @@
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.21.2"
+    "expres": "^0.0.5",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.2",
+    "task7": "file:",
+    "uuid": "^11.1.0"
   }
 }
