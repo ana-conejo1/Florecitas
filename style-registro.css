@@ -1,0 +1,52 @@
+ 
+#faqAccordion {
+    max-width: 800px; /* Ajusta el ancho según lo necesites */
+    margin: auto; /* Centra el acordeón */
+}
+
+.accordion-button {
+    font-size: 16px; /* Ajusta el tamaño del texto del botón */
+    padding: 10px; /* Reduce el espacio dentro del botón */
+}
+
+.accordion-item {
+    background-color: #B29C2E; 
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.accordion-button {
+    background-color: #B34A4C; 
+    color: whitesmoke; 
+    font-weight: bold;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #C8A176; 
+    color: #6b5037;
+}
+
+.accordion-body {
+    background-color: white; 
+    padding: 15px;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Imagen de fondo */
+body {
+    background-image: url('https://www.madewithoak.co.uk/wp-content/uploads/2019/03/decor-decoration-flatlay-1470171.jpg'); /* Cambia esto por la ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#barra {
+    background-color: rgb(255, 255, 255); /* Color del fondo */
+    color: rgb(133, 8, 85); /* Color del texto */
+    padding: 10px; /* Espacio entre el texto y los bordes */
+    text-align: center; /* Alineación del texto */
+    font-size: 24px; /* Tamaño de la fuente */
+    font-weight: bold; /* Negrita */
+    width: 100%; /* Ancho de la barra */
+    margin: 20px 0; /* Espacio superior e inferior */
+  }
+  
