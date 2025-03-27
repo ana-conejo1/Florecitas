@@ -134,6 +134,22 @@
       "imagen": "http://localhost:3000/uploads/8adf5ba8cf0151791a3435c38a97d33f",
       "info": "a",
       "categoria": "Minimal Suc"
+    },
+    {
+      "id": "011",
+      "nombreComun": "Planta de prueba",
+      "nombreCientifico": "Prueba ",
+      "tamano": "25x15x25",
+      "peso": 50,
+      "unidadesInventario": 30,
+      "precio": 60,
+      "luz": "Directa",
+      "temperatura": "Cálida (16-27°C)",
+      "riego": "Moderado",
+      "detallesRiego": "Detalles de riego",
+      "imagen": "http://localhost:3000/uploads/2bdc5cbccb5cf01c848559d7c6724435",
+      "info": "informacion para prueba",
+      "categoria": "Minimal Suc"
     }
   ]
 }
