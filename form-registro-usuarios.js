@@ -1,4 +1,13 @@
 $(document).ready(function () {
+    $('#datepicker').datepicker({
+        format: 'dd/mm/yyyy',
+        autoclose: true,
+        todayHighlight: true
+    });
+});
+
+
+$(document).ready(function () {
     // Inicializa el datepicker
     $('#datepicker').datepicker({
         format: 'dd/mm/yyyy',
@@ -62,5 +71,32 @@ $(document).ready(function () {
             // Si todo está válido, puedes enviar el formulario aquí
             alert('Registro Exitoso. ¡Gracias!'); // Reemplaza con tu lógica de envío
         }
+    });
+});
+
+
+function togglePassword(inputId, iconId) {
+    let input = document.getElementById(inputId);
+    let icon = document.getElementById(iconId);
+
+    if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+    } else {
+        input.type = "password";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    let questions = document.querySelectorAll(".question");
+
+    questions.forEach(question => {
+        question.addEventListener("click", function () {
+            let answer = this.parentNode.nextElementSibling; // Obtener la respuesta siguiente
+            answer.style.display = (answer.style.display === "table-row") ? "none" : "table-row";
+        });
     });
 });
