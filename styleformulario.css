@@ -1,13 +1,17 @@
 /* Fondo para el formulario */
 .contact-container {
-    width: 100%; /* Ancho del contenedor que ocupa toda la página */
-    height: auto; /* Altura del contenedor, 100% de la ventana */
+    width: 90%; /* Mantiene un tamaño adecuado en móviles */
+    max-width: 850px; /* Ajusta el tamaño en pantallas grandes */
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    background-color: #a77547;
+    padding: 30px;
+    box-sizing: border-box;
+    margin: 50px auto;
+    border-radius: 12px;
     display: flex;
-    justify-content: center; /* Centra el formulario horizontalmente */
-    align-items: center; /* Centra el formulario verticalmente */
-    background-color: #6b5037;/* Fondo marrón para el formulario */
-    padding:20px; /* Espacio interno alrededor del contenedor */
-    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño del contenedor */
+    flex-direction: column;
 }
 
 /* Formulario más ancho y con espacio para la imagen */
