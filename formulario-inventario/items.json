@@ -29,7 +29,7 @@
       "temperatura": "calido",
       "riego": "moderado",
       "detallesRiego": "Regar cada 7-10 días en verano y cada 2-3 semanas en invierno.",
-      "imagen": "assets/Pictures/Suculentas/echeverria barbillion.png",
+      "imagen": "/assets/Pictures/Suculentas/echeverria barbillion.png",
       "toxicidad": "no",
       "info": "Suculenta con hojas en forma de roseta, de color verde azulado con bordes rosados. Ideal para interiores o exteriores con buena luz.",
       "category": "Minimal Suc"
