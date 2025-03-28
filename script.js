@@ -52,7 +52,7 @@ function redirectTo(page) {
 
 
 //Dinamismo a la parte de equipo
-var swiper = new Swiper(".mySwiper", {
+var swiper = new Swiper(".mySwiper",{
   slidesPerView: 3,
   spaceBetween: 30,
   pagination: {
@@ -81,7 +81,7 @@ var swiper = new Swiper(".mySwiper", {
 //###### Efecto maquina de escribir ########
 var app = document.getElementById('app');
 
-var typewriter = new Typewriter(app, {
+var typewriter = new Typewriter(app,{
   loop: true
 });
 
