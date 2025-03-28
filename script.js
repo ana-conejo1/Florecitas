@@ -134,4 +134,4 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // También puedes incluir más lógica relacionada con el juego aquí
-})();
+});
