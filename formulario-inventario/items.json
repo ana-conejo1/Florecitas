@@ -12,7 +12,7 @@
       "temperatura": "calido",
       "riego": "moderado",
       "detallesRiego": "kk",
-      "imagen": "assets/Pictures/Suculentas/echeverria barbillion.png",
+      "imagen": "/assets/Pictures/Suculentas/echeverria barbillion.png",
       "toxicidad": "no",
       "info": "Suculenta con ojas color verde oscuro, de interior, no necesita mucho riego y es fácil de cuidar",
       "category": "Minimal Suc"
@@ -46,7 +46,7 @@
       "temperatura": "fresca",
       "riego": "moderado",
       "detallesRiego": "Regar cada 10-14 días en verano y cada 3-4 semanas en invierno.",
-      "imagen": "assets/Pictures/Suculentas/crassula ovata.png",
+      "imagen": "/assets/Pictures/Suculentas/crassula ovata.png",
       "toxicidad": "no",
       "info": "Planta suculenta de hojas carnosas y tallos gruesos, símbolo de prosperidad.",
       "category": "Minimal Suc"
@@ -63,7 +63,7 @@
       "temperatura": "fresca",
       "riego": "moderado",
       "detallesRiego": "Regar cada 7-10 días en verano y cada 2-3 semanas en invierno.",
-      "imagen": "assets/Pictures/Suculentas/sedum morganianum.png",
+      "imagen": "/assets/Pictures/Suculentas/sedum morganianum.png",
       "toxicidad": "no",
       "info": "Suculenta colgante con hojas en forma de lágrima, perfecta para macetas colgantes.",
       "category": "Verde Kawaii"
@@ -80,7 +80,7 @@
       "temperatura": "fresca",
       "riego": "moderado",
       "detallesRiego": "Regar cada 7-10 días en verano y cada 2-3 semanas en invierno.",
-      "imagen": "assets/Pictures/Suculentas/crassula marnierana.png",
+      "imagen": "/assets/Pictures/Suculentas/crassula marnierana.png",
       "toxicidad": "no",
       "info": "Suculenta compacta con hojas apiladas en forma de collar, ideal para terrarios.",
       "category": "Verde Kawaii"
@@ -97,27 +97,10 @@
       "temperatura": "fresca",
       "riego": "moderado",
       "detallesRiego": "Regar cada 7-10 días en verano y cada 2-3 semanas en invierno.",
-      "imagen": "assets/Pictures/Suculentas/curio rowleyanus.png",
+      "imagen": "/assets/Pictures/Suculentas/curio rowleyanus.png",
       "toxicidad": "no",
       "info": "Suculenta colgante con hojas redondas que parecen guisantes, ideal para macetas colgantes.",
       "category": "Verde Kawaii"
-    },
-    {
-      "id": "007",
-      "nombreComun": "Crassula variegada",
-      "nombreCientifico": "Crassula Rogersii Variegata",
-      "tamano": "10x15x60",
-      "peso": 400,
-      "unidadesInventario": 5,
-      "precio": 250,
-      "luz": "indirecta",
-      "temperatura": "fresca",
-      "riego": "moderado",
-      "detallesRiego": "Regar cada 7-10 días en verano y cada 2-3 semanas en invierno.",
-      "imagen": "assets/Pictures/Suculentas/curio rowleyanus.png",
-      "toxicidad": "no",
-      "info": "Suculenta colgante con hojas redondas que parecen guisantes, ideal para macetas colgantes.",
-      "category": "Detalles vivos"
     },
     {
       "id": "010",
