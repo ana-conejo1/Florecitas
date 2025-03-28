@@ -31,9 +31,21 @@ app.post('/users', (req, res) => {
             return res.status(400).json({ error: 'Datos incompletos' });
         }
 
+        // Buscar el máximo id numérico actual
+        let maxId = 0;
+        data.productos.forEach(p => {
+            // Convertir el id a número, si es posible.
+            const num = parseInt(p.id, 10);
+            if (!isNaN(num) && num > maxId) {
+                maxId = num;
+            }
+        });
+        // Nuevo id será el siguiente número, formateado con ceros a la izquierda (3 dígitos, por ejemplo)
+        const nuevoId = (maxId + 1).toString().padStart(3, '0');
+
         // Generar un ID dinámico
         const nuevoUsuario = {
-            id: Date.now(), // Genera un ID único basado en la fecha actual
+            id: nuevoId, // Genera un ID único basado en la fecha actual
             firstName: usuario.firstName,
             lastName: usuario.lastName,
             datepicker: usuario.datepicker,
