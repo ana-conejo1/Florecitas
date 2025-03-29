@@ -168,6 +168,22 @@
       "imagen": "http://localhost:3000/uploads/8adf5ba8cf0151791a3435c38a97d33f",
       "info": "a",
       "categoria": "Minimal Suc"
+    },
+    {
+      "id": "011",
+      "nombreComun": "Planta de prueba2",
+      "nombreCientifico": "Prueba 2",
+      "tamano": "25x15x25",
+      "peso": 25,
+      "unidadesInventario": 15,
+      "precio": 55,
+      "luz": "Directa",
+      "temperatura": "Cálida (16-27°C)",
+      "riego": "Moderado",
+      "detallesRiego": "Pruebas pruebas",
+      "imagen": "http://localhost:3000/uploads/98554b6c046b42a3063a3c0d524701dc",
+      "info": "pruebas pruebas",
+      "categoria": "Detalles Vivos"
     }
   ]
 }
