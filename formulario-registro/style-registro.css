@@ -10,19 +10,19 @@
 }
 
 .accordion-item {
-    background-color: #B29C2E; 
+    background-color: rgba(197, 247, 226, 0.8);
     border-radius: 10px; /* Bordes redondeados */
 }
 
 .accordion-button {
-    background-color: #B34A4C; 
+    background-color: #B95D90; 
     color: whitesmoke; 
     font-weight: bold;
 }
 
 .accordion-button:not(.collapsed) {
-    background-color: #C8A176; 
-    color: #6b5037;
+    background-color: rgba(197, 247, 226, 0.8); 
+    color: rgb(212, 38, 145);
 }
 
 .accordion-body {
@@ -40,13 +40,24 @@ body {
 }
 
 #barra {
-    background-color: rgb(255, 255, 255); /* Color del fondo */
-    color: rgb(133, 8, 85); /* Color del texto */
-    padding: 10px; /* Espacio entre el texto y los bordes */
+    background-color: rgba(255, 255, 255, 0.623); /* Color del fondo */
+    color: rgb(212, 38, 145); /* Color del texto */  padding: 10px; /* Espacio entre el texto y los bordes */
     text-align: center; /* Alineación del texto */
     font-size: 24px; /* Tamaño de la fuente */
     font-weight: bold; /* Negrita */
-    width: 100%; /* Ancho de la barra */
+     /* Ancho de la barra */
     margin: 20px 0; /* Espacio superior e inferior */
+    width: fit-content; /* Ancho ajustado al contenido */
+    margin: 0 auto; /* Centra horizontalmente */
+    display: block; 
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.959); /* Sombra del texto */
+    font-family: 'Arial', sans-serif; /* Cambia la fuente si lo deseas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    transition: background-color 0.3s ease; /* Transición suave */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    border: 2px solid #FF29AC; /* Borde */
+
   }
   

@@ -27,13 +27,21 @@ app.post('/users', (req, res) => {
         const usuario = req.body;
 
         // Validar que los datos necesarios estén presentes
-        if (!usuario.firstName || !usuario.lastName || !usuario.email1 || !usuario.password1) {
+        if (!usuario.firstName || !usuario.lastName || !usuario.email1 || !usuario.password1 || usuario.gridCheck1 !== 'on') {
+            // Si falta algún campo, devolver un error 400 (Bad Request)
             return res.status(400).json({ error: 'Datos incompletos' });
         }
 
+        // Validar si el usuario ya existe
+        const usuarioExistente = usersObjects.find(user => user.email1 === usuario.email1);
+        if (usuarioExistente) {
+            return res.status(409).json({ error: 'Este correo electrónico ya está registrado' });
+        }
+
+
         // Buscar el máximo id numérico actual
         let maxId = 0;
-        data.productos.forEach(p => {
+        usersObjects.forEach(p => {
             // Convertir el id a número, si es posible.
             const num = parseInt(p.id, 10);
             if (!isNaN(num) && num > maxId) {
@@ -52,7 +60,8 @@ app.post('/users', (req, res) => {
             phone: usuario.phone,
             email1: usuario.email1,
             password1: usuario.password1,
-            password2: usuario.password2
+            password2: usuario.password2,
+            gridCheck1: usuario.gridCheck1
         };
 
         usersObjects.push(nuevoUsuario);

@@ -12,21 +12,23 @@ document.addEventListener("DOMContentLoaded", () => {
         const email1 = document.getElementById("email1").value.trim();
         const password1 = document.getElementById("password1").value.trim();
         const password2 = document.getElementById("password2").value.trim();
+        const gridCheck1 = document.getElementById("gridCheck1").value.trim();
 
         // Validación de contraseñas (¡Importante!)
         if (password1 !== password2) {
-            alert("Las contraseñas no coinciden");
             return; // Detiene el envío
         }
         
         const nuevoUsuario = {
+
             firstName: firstName,
             lastName: lastName,
             datepicker: datepicker,
             phone: phone,
             email1: email1, // Cambiamos email para evitar errores por el 1
             password1: password1,
-            password2: password2
+            password2: password2,
+            gridCheck1: gridCheck1
         };
 
         console.log(nuevoUsuario);
@@ -49,12 +51,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert(data.error);
             } else {
                 console.log("Usuario agregado:", data);
-                usuarioForm.reset();
+                    usuarioForm.reset(); // Resetea el formulario después de 2 segundos
+                
             }
         })
         .catch(error => {
             console.error('Error al agregar usuario:', error);
-            alert("Error al agregar Usuario. Verifique los datos.");
+            alert("Error al agregar Usuario. Verifique los datos o Inicie sesión si ya se encuentra registrado.");
         });
     });
 });

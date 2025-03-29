@@ -42,19 +42,24 @@ $(document).ready(function () {
             errorMessage += 'Por favor, ingrese un correo electrónico válido. <br>';
         }
 
-        // 3. Validación de formato de teléfono (ejemplo simple)
-        let phoneRegex = /^\d{2}-\d{8}$/; // Ajusta según tu formato de teléfono deseado
+        // 3. Validación de formato de teléfono (solo números, 10 dígitos)
+        let phoneRegex = /^\d{10}$/;
+
         if (!phoneRegex.test(phone)) {
             isValid = false;
-            errorMessage += 'Por favor, ingrese un número de teléfono válido (ej. 55-12345678). <br>';
+            errorMessage += 'Por favor, ingrese un número de teléfono válido (10 dígitos, solo números).<br> ';
         }
 
+
+
         // 4. Validación de contraseña
-        let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,20}$/;
+        let passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,20}$/;
+
         if (!passwordRegex.test(password)) {
             isValid = false;
-            errorMessage += 'La contraseña debe tener entre 8 y 20 caracteres, incluyendo mayúsculas, minúsculas, números y al menos un carácter especial. <br>';
+            errorMessage += 'La contraseña debe tener entre 8 y 20 caracteres, incluyendo al menos una letra mayúscula y un número. <br>';
         }
+
 
         // 5. Validación de confirmación de contraseña
         if (password !== confirmPassword) {
@@ -62,14 +67,21 @@ $(document).ready(function () {
             errorMessage += 'Las contraseñas no coinciden. <br>';
         }
 
+        // 6. Validación de la casilla de verificación (Términos y Condiciones)
+        let termsChecked = $('#terms').is(':checked');
+        if (!termsChecked) {
+            isValid = false;
+            errorMessage += 'Debe aceptar los términos y condiciones.<br> ';
+        }
+
         // Muestra la alerta de error si hay errores
         if (!isValid) {
-            $('#alert-message-modal').html(errorMessage);
+            $('#alert-message-modal').html(errorMessage + '<br>Por favor revise sus datos, corríjalos e intente nuevamente.');
             var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
             alertModal.show();
         } else {
             // Si todo está válido, puedes enviar el formulario aquí
-            alert('Registro Exitoso. ¡Gracias!'); // Reemplaza con tu lógica de envío
+            alert('Validando registro. ¡Gracias!'); // Reemplaza con tu lógica de envío
         }
     });
 });
