@@ -163,8 +163,24 @@
       "temperatura": "Cálida (16-27°C)",
       "riego": "Mínimo",
       "detallesRiego": "prueba",
-      "imagen": "http://localhost:3000/uploads/08cd180470d9b0f497196a621a72734f",
+      "imagen": "http://localhost:3000/uploads/8adf5ba8cf0151791a3435c38a97d33f",
       "info": "prueba",
+      "categoria": "Minimal Suc"
+    },
+    {
+      "id": "013",
+      "nombreComun": "Planta de prueba2",
+      "nombreCientifico": "Prueba 2",
+      "tamano": "25x15x25",
+      "peso": 25,
+      "unidadesInventario": 20,
+      "precio": 50,
+      "luz": "Directa",
+      "temperatura": "Cálida (16-27°C)",
+      "riego": "Moderado",
+      "detallesRiego": "Detalles de prueba",
+      "imagen": "http://localhost:3000/uploads/2bdc5cbccb5cf01c848559d7c6724435 ",
+      "info": "Informacion priebas",
       "categoria": "Minimal Suc"
     }
   ]
