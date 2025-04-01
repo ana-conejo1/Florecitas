@@ -133,8 +133,6 @@
       "imagen": "http://localhost:3000/uploads/2bdc5cbccb5cf01c848559d7c6724435",
       "info": "informacion para prueba",
       "categoria": "Minimal Suc"
-<<<<<<< HEAD
-<<<<<<< HEAD
     },
     {
       "id": "012",
@@ -167,9 +165,6 @@
       "imagen": "http://localhost:3000/uploads/2bdc5cbccb5cf01c848559d7c6724435 ",
       "info": "Informacion priebas",
       "categoria": "Minimal Suc"
-=======
->>>>>>> paolaEspinosa
-=======
     },
     {
       "id": "012",
@@ -202,7 +197,6 @@
       "imagen": "http://localhost:3000/uploads/25470c1231538976a8abe787d6afafa1",
       "info": "-",
       "categoria": "Minimal Suc"
->>>>>>> ErandiSanchezGarcia
     }
   ]
 }
