@@ -1,20 +1,20 @@
 @font-face {
     font-family: 'GLITTEN CAPS';
-    src: url('./assets/fuentes/GLITTEN-ALL-CAPS.TTF') format('truetype');
+    src: url('/assets/fuentes/GLITTEN-ALL-CAPS.TTF') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Glitten Regular';
-    src: url('./assets/fuentes/GLITTEN-REGULAR.OTF') format('truetype');
+    src: url('/assets/fuentes/GLITTEN-REGULAR.OTF') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Raleway';
-    src: url('./assets/fuentes/Raleway-VariableFont_wght.ttf') format('truetype');
+    src: url('/assets/fuentes/Raleway-VariableFont_wght.ttf') format('truetype');
 }
 
 /*Carrusel*/
@@ -340,7 +340,16 @@ p {
     font-size: 60px;
     color: green;
 }
-
+.productos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: rgb(241, 240, 240, 0.5);
+}
 /*Categorias principales*/
 .category-btn {
     width: 100%; /* Que se adapte al contenedor */
@@ -355,7 +364,6 @@ p {
 }
 .category-btn span{
     display: inline-block;
-    
     margin: 10px;
     font-size: 20px;
     font-family: 'raleway';
@@ -368,18 +376,18 @@ p {
 
 .minimal { 
     background: linear-gradient(rgba(247, 247, 247, 0.7), rgba(204, 250, 193, 0.7)), 
-    url("./assets/Pictures/Fotos-de-suculentas/minimal-echeveriaLola.webp");
+    url("/assets/Pictures/Fotos-de-suculentas/minimal-echeveriaLola.webp");
 }
 .kawaii { 
     background: linear-gradient(rgba(244, 176, 226, 0.7), rgba(250, 252, 169, 0.7)), 
-    url("./assets/Pictures/Fotos-de-suculentas/kawaii-mamilariaGracilis.webp");
+    url("/assets/Pictures/Fotos-de-suculentas/kawaii-mamilariaGracilis.webp");
     background-size: cover; /* Ajusta la imagen dentro del botón */
     background-repeat: no-repeat;
     background-position: center;
 }
 .detalles { 
     background: linear-gradient(rgba(223, 233, 222, 0.7), rgba(236, 137, 172, 0.5)), 
-    url("./assets/Pictures/Fotos-de-suculentas/detalles-crasulaOvata.avif");
+    url("/assets/Pictures/Fotos-de-suculentas/detalles-crasulaOvata.avif");
     background-size: cover; /* Ajusta la imagen dentro del botón */
     background-repeat: no-repeat;
     background-position: center;
