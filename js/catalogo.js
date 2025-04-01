@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     let data = []; // Variable para almacenar los productos
     
-    fetch('./formulario-inventario/items.json')
+    fetch('/formulario-inventario/items.json')
     .then(response => {
         if (!response.ok) {
             throw new Error('Error al cargar el archivo JSON');

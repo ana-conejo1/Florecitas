@@ -1,5 +1,5 @@
 /*Permite llamar a la barra de navegación en todas las páginas que se requiera*/
-fetch(`navbar.html`)
+fetch(`/html/navbar.html`)
   .then(response => response.text()) // Se añadió return aquí
   .then(data => {
     document.querySelector(`#navbar`).innerHTML = data;
@@ -9,7 +9,7 @@ fetch(`navbar.html`)
   });
 
 // Footer
-fetch(`footer.html`)
+fetch(`/html/footer.html`)
   .then(response => response.text()) // Se añadió return aquí
   .then(data => {
     document.querySelector(`#footer`).innerHTML = data;
