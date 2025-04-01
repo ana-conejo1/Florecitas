@@ -134,6 +134,7 @@
       "info": "informacion para prueba",
       "categoria": "Minimal Suc"
 <<<<<<< HEAD
+<<<<<<< HEAD
     },
     {
       "id": "012",
@@ -168,6 +169,40 @@
       "categoria": "Minimal Suc"
 =======
 >>>>>>> paolaEspinosa
+=======
+    },
+    {
+      "id": "012",
+      "nombreComun": "Chocolate Soldier",
+      "nombreCientifico": "Kalanchoe tomentosa",
+      "tamano": "15x20x30",
+      "peso": 200,
+      "unidadesInventario": 5,
+      "precio": 250,
+      "luz": "Abundante",
+      "temperatura": "Cálida (16-27°C)",
+      "riego": "Moderado",
+      "detallesRiego": "-",
+      "imagen": "http://localhost:3000/uploads/f21bded41b8e43987ebf99fb5a02aaad",
+      "info": "-",
+      "categoria": "Verde Kawaii"
+    },
+    {
+      "id": "013",
+      "nombreComun": "Chocolate Soldier",
+      "nombreCientifico": "Kalanchoe tomentosa",
+      "tamano": "15x20x30",
+      "peso": 200,
+      "unidadesInventario": 5,
+      "precio": 250,
+      "luz": "Abundante",
+      "temperatura": "Cálida (16-27°C)",
+      "riego": "Abundante",
+      "detallesRiego": "-",
+      "imagen": "http://localhost:3000/uploads/25470c1231538976a8abe787d6afafa1",
+      "info": "-",
+      "categoria": "Minimal Suc"
+>>>>>>> ErandiSanchezGarcia
     }
   ]
 }

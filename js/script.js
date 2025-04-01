@@ -80,8 +80,9 @@ var swiper = new Swiper(".mySwiper",{
 
 //###### Efecto maquina de escribir ########
 var app = document.getElementById('app');
+if (app) {
 
-var typewriter = new Typewriter(app,{
+var typewriter = new Typewriter(app, {
   loop: true
 });
 
@@ -92,18 +93,23 @@ typewriter.typeString('¡Únete a nosotras en este viaje hacia un futuro más ve
 .deleteAll()
 .start();
 
-var text = document.getElementById('text');
+}
 
-  var typewriter = new Typewriter( text,{
+
+var text = document.getElementById('text');
+if (text) {
+  var typewriter2 = new Typewriter( text,{
     loop: true
   });
-  
-  typewriter.typeString('Desarrolladoras')
+
+
+  typewriter2.typeString('Desarrolladoras')
     .pauseFor(1000)
     .deleteAll()
     .pauseFor(1000)
     .deleteAll()
     .start();
+}
   
 /*############### CARRUSEL DE IMÁGENES ###############*/
 document.addEventListener("DOMContentLoaded", function () {
@@ -129,8 +135,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const gameIframe = document.getElementById("gameFrame");
 
   // Ejemplo: Agregar una acción al hacer clic en el iframe
-  gameIframe.addEventListener('click', function() {
+  /*gameIframe.addEventListener('click', function() {
       alert("¡Estás jugando! ¡Buena suerte!");
+  });*/
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const gameIframe = document.getElementById("gameFrame");
+    if (gameIframe) {
+      gameIframe.addEventListener("click", function () {
+        alert("¡Estás jugando! ¡Buena suerte!");
+      });
+    }
   });
 
   // También puedes incluir más lógica relacionada con el juego aquí
