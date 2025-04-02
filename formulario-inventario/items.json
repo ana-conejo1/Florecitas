@@ -197,6 +197,22 @@
       "imagen": "http://localhost:3000/uploads/25470c1231538976a8abe787d6afafa1",
       "info": "-",
       "categoria": "Minimal Suc"
+    },
+    {
+      "id": "014",
+      "nombreComun": "Chocolate Soldier",
+      "nombreCientifico": "Kalanchoe tomentosa",
+      "tamano": "15x20x30",
+      "peso": 200,
+      "unidadesInventario": 5,
+      "precio": 250,
+      "luz": "Abundante",
+      "temperatura": "Fresca (-5 a 16°C)",
+      "riego": "Abundante",
+      "detallesRiego": "Prueba",
+      "imagen": "http://localhost:3000/uploads/037cb91352e25625c6314f2997511efd",
+      "info": "Prueba",
+      "categoria": "Minimal Suc"
     }
   ]
 }
