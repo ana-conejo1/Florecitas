@@ -40,7 +40,7 @@ window.onload = function () {
   } else {
       userMenu.innerHTML = `
           <li><a class="dropdown-item" href="login.html">Iniciar sesión</a></li>
-          <li><a class="dropdown-item" href="register.html">Registrarse</a></li>
+          <li><a class="dropdown-item" href="form-prueba.html">Registrarse</a></li>
       `;
   }
 };
