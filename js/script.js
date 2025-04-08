@@ -39,8 +39,8 @@ window.onload = function () {
       });
   } else {
       userMenu.innerHTML = `
-          <li><a class="dropdown-item" href="login.html">Iniciar sesión</a></li>
-          <li><a class="dropdown-item" href="form-prueba.html">Registrarse</a></li>
+          <li><a class="dropdown-item" href="/html/login.html">Iniciar sesión</a></li>
+          <li><a class="dropdown-item" href="/formulario-registro/form-registro-usuarios.html">Registrarse</a></li>
       `;
   }
 };
