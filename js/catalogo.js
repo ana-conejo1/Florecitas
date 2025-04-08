@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <p class="card-text text-white">${product.info}</p>
                                 <p class="card-text text-white">${product.detallesRiego}</p>
                             </div>
-                            <button class="btn btn-primary mx-auto">Comprar</button>
+                            <button class="btn btn-primary mx-auto">Añadir al carrito</button>
                         </div>
                     </div>
                     <h6 class="ps-3">${product.nombreComun}</h6>
