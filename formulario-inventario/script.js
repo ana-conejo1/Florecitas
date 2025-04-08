@@ -148,41 +148,53 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        productContainer.innerHTML = productos.map(producto => `
-            <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="${producto.imagen}" class="img-fluid rounded-start" alt="${producto.nombreComun}">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">${producto.nombreComun}</h5>
-                            <p class="card-text"><em>${producto.nombreCientifico}</em></p>
-                            <p class="card-text">${producto.info}</p>
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-sm btn-outline-primary edit-btn" data-id="${producto.id}">
-                                    <i class="bi bi-pencil"></i> Editar
-                                </button>
-                                <button class="btn btn-sm btn-outline-danger delete-btn" data-id="${producto.id}">
-                                    <i class="bi bi-trash"></i> Eliminar
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `).join('');
+        const tableHTML = `
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre Común</th>
+                    <th>Nombre Científico</th>
+                    <th>Precio</th>
+                    <th>Inventario</th>
+                    <th>Categoría</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${productos.map(producto => `
+                    <tr>
+                        <td><img src="${producto.imagen}" alt="${producto.nombreComun}" style="width: 80px; height: auto;"></td>
+                        <td>${producto.nombreComun}</td>
+                        <td><em>${producto.nombreCientifico}</em></td>
+                        <td>$${producto.precio.toFixed(2)}</td>
+                        <td>${producto.unidadesInventario}</td>
+                        <td>${producto.categoria}</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-primary edit-btn" data-id="${producto.id}">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button class="btn btn-sm btn-outline-danger delete-btn" data-id="${producto.id}">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `).join('')}
+            </tbody>
+        </table>
+    `;
 
-        // Agregar event listeners a los botones
-        document.querySelectorAll('.edit-btn').forEach(btn => {
-            btn.addEventListener('click', () => openEditModal(btn.dataset.id));
-        });
+    productContainer.innerHTML = tableHTML;
 
-        document.querySelectorAll('.delete-btn').forEach(btn => {
-            btn.addEventListener('click', () => deleteProduct(btn.dataset.id));
-        });
-    }
+    // Añadir eventos a los botones de acción
+    document.querySelectorAll('.edit-btn').forEach(btn => {
+        btn.addEventListener('click', () => openEditModal(btn.dataset.id));
+    });
 
+    document.querySelectorAll('.delete-btn').forEach(btn => {
+        btn.addEventListener('click', () => deleteProduct(btn.dataset.id));
+    });
+}
     async function handleSubmit(e) {
         e.preventDefault();
         
