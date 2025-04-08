@@ -23,3 +23,9 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     window.location.href = "index.html";
 });
 
+document.getElementById('forgotPasswordForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const email = document.getElementById('resetEmail').value;
+    alert(`Se ha enviado un enlace de restablecimiento a: ${email}`);
+    // Aquí puedes implementar la lógica para enviar el correo de restablecimiento.
+});

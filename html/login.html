@@ -38,11 +38,11 @@
                           <label for="password">Contraseña</label>
                         </div>
                         <div class="checkbox mb-3" style="font-family: Raleway;">
-                          <a href="#" class="mt-5 mb-3 text-muted" style="font-family: Raleway; color: #B34A4C;">¿Olvidaste tu contraseña?</a>
+                          <a href="#" class="mt-5 mb-3 text-muted" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal" style="font-family: Raleway; color: #B34A4C;">¿Olvidaste tu contraseña?</a>
                         </div>
                         <button class="w-50 btn btn-lg text-white" type="submit" style="background-color: #b95d90; font-family: Raleway;">Entrar</button>
                         <div class="pt-2">
-                          <a href="form-prueba.html" class="mt-5 mb-3 text-muted" style="font-family: Raleway; color: #b29c2e;">¿No tienes cuenta? Registrate aqui</a>
+                          <a href="/formulario-registro/form-registro-usuarios.html" class="mt-5 mb-3 text-muted" style="font-family: Raleway; color: #b29c2e;">¿No tienes cuenta? Registrate aqui</a>
                         </div>
                           
                       </form>
@@ -52,6 +52,27 @@
             </div>   
         </div>
     </main>
+        <!-- Modal -->
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="forgotPasswordModalLabel">Restablecer Contraseña</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="forgotPasswordForm">
+              <div class="mb-3">
+                <label for="resetEmail" class="form-label">Correo Electrónico</label>
+                <input type="email" class="form-control" id="resetEmail" placeholder="name@example.com" required>
+              </div>
+              <button type="submit" class="btn text-white" style="background-color: #b95d90;">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
 
     <!--Pie de pagina-->
     <footer class="mt-0">
