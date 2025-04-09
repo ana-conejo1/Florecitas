@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <button class="btn btn-primary mx-auto" 
                                 onclick="agregarAlCarrito(this)" 
                                 
-                                data-nombre="${product.nommbreComun}" 
+                                data-nombre="${product.nombreComun}" 
                                 data-precio="${product.precio}">
                                 Añadir al carrito
                             </button>
