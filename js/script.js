@@ -26,6 +26,7 @@ window.onload = function () {
   if (loggedInUser) {
       userMenu.innerHTML = `
           <li><a class="dropdown-item" href="#">Mi Perfil</a></li>
+          <li><a class="dropdown-item" href="#">Mi Carrito</a></li>
           <li><a class="dropdown-item" href="#">Configuración</a></li>
           <li><hr class="dropdown-divider"></li>
           <li><button class="dropdown-item" id="signOutButton">Cerrar sesión</button></li>
