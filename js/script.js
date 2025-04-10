@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Aseguramos que el script esté encapsulado dentro de una función o módulo
 
-(function() {
+(function () {
   // Esto evita que las variables o funciones dentro del script interfieran con el resto del código global
   const gameIframe = document.getElementById("gameFrame");
 
