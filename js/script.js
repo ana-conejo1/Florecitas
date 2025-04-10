@@ -24,22 +24,20 @@ window.onload = function () {
   const userMenu = document.getElementById('userMenu');
 
   if (loggedInUser) {
-      userMenu.innerHTML = `
-          <li><a class="dropdown-item" href="#">Mi Perfil</a></li>
-          <li><a class="dropdown-item" href="#">Mi Carrito</a></li>
-          <li><a class="dropdown-item" href="#">Configuración</a></li>
+    userMenu.innerHTML = `
+          <li><a class="dropdown-item" href="#">Mi cuenta</a></li>
           <li><hr class="dropdown-divider"></li>
           <li><button class="dropdown-item" id="signOutButton">Cerrar sesión</button></li>
       `;
 
-      // Cerrar sesión
-      document.getElementById("signOutButton").addEventListener("click", function () {
-          localStorage.removeItem("login_success"); 
-          alert("Has cerrado sesión.");
-          window.location.reload();
-      });
+    // Cerrar sesión
+    document.getElementById("signOutButton").addEventListener("click", function () {
+      localStorage.removeItem("login_success");
+      alert("Has cerrado sesión.");
+      window.location.reload();
+    });
   } else {
-      userMenu.innerHTML = `
+    userMenu.innerHTML = `
           <li><a class="dropdown-item" href="/html/login.html">Iniciar sesión</a></li>
           <li><a class="dropdown-item" href="/formulario-registro/form-registro-usuarios.html">Registrarse</a></li>
       `;
@@ -48,12 +46,12 @@ window.onload = function () {
 
 
 function redirectTo(page) {
-    window.location.href = page;
+  window.location.href = page;
 }
 
 
 //Dinamismo a la parte de equipo
-var swiper = new Swiper(".mySwiper",{
+var swiper = new Swiper(".mySwiper", {
   slidesPerView: 3,
   spaceBetween: 30,
   pagination: {
@@ -80,38 +78,30 @@ var swiper = new Swiper(".mySwiper",{
 });
 
 //###### Efecto maquina de escribir ########
+// Seleccionar elementos del DOM
 var app = document.getElementById('app');
-if (app) {
-
-var typewriter = new Typewriter(app, {
-  loop: true
-});
-
-typewriter.typeString('¡Únete a nosotras en este viaje hacia un futuro más verde!')
-.pauseFor(1000)
-.deleteAll()
-.pauseFor(2500)
-.deleteAll()
-.start();
-
-}
-
-
 var text = document.getElementById('text');
-if (text) {
-  var typewriter2 = new Typewriter( text,{
-    loop: true
-  });
 
-
-  typewriter2.typeString('Desarrolladoras')
-    .pauseFor(1000)
-    .deleteAll()
-    .pauseFor(1000)
-    .deleteAll()
-    .start();
+if (app) {
+    var typewriter1 = new Typewriter(app, {
+        loop: true
+    });
+    typewriter1.typeString('¡Únete a nosotras en este viaje hacia un futuro más verde!')
+        .pauseFor(2500)
+        .deleteAll()
+        .start();
 }
-  
+
+if (text) {
+    var typewriter2 = new Typewriter(text, {
+        loop: true
+    });
+    typewriter2.typeString('Desarrolladoras')
+        .pauseFor(2500)
+        .deleteAll()
+        .start();
+}
+
 /*############### CARRUSEL DE IMÁGENES ###############*/
 document.addEventListener("DOMContentLoaded", function () {
   var swiper = new Swiper("#teamSection .team-carousel", {
