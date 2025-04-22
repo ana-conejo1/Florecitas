@@ -1,15 +1,2 @@
 node_modules/
-.qodo
-
-
-# Backend (Java/Gradle)
-build/
-.gradle/
-*.jar
-*.war
-*.class 
-*.log
-*.iml
-*.hprof
-*.jks
 

@@ -1,3 +1,4 @@
+
 // Función para agregar productos al carrito 
 function agregarAlCarrito(boton) {
   const nombre = boton.getAttribute('data-nombre');
@@ -105,3 +106,4 @@ window.onload = function() {
   // Inicializar EmailJS con Public Key
   emailjs.init('nSCAv32uGxOpw4Sms');
 };
+
