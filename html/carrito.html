@@ -26,7 +26,6 @@
     </header>
   
         <!-- Carrito -->
-        
         <div class="container mt-4 p-3">
             <h1 class="text-center titulo">Carrito de Compras</h1>
             <div class="row mt-5">
@@ -45,7 +44,38 @@
                 </div>
                 <div class="col-md-3 offset-md-4 text-center">
                     <h3>Total: $<span id="total-carrito">0</span></h3>
-                    <button class="btn btn-primary" onclick="comprar()">Comprar</button>
+
+                    
+                    <!-- Formulario de confirmación (nuevo) -->
+                    <div id="formulario-email" class="mt-3 p-3 bg-light rounded" style="display: none;">
+                        <h5 class="mb-3">Confirmación de compra</h5>
+                        <div class="mb-3">
+                            <input 
+                                type="text" 
+                                id="cliente-nombre" 
+                                class="form-control" 
+                                placeholder="Nombre completo"
+                                required
+                            >
+                        </div>
+                        <div class="mb-3">
+                            <input 
+                                type="email" 
+                                id="cliente-email" 
+                                class="form-control" 
+                                placeholder="correo@ejemplo.com"
+                                required
+                            >
+                        </div>
+                        <button onclick="finalizarCompra()" class="btn btn-success w-100">
+                            <span class="material-symbols-outlined">send</span> Enviar pedido
+                        </button>
+                    </div>
+                    
+                    <button class="btn btn-primary mt-3" onclick="comprar()">
+                        <span class="material-symbols-outlined">shopping_cart</span> Comprar
+                    </button>
+
                 </div>
             </div>
         </div>
@@ -55,12 +85,18 @@
     </footer>
 
 
+    <!-- EmailJS Script (nuevo) -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        emailjs.init('nSCAv32uGxOpw4Sms'); // Public Key de EmailJS
+    </script>
+
     <script>
         window.onload = function() {
           console.log("Página cargada");
           mostrarCarrito();
         };
-      </script>
+    </script>
 
 
     <script src="/js/carrito.js"></script>
