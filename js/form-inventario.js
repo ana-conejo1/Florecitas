@@ -1,5 +1,46 @@
 const agregar = document.getElementById('submit');
 
+const fileInput = document.getElementById('fileInput');
+const imagenURLInput = document.getElementById('imagen');
+
+let imagenUrl = null;
+
+// Inicializar el widget de carga de Cloudinary
+const cloudinaryWidget = cloudinary.createUploadWidget({
+    cloudName: 'dlojolnk4',
+    upload_preset: 'ml_Default',
+    multiple: false,
+    sources: ['local', 'url'],
+    clientAllowedFormats: ['jpg', 'jpeg', 'png', 'webp'],
+    showAdvancedOptions: false,
+    cropping: false,
+    maxFileSize: 2000000, // Tamaño máximo del archivo en bytes
+    maxImageWidth: 1000, // Ancho máximo de la imagen
+}, (error, result) => {
+    if (result.event === 'success') {
+        imagenUrl = result.info.secure_url;
+        document.getElementById('imagePreviewWrapper').innerHTML = `<img src="${imagenUrl}" class="img-fluid" />`;
+        document.getElementById('removeImageBtn').classList.remove('d-none');
+        imagenURLInput.value = imagenUrl;  // Guardamos la URL en el input
+    }
+});
+
+// Llama al widget cuando el usuario hace clic en el botón "Seleccionar archivo"
+document.getElementById('selectFileBtn').addEventListener('click', function () {
+    cloudinaryWidget.open();
+});
+
+// Botón para eliminar la imagen cargada
+document.getElementById('removeImageBtn').addEventListener('click', function () {
+    imagenUrl = null;
+    document.getElementById('imagePreviewWrapper').innerHTML = `<div class="d-flex flex-column justify-content-center align-items-center">
+        <i class="bi bi-image fs-3 text-muted"></i>
+        <small class="text-muted">Vista previa</small>
+    </div>`;
+    document.getElementById('removeImageBtn').classList.add('d-none');
+    imagenURLInput.value = '';
+});
+
 agregar.addEventListener('click', (e) => {
     e.preventDefault();
 
@@ -9,7 +50,6 @@ agregar.addEventListener('click', (e) => {
     const cantidad = parseInt(document.getElementById('unidadesInventario').value);
     const precio = parseFloat(document.getElementById('precio').value);
     const categoria = document.getElementById('category').value;
-    const imagen = imagenUrl; // Asumiendo que imagenUrl ya está definida
     const peso = document.getElementById('peso').value;
     const luz = document.getElementById('luz').value;
     const temperatura = document.getElementById('temperatura').value;
@@ -17,8 +57,14 @@ agregar.addEventListener('click', (e) => {
     const detallesRiego = document.getElementById('detallesRiego').value;
     const info = document.getElementById('info').value;
 
+    // Validación de campos obligatorios
+    if (!nombreProducto || !nombreCientifico || isNaN(cantidad) || isNaN(precio) || !categoria ||
+        isNaN(peso) || !luz || !temperatura || !riego || !detallesRiego || !info) {
+        alert("Por favor, completa todos los campos obligatorios correctamente.");
+        return;
+    }
 
-    const product = {
+    const producto = {
         nombreProducto: nombreProducto,
         nombreCientifico: nombreCientifico,
         cantidad: cantidad,
@@ -33,169 +79,41 @@ agregar.addEventListener('click', (e) => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(product)
+        body: JSON.stringify(producto)
     })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                return response.text().then(text => { throw new Error(text); });
+            }
+            return response.json();
+        })
         .then(data => {
-            console.log("Producto creado exitosamente:", data);
-            document.getElementById("registroForm").reset();
+            alert("Producto agregado exitosamente ✅");
+            productForm.reset();
         })
         .catch(error => {
-            console.error(error);
+            console.error("Error al agregar producto:", error.message);
+            alert("Ocurrió un error al agregar el producto ❌");
         });
 });
 
-/// codigo que se usaba con el server para image 
-document.addEventListener('DOMContentLoaded', function () {
-    // Elementos del DOM
-    const productForm = document.getElementById('productForm');
-    const productContainer = document.getElementById('productContainer');
-    const editModal = new bootstrap.Modal(document.getElementById('editModal'));
-    const editForm = document.getElementById('editForm');
-    const fileInput = document.getElementById('fileInput');
-    const dropArea = document.getElementById('dropArea');
-    const imagePreviewWrapper = document.getElementById('imagePreviewWrapper');
-    const removeImageBtn = document.getElementById('removeImageBtn');
-    const imagenUrlInput = document.getElementById('imagen');
-    const clearUrlBtn = document.getElementById('clearUrlBtn');
-    const selectFileBtn = document.getElementById('selectFileBtn');
+const urlProductos = `http://localhost:8080/api/perseflora/producto`;
+const productContainer = document.getElementById('productContainer');
 
-    // Variables de estado
-    let currentImageFile = null;
-    let productos = [];
-    const url = 'http://localhost:8080/api/perseflora/productos'; // Corregido: añadido /productos al endpoint
-
-    // Event Listeners
-    productForm.addEventListener('submit', handleSubmit);
-    editForm.addEventListener('submit', handleEditSubmit);
-    fileInput.addEventListener('change', handleFileSelect);
-    selectFileBtn.addEventListener('click', () => fileInput.click());
-    removeImageBtn.addEventListener('click', resetImageInput);
-    clearUrlBtn.addEventListener('click', () => {
-        imagenUrlInput.value = '';
-        validateImageInput();
-    });
-    imagenUrlInput.addEventListener('input', validateImageInput);
-
-    // Drag and drop
-    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-        dropArea.addEventListener(eventName, preventDefaults, false);
-    });
-
-    ['dragenter', 'dragover'].forEach(eventName => {
-        dropArea.addEventListener(eventName, highlight, false);
-    });
-
-    ['dragleave', 'drop'].forEach(eventName => {
-        dropArea.addEventListener(eventName, unhighlight, false);
-    });
-
-    dropArea.addEventListener('drop', handleDrop, false);
-
-    // Inicializar la aplicación
-    fetchProducts();
-
-    // Funciones
-    function preventDefaults(e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }
-
-    function highlight() {
-        dropArea.classList.add('border-primary', 'bg-light');
-    }
-
-    function unhighlight() {
-        dropArea.classList.remove('border-primary', 'bg-light');
-    }
-
-    function handleDrop(e) {
-        const dt = e.dataTransfer;
-        const files = dt.files;
-
-        if (files.length) {
-            fileInput.files = files;
-            handleFileSelect({ target: fileInput });
+fetch(urlProductos)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error al obtener los productos');
         }
-    }
-
-    function handleFileSelect(e) {
-        console.log('handleFileSelect se ha ejecutado'); //
-        const file = e.target.files[0];
-        console.log('Archivo seleccionado:', file);
-        if (!file) return;
-
-        // Validar tipo de archivo
-        const validTypes = ['image/jpeg', 'image/png', 'image/webp'];
-        if (!validTypes.includes(file.type)) {
-            alert('Por favor, selecciona una imagen válida (JPEG, PNG o WEBP)');
-            return;
-        }
-
-        currentImageFile = file;
-        displayImagePreview(URL.createObjectURL(file));
-        validateImageInput();
-    }
-
-    function displayImagePreview(imageSrc) {
-        imagePreviewWrapper.innerHTML = `<img src="${imageSrc}" class="w-100 h-100 object-fit-cover" alt="Preview">`;
-        removeImageBtn.classList.remove('d-none');
-    }
-
-    function resetImageInput() {
-        fileInput.value = '';
-        currentImageFile = null;
-        imagePreviewWrapper.innerHTML = `
-            <div class="d-flex flex-column justify-content-center align-items-center">
-                <i class="bi bi-image fs-3 text-muted"></i>
-                <small class="text-muted">Vista previa</small>
-            </div>
-        `;
-        removeImageBtn.classList.add('d-none');
-        validateImageInput();
-    }
-
-    function validateImageInput() {
-        const hasUrl = imagenUrlInput.value.trim() !== '';
-        const hasFile = currentImageFile !== null;
-        const isValid = hasUrl || hasFile;
-
-        if (isValid) {
-            imagenUrlInput.classList.remove('is-invalid');
-        } else {
-            imagenUrlInput.classList.add('is-invalid');
-        }
-
-        return isValid;
-    }
-
-    async function fetchProducts() {
-        try {
-            const response = await fetch(url);
-            if (!response.ok) throw new Error('Error al obtener productos');
-            productos = await response.json();
-            renderProducts();
-        } catch (error) {
-            console.error('Fetch Error:', error);
-            productContainer.innerHTML = `
-                <div class="alert alert-danger">
-                Error al cargar los productos. Verifica:
-                <ul>
-                    <li>Que el servidor esté corriendo</li>
-                    <li>Que la URL ${url} sea correcta</li>
-                    <li>La consola para más detalles</li>
-                </ul>
-                <button class="btn btn-sm btn-primary" onclick="location.reload()">Reintentar</button>
-            </div>
-        `;
-        }
-    }
-    function renderProducts() {
-        if (!productos || productos.length === 0) {
+        return response.json();
+    })
+    .then(productos => {
+        if (productos.length === 0) {
             productContainer.innerHTML = '<div class="alert alert-info">No hay productos registrados</div>';
             return;
         }
 
+        // Generar tabla con productos
         const tableHTML = `
         <table class="table table-bordered table-striped">
             <thead class="table-dark">
@@ -210,9 +128,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 </tr>
             </thead>
             <tbody>
-                ${productos.map(producto => `
+                ${productos.map(producto => {
+            // Validar que la URL de la imagen sea válida antes de usarla
+            const imagen = producto.imagen ? producto.imagen : '/assets/pictures/logo.png';
+            return `
                     <tr>
-                        <td><img src="${producto.imagen}" alt="${producto.nombreComun}" style="width: 80px; height: auto;"></td>
+                        <td><img src="${imagen}" alt="${producto.nombreComun}" style="width: 80px; height: auto;"></td>
                         <td>${producto.nombreComun}</td>
                         <td><em>${producto.nombreCientifico}</em></td>
                         <td>$${producto.precio.toFixed(2)}</td>
@@ -227,178 +148,14 @@ document.addEventListener('DOMContentLoaded', function () {
                             </button>
                         </td>
                     </tr>
-                `).join('')}
+                `}).join('')}
             </tbody>
         </table>
     `;
 
         productContainer.innerHTML = tableHTML;
-
-        // Añadir eventos a los botones de acción
-        document.querySelectorAll('.edit-btn').forEach(btn => {
-            btn.addEventListener('click', () => openEditModal(btn.dataset.id));
-        });
-
-        document.querySelectorAll('.delete-btn').forEach(btn => {
-            btn.addEventListener('click', () => deleteProduct(btn.dataset.id));
-        });
-    }
-    async function handleSubmit(e) {
-        e.preventDefault();
-
-        if (!validateImageInput()) {
-            alert('Por favor, proporciona una imagen válida');
-            return;
-        }
-
-        // Si se ha seleccionado un archivo, se debe subir al servidor
-        let imagenUrl = imagenUrlInput.value.trim();
-        if (currentImageFile) {
-            const formData = new FormData();
-            formData.append('imagen', currentImageFile);
-
-            try {
-                // Asume que tienes un endpoint para subir imágenes, por ejemplo: /upload
-                const uploadResponse = await fetch('http://localhost:3000/upload', {
-                    method: 'POST',
-                    body: formData
-                });
-                if (!uploadResponse.ok) throw new Error('Error al subir la imagen');
-                const uploadResult = await uploadResponse.json();
-                imagenUrl = uploadResult.url; // URL permanente devuelta por el servidor
-            } catch (error) {
-                console.error('Error en la subida de imagen:', error);
-                alert('Error al subir la imagen: ' + error.message);
-                return;
-            }
-        }
-
-        const producto = {
-            nombreComun: document.getElementById('nombreComun').value,
-            nombreCientifico: document.getElementById('nombreCientifico').value,
-            unidadesInventario: parseInt(document.getElementById('unidadesInventario').value),
-            precio: parseFloat(document.getElementById('precio').value),
-            categoria: document.getElementById('category').value
-        };
-
-        try {
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(producto)
-            });
-
-            if (!response.ok) throw new Error('Error al agregar producto');
-
-            const nuevoProducto = await response.json();
-            productos.push(nuevoProducto);
-            renderProducts();
-            productForm.reset();
-            resetImageInput();
-
-        } catch (error) {
-            console.error('Error:', error);
-            alert('Error al agregar producto: ' + error.message);
-        }
-    }
-
-    // Asegúrate de que el event listener del formulario esté asignado a esta función:
-    productForm.addEventListener('submit', handleSubmit);
-
-    function openEditModal(id) {
-        const producto = productos.find(p => p.id === id);
-        if (!producto) return;
-
-        // Llenar el formulario de edición
-        document.getElementById('editId').value = producto.id;
-        document.getElementById('editNombreComun').value = producto.nombreComun;
-        document.getElementById('editNombreCientifico').value = producto.nombreCientifico;
-        document.getElementById('editTamano').value = producto.tamano;
-        document.getElementById('editPeso').value = producto.peso;
-        document.getElementById('editUnidadesInventario').value = producto.unidadesInventario;
-        document.getElementById('editPrecio').value = producto.precio;
-        document.getElementById('editLuz').value = producto.luz;
-        document.getElementById('editTemperatura').value = producto.temperatura;
-        document.getElementById('editRiego').value = producto.riego;
-        document.getElementById('editDetallesRiego').value = producto.detallesRiego;
-        document.getElementById('editImagen').value = producto.imagen;
-        document.getElementById('editInfo').value = producto.info;
-        document.getElementById('editCategory').value = producto.categoria;
-
-        editModal.show();
-    }
-
-    async function handleEditSubmit(e) {
-        e.preventDefault();
-
-        const id = document.getElementById('editId').value;
-        if (!id) {
-            alert('ID de producto no válido');
-            return;
-        }
-
-        // Validación básica
-        const imagenUrl = document.getElementById('editImagen').value.trim();
-        if (!imagenUrl) {
-            alert('La URL de la imagen es requerida');
-            return;
-        }
-
-        const producto = {
-            nombreComun: document.getElementById('editNombreComun').value.trim(),
-            // ... resto de campos
-        };
-
-        try {
-            const response = await fetch(`${url}/${id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(producto)
-            });
-
-            if (!response.ok) {
-                const errorData = await response.json().catch(() => ({}));
-                throw new Error(errorData.message || `Error HTTP: ${response.status}`);
-            }
-
-            const updatedProduct = await response.json();
-            const index = productos.findIndex(p => p.id === id);
-
-            if (index !== -1) {
-                productos[index] = updatedProduct;
-                renderProducts();
-                editModal.hide();
-            } else {
-                throw new Error('Producto no encontrado en la lista local');
-            }
-
-        } catch (error) {
-            console.error('Update error:', error);
-            alert(`Error al actualizar producto: ${error.message}`);
-            // Considera mostrar el error en el modal en lugar de usar alert
-        }
-    }
-
-    async function deleteProduct(id) {
-        if (!confirm('¿Estás seguro de que deseas eliminar este producto?')) return;
-
-        try {
-            const response = await fetch(`${url}/${id}`, {
-                method: 'DELETE'
-            });
-
-            if (!response.ok) throw new Error('Error al eliminar producto');
-
-            productos = productos.filter(p => p.id !== id);
-            renderProducts();
-
-        } catch (error) {
-            console.error('Error:', error);
-            alert('Error al eliminar producto: ' + error.message);
-        }
-    }
-});
+    })
+    .catch(error => {
+        console.error("❌ Error al obtener productos:", error);
+        productContainer.innerHTML = '<div class="alert alert-danger">No se pudieron cargar los productos.</div>';
+    });

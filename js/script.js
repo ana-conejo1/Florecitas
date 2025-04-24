@@ -20,11 +20,12 @@ fetch(`/html/footer.html`)
 
 // verificar si se inicio sesion
 window.onload = function () {
-  const loggedInUser = JSON.parse(localStorage.getItem("login_success"));
+  const loggedInUser = JSON.parse(localStorage.getItem("usuarioActual"));
   const userMenu = document.getElementById('userMenu');
 
   if (loggedInUser) {
     userMenu.innerHTML = `
+          <li><a class="dropdown-item" href="#">Hola, ${loggedInUser.nombreCliente}</a></li>
           <li><a class="dropdown-item" href="#">Mi cuenta</a></li>
           <li><hr class="dropdown-divider"></li>
           <li><button class="dropdown-item" id="signOutButton">Cerrar sesión</button></li>
@@ -32,7 +33,7 @@ window.onload = function () {
 
     // Cerrar sesión
     document.getElementById("signOutButton").addEventListener("click", function () {
-      localStorage.removeItem("login_success");
+      localStorage.removeItem("usuarioActual");
       alert("Has cerrado sesión.");
       window.location.reload();
     });

@@ -1,6 +1,8 @@
 const iniciarSesion = document.getElementById('submit');
 
-iniciarSesion.addEventListener('click', () => {
+iniciarSesion.addEventListener('click', (event) => {
+    event.preventDefault(); // <- Esta línea es clave
+
     const correoElectronico = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
@@ -16,7 +18,6 @@ iniciarSesion.addEventListener('click', () => {
         password: password
     };
 
-    // fetch para método get
     fetch(url, {
         method: "POST",
         headers: {
@@ -31,6 +32,7 @@ iniciarSesion.addEventListener('click', () => {
             return response.json();
         })
         .then(user => {
+            localStorage.setItem("usuarioActual", JSON.stringify(user));
             alert(`¡Bienvenido, ${user.nombreCliente} ${user.apellido || ''}!`);
             window.location.href = "/index.html";
         })
