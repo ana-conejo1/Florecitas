@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Variables de estado
     let currentImageFile = null;
     let productos = [];
-    const API_URL = 'http://localhost:3000/productos'; // Corregido: añadido /productos al endpoint
+    const url = 'http://localhost:8080/api/perseflora/productos'; // Corregido: añadido /productos al endpoint
 
     // Event Listeners
     productForm.addEventListener('submit', handleSubmit);
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function fetchProducts() {
         try {
-            const response = await fetch(API_URL);
+            const response = await fetch(url);
             if (!response.ok) throw new Error('Error al obtener productos');
             productos = await response.json();
             renderProducts();
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 Error al cargar los productos. Verifica:
                 <ul>
                     <li>Que el servidor esté corriendo</li>
-                    <li>Que la URL ${API_URL} sea correcta</li>
+                    <li>Que la URL ${url} sea correcta</li>
                     <li>La consola para más detalles</li>
                 </ul>
                 <button class="btn btn-sm btn-primary" onclick="location.reload()">Reintentar</button>
@@ -228,21 +228,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const producto = {
             nombreComun: document.getElementById('nombreComun').value,
             nombreCientifico: document.getElementById('nombreCientifico').value,
-            tamano: document.getElementById('tamano').value,
-            peso: parseInt(document.getElementById('peso').value),
             unidadesInventario: parseInt(document.getElementById('unidadesInventario').value),
             precio: parseFloat(document.getElementById('precio').value),
-            luz: document.getElementById('luz').value,
-            temperatura: document.getElementById('temperatura').value,
-            riego: document.getElementById('riego').value,
-            detallesRiego: document.getElementById('detallesRiego').value,
-            imagen: imagenUrl,
-            info: document.getElementById('info').value,
             categoria: document.getElementById('category').value
         };
 
         try {
-            const response = await fetch(API_URL, {
+            const response = await fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -312,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     
         try {
-            const response = await fetch(`${API_URL}/${id}`, {
+            const response = await fetch(`${url}/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -347,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!confirm('¿Estás seguro de que deseas eliminar este producto?')) return;
 
         try {
-            const response = await fetch(`${API_URL}/${id}`, {
+            const response = await fetch(`${url}/${id}`, {
                 method: 'DELETE'
             });
 
