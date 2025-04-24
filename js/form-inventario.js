@@ -69,7 +69,15 @@ agregar.addEventListener('click', (e) => {
         nombreCientifico: nombreCientifico,
         cantidad: cantidad,
         precio: precio,
+        peso: peso,
         categoria: categoria,
+        luz: luz,
+        temperatura: temperatura,
+        riego: riego,
+        detallesRiego: detallesRiego,
+        imagen: imagen,
+        toxicidad: toxicidad,
+        info: info
     };
 
     const url = `http://localhost:8080/api/perseflora/producto`;
