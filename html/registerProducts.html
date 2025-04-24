@@ -127,7 +127,7 @@
                     <div class="invalid-feedback" id="imageFeedback">Por favor, proporciona una imagen válida</div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary" style="display: block;margin:0 auto;">Agregar Producto</button>
+            <button type="submit" id="submit" class="btn btn-primary" style="display: block;margin:0 auto;">Agregar Producto</button>
         </form>
 
         <h2 class="mt-5">Lista de Productos</h2>
@@ -150,33 +150,29 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Nombre Común</label>
-                                    <input type="text" class="form-control" id="editNombreComun" required>
+                                    <input type="text" class="form-control" id="nombreComun" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Nombre Científico</label>
-                                    <input type="text" class="form-control" id="editNombreCientifico" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Tamaño (LxAxH)</label>
-                                    <input type="text" class="form-control" id="editTamano" required>
+                                    <input type="text" class="form-control" id="nombreCientifico" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Peso (g)</label>
-                                    <input type="number" class="form-control" id="editPeso" required>
+                                    <input type="number" class="form-control" id="peso" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Unidades en Inventario</label>
-                                    <input type="number" class="form-control" id="editUnidadesInventario" required>
+                                    <input type="number" class="form-control" id="unidadesInventario" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Precio</label>
-                                    <input type="number" class="form-control" id="editPrecio" required>
+                                    <input type="number" class="form-control" id="precio" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Tipo de Luz</label>
-                                    <select class="form-select" id="editLuz" required>
+                                    <select class="form-select" id="luz" required>
                                         <option value="" disabled selected>Seleccione tipo de luz</option>
                                         <option value="Directa">Directa</option>
                                         <option value="Abundante">Abundante</option>
@@ -185,7 +181,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Temperatura</label>
-                                    <select class="form-select" id="editTemperatura" required>
+                                    <select class="form-select" id="temperatura" required>
                                         <option value="" disabled selected>Seleccione temperatura</option>
                                         <option value="Cálida (16-27°C)">Cálida (16-27°C)</option>
                                         <option value="Fresca (-5 a 16°C)">Fresca (-5 a 16°C)</option>
@@ -193,7 +189,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Tipo de Riego</label>
-                                    <select class="form-select" id="editRiego" required>
+                                    <select class="form-select" id="riego" required>
                                         <option value="" disabled selected>Seleccione tipo de riego</option>
                                         <option value="Abundante">Abundante</option>
                                         <option value="Moderado">Moderado</option>
@@ -202,11 +198,11 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Detalles de Riego</label>
-                                    <textarea class="form-control" id="editDetallesRiego" required></textarea>
+                                    <textarea class="form-control" id="detallesRiego" required></textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Imagen URL</label>
-                                    <input type="url" class="form-control" id="editImagen">
+                                    <input type="url" class="form-control" id="imagen">
                                 </div>
                             </div>
                         </div>
@@ -229,7 +225,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                            <button type="submit" id="submit" class="btn btn-primary">Guardar Cambios</button>
                         </div>
                     </form>
                 </div>

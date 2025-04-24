@@ -1,4 +1,52 @@
-document.addEventListener('DOMContentLoaded', function() {
+const agregar = document.getElementById('submit');
+
+agregar.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    // Capturar valores de los campos del formulario
+    const nombreProducto = document.getElementById('nombreComun').value;
+    const nombreCientifico = document.getElementById('nombreCientifico').value;
+    const cantidad = parseInt(document.getElementById('unidadesInventario').value);
+    const precio = parseFloat(document.getElementById('precio').value);
+    const categoria = document.getElementById('category').value;
+    const imagen = imagenUrl; // Asumiendo que imagenUrl ya está definida
+    const peso = document.getElementById('peso').value;
+    const luz = document.getElementById('luz').value;
+    const temperatura = document.getElementById('temperatura').value;
+    const riego = document.getElementById('riego').value;
+    const detallesRiego = document.getElementById('detallesRiego').value;
+    const info = document.getElementById('info').value;
+
+
+    const product = {
+        nombreProducto: nombreProducto,
+        nombreCientifico: nombreCientifico,
+        cantidad: cantidad,
+        precio: precio,
+        categoria: categoria,
+    };
+
+    const url = `http://localhost:8080/api/perseflora/producto`;
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(product)
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Producto creado exitosamente:", data);
+            document.getElementById("registroForm").reset();
+        })
+        .catch(error => {
+            console.error(error);
+        });
+});
+
+/// codigo que se usaba con el server para image 
+document.addEventListener('DOMContentLoaded', function () {
     // Elementos del DOM
     const productForm = document.getElementById('productForm');
     const productContainer = document.getElementById('productContainer');
@@ -11,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const imagenUrlInput = document.getElementById('imagen');
     const clearUrlBtn = document.getElementById('clearUrlBtn');
     const selectFileBtn = document.getElementById('selectFileBtn');
-    
+
     // Variables de estado
     let currentImageFile = null;
     let productos = [];
@@ -64,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleDrop(e) {
         const dt = e.dataTransfer;
         const files = dt.files;
-        
+
         if (files.length) {
             fileInput.files = files;
             handleFileSelect({ target: fileInput });
@@ -111,13 +159,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const hasUrl = imagenUrlInput.value.trim() !== '';
         const hasFile = currentImageFile !== null;
         const isValid = hasUrl || hasFile;
-        
+
         if (isValid) {
             imagenUrlInput.classList.remove('is-invalid');
         } else {
             imagenUrlInput.classList.add('is-invalid');
         }
-        
+
         return isValid;
     }
 
@@ -140,8 +188,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 <button class="btn btn-sm btn-primary" onclick="location.reload()">Reintentar</button>
             </div>
         `;
+        }
     }
-}
     function renderProducts() {
         if (!productos || productos.length === 0) {
             productContainer.innerHTML = '<div class="alert alert-info">No hay productos registrados</div>';
@@ -184,20 +232,20 @@ document.addEventListener('DOMContentLoaded', function() {
         </table>
     `;
 
-    productContainer.innerHTML = tableHTML;
+        productContainer.innerHTML = tableHTML;
 
-    // Añadir eventos a los botones de acción
-    document.querySelectorAll('.edit-btn').forEach(btn => {
-        btn.addEventListener('click', () => openEditModal(btn.dataset.id));
-    });
+        // Añadir eventos a los botones de acción
+        document.querySelectorAll('.edit-btn').forEach(btn => {
+            btn.addEventListener('click', () => openEditModal(btn.dataset.id));
+        });
 
-    document.querySelectorAll('.delete-btn').forEach(btn => {
-        btn.addEventListener('click', () => deleteProduct(btn.dataset.id));
-    });
-}
+        document.querySelectorAll('.delete-btn').forEach(btn => {
+            btn.addEventListener('click', () => deleteProduct(btn.dataset.id));
+        });
+    }
     async function handleSubmit(e) {
         e.preventDefault();
-        
+
         if (!validateImageInput()) {
             alert('Por favor, proporciona una imagen válida');
             return;
@@ -208,7 +256,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (currentImageFile) {
             const formData = new FormData();
             formData.append('imagen', currentImageFile);
-            
+
             try {
                 // Asume que tienes un endpoint para subir imágenes, por ejemplo: /upload
                 const uploadResponse = await fetch('http://localhost:3000/upload', {
@@ -241,15 +289,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 body: JSON.stringify(producto)
             });
-    
+
             if (!response.ok) throw new Error('Error al agregar producto');
-    
+
             const nuevoProducto = await response.json();
             productos.push(nuevoProducto);
             renderProducts();
             productForm.reset();
             resetImageInput();
-            
+
         } catch (error) {
             console.error('Error:', error);
             alert('Error al agregar producto: ' + error.message);
@@ -284,25 +332,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function handleEditSubmit(e) {
         e.preventDefault();
-        
+
         const id = document.getElementById('editId').value;
         if (!id) {
             alert('ID de producto no válido');
             return;
         }
-    
+
         // Validación básica
         const imagenUrl = document.getElementById('editImagen').value.trim();
         if (!imagenUrl) {
             alert('La URL de la imagen es requerida');
             return;
         }
-    
+
         const producto = {
             nombreComun: document.getElementById('editNombreComun').value.trim(),
             // ... resto de campos
         };
-    
+
         try {
             const response = await fetch(`${url}/${id}`, {
                 method: 'PUT',
@@ -311,15 +359,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 body: JSON.stringify(producto)
             });
-    
+
             if (!response.ok) {
                 const errorData = await response.json().catch(() => ({}));
                 throw new Error(errorData.message || `Error HTTP: ${response.status}`);
             }
-    
+
             const updatedProduct = await response.json();
             const index = productos.findIndex(p => p.id === id);
-            
+
             if (index !== -1) {
                 productos[index] = updatedProduct;
                 renderProducts();
@@ -327,7 +375,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 throw new Error('Producto no encontrado en la lista local');
             }
-            
+
         } catch (error) {
             console.error('Update error:', error);
             alert(`Error al actualizar producto: ${error.message}`);
@@ -347,7 +395,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             productos = productos.filter(p => p.id !== id);
             renderProducts();
-            
+
         } catch (error) {
             console.error('Error:', error);
             alert('Error al eliminar producto: ' + error.message);
