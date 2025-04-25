@@ -1,46 +1,5 @@
 const agregar = document.getElementById('submit');
 
-const fileInput = document.getElementById('fileInput');
-const imagenURLInput = document.getElementById('imagen');
-
-let imagenUrl = null;
-
-// Inicializar el widget de carga de Cloudinary
-const cloudinaryWidget = cloudinary.createUploadWidget({
-    cloudName: 'dlojolnk4',
-    upload_preset: 'ml_Default',
-    multiple: false,
-    sources: ['local', 'url'],
-    clientAllowedFormats: ['jpg', 'jpeg', 'png', 'webp'],
-    showAdvancedOptions: false,
-    cropping: false,
-    maxFileSize: 2000000, // Tamaño máximo del archivo en bytes
-    maxImageWidth: 1000, // Ancho máximo de la imagen
-}, (error, result) => {
-    if (result.event === 'success') {
-        imagenUrl = result.info.secure_url;
-        document.getElementById('imagePreviewWrapper').innerHTML = `<img src="${imagenUrl}" class="img-fluid" />`;
-        document.getElementById('removeImageBtn').classList.remove('d-none');
-        imagenURLInput.value = imagenUrl;  // Guardamos la URL en el input
-    }
-});
-
-// Llama al widget cuando el usuario hace clic en el botón "Seleccionar archivo"
-document.getElementById('selectFileBtn').addEventListener('click', function () {
-    cloudinaryWidget.open();
-});
-
-// Botón para eliminar la imagen cargada
-document.getElementById('removeImageBtn').addEventListener('click', function () {
-    imagenUrl = null;
-    document.getElementById('imagePreviewWrapper').innerHTML = `<div class="d-flex flex-column justify-content-center align-items-center">
-        <i class="bi bi-image fs-3 text-muted"></i>
-        <small class="text-muted">Vista previa</small>
-    </div>`;
-    document.getElementById('removeImageBtn').classList.add('d-none');
-    imagenURLInput.value = '';
-});
-
 agregar.addEventListener('click', (e) => {
     e.preventDefault();
 
@@ -54,12 +13,14 @@ agregar.addEventListener('click', (e) => {
     const luz = document.getElementById('luz').value;
     const temperatura = document.getElementById('temperatura').value;
     const riego = document.getElementById('riego').value;
+    const toxicidad = document.getElementById('toxicidad').value;
     const detallesRiego = document.getElementById('detallesRiego').value;
     const info = document.getElementById('info').value;
+    const imagen = document.getElementById('imagen').value;
 
     // Validación de campos obligatorios
     if (!nombreProducto || !nombreCientifico || isNaN(cantidad) || isNaN(precio) || !categoria ||
-        isNaN(peso) || !luz || !temperatura || !riego || !detallesRiego || !info) {
+        isNaN(peso) || !luz || !temperatura || !riego || !toxicidad || !detallesRiego || !info) {
         alert("Por favor, completa todos los campos obligatorios correctamente.");
         return;
     }
@@ -67,7 +28,7 @@ agregar.addEventListener('click', (e) => {
     const producto = {
         nombreProducto: nombreProducto,
         nombreCientifico: nombreCientifico,
-        cantidad: cantidad,
+        unidadesInventario: cantidad,  
         precio: precio,
         peso: peso,
         categoria: categoria,
@@ -81,7 +42,6 @@ agregar.addEventListener('click', (e) => {
     };
 
     const url = `http://localhost:8080/api/perseflora/producto`;
-
     fetch(url, {
         method: 'POST',
         headers: {
@@ -100,7 +60,6 @@ agregar.addEventListener('click', (e) => {
             productForm.reset();
         })
         .catch(error => {
-            console.error("Error al agregar producto:", error.message);
             alert("Ocurrió un error al agregar el producto ❌");
         });
 });
