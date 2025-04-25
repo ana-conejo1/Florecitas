@@ -140,23 +140,22 @@ function activarBotonesEditar() {
 
                 // Llenar los campos del modal con los datos del producto
                 document.getElementById('editId').value = producto.idProducto;
-                document.getElementById('nombreComunEdit').value = producto.nombreProducto;
-                document.getElementById('nombreCientificoEdit').value = producto.nombreCientifico;
-                document.getElementById('pesoEdit').value = producto.peso;
-                document.getElementById('unidadesInventarioEdit').value = producto.unidadesInventario;
-                document.getElementById('precioEdit').value = producto.precio;
-                document.getElementById('luzEdit').value = producto.luz;
-                document.getElementById('temperaturaEdit').value = producto.temperatura;
-                document.getElementById('riegoEdit').value = producto.riego;
-                document.getElementById('detallesRiegoEdit').value = producto.detallesRiego;
-                document.getElementById('imagenEdit').value = producto.imagen;
+                document.getElementById('editNombreComun').value = producto.nombreProducto;
+                document.getElementById('editNombreCientifico').value = producto.nombreCientifico;
+                document.getElementById('editPeso').value = producto.peso;
+                document.getElementById('editUnidadesInventario').value = producto.unidadesInventario;
+                document.getElementById('editPrecio').value = producto.precio;
+                document.getElementById('editLuz').value = producto.luz;
+                document.getElementById('editTemperatura').value = producto.temperatura;
+                document.getElementById('editRiego').value = producto.riego;
+                document.getElementById('editDetallesRiego').value = producto.detallesRiego;
+                document.getElementById('editImagen').value = producto.imagen;
                 document.getElementById('editInfo').value = producto.info;
                 document.getElementById('editCategory').value = producto.categoria;
-                document.getElementById('toxicidadEdit').value = producto.toxicidad;
+                document.getElementById('editToxicidad').value = producto.toxicidad;
 
                 // Mostrar el modal
                 new bootstrap.Modal(document.getElementById('editModal')).show();
-
             } catch (error) {
                 console.error('Error al cargar producto:', error);
             }
@@ -168,20 +167,21 @@ document.getElementById('editForm').addEventListener('#guardar', async function 
     e.preventDefault();
 
     const id = document.getElementById('editId').value;
+
     const productoActualizado = {
-        nombreProducto: document.getElementById('nombreComun').value,
-        nombreCientifico: document.getElementById('nombreCientifico').value,
-        peso: parseInt(document.getElementById('peso').value),
-        unidadesInventario: parseInt(document.getElementById('unidadesInventario').value),
-        precio: parseFloat(document.getElementById('precio').value),
-        luz: document.getElementById('luz').value,
-        temperatura: document.getElementById('temperatura').value,
-        riego: document.getElementById('riego').value,
-        detallesRiego: document.getElementById('detallesRiego').value,
-        imagen: document.getElementById('imagen').value,
-        info: document.getElementById('edit').value,
-        categoria: document.getElementById('editcategory').value,
-        toxicidad: document.getElementById('toxicidad').value
+        nombreProducto: document.getElementById('editNombreComun').value,
+        nombreCientifico: document.getElementById('editNombreCientifico').value,
+        peso: parseInt(document.getElementById('editPeso').value),
+        unidadesInventario: parseInt(document.getElementById('editUnidadesInventario').value),
+        precio: parseFloat(document.getElementById('editPrecio').value),
+        luz: document.getElementById('editLuz').value,
+        temperatura: document.getElementById('editTemperatura').value,
+        riego: document.getElementById('editRiego').value,
+        detallesRiego: document.getElementById('editDetallesRiego').value,
+        imagen: document.getElementById('editImagen').value,
+        info: document.getElementById('editInfo').value,
+        categoria: document.getElementById('editCategory').value,
+        toxicidad: document.getElementById('editToxicidad').value
     };
 
     try {
@@ -192,7 +192,7 @@ document.getElementById('editForm').addEventListener('#guardar', async function 
         });
 
         if (!res.ok) throw new Error("No se pudo actualizar");
-        alert("Producto actualizado correctamente");
+        alert("Producto actualizado correctamente ✅");
         cargarProductos();
         bootstrap.Modal.getInstance(document.getElementById('editModal')).hide();
 
@@ -201,11 +201,9 @@ document.getElementById('editForm').addEventListener('#guardar', async function 
     }
 });
 
-
-//Borra boton
 function activarBotonesBorrar() {
     document.querySelectorAll('.delete-btn').forEach(btn => {
-        btn.addEventListener('click', async () => {
+    btn.addEventListener('click', async () => {
             const id = btn.getAttribute('data-id');
             if (!confirm('¿Estás seguro de eliminar este producto?')) return;
 
