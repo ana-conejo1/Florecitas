@@ -40,7 +40,7 @@ agregar.addEventListener('click', (e) => {
         toxicidad: toxicidad,
         info: info
     };
-
+    
     const url = `http://localhost:8080/api/perseflora/producto`;
     fetch(url, {
         method: 'POST',
@@ -100,8 +100,8 @@ fetch(urlProductos)
             const imagen = producto.imagen ? producto.imagen : '/assets/pictures/logo.png';
             return `
                     <tr>
-                        <td><img src="${imagen}" alt="${producto.nombreComun}" style="width: 80px; height: auto;"></td>
-                        <td>${producto.nombreComun}</td>
+                        <td><img src="${imagen}" alt="${producto.nombreProducto}" style="width: 80px; height: auto;"></td>
+                        <td>${producto.nombreProducto}</td>
                         <td><em>${producto.nombreCientifico}</em></td>
                         <td>$${producto.precio.toFixed(2)}</td>
                         <td>${producto.unidadesInventario}</td>
