@@ -92,6 +92,5 @@ if (text) {
       });
     }
   });
-
   // También puedes incluir más lógica relacionada con el juego aquí
 });
