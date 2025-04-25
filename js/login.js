@@ -1,29 +1,47 @@
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+const iniciarSesion = document.getElementById('submit');
 
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value.trim();
+iniciarSesion.addEventListener('click', (event) => {
+    event.preventDefault(); // <- Esta línea es clave
 
-    if (!email || !password) {
+    const correoElectronico = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    if (!correoElectronico || !password) {
         alert("Por favor, ingresa tu correo electrónico y contraseña.");
         return;
     }
 
-    const users = JSON.parse(localStorage.getItem("userDB")) || [];
+    const url = `http://localhost:8080/auth/perseflora/login`;
 
-    const validUser = users.find(user => user.email === email && user.password === password);
+    const user = {
+        email: correoElectronico,
+        password: password
+    };
 
-    if (!validUser) {
-        alert("Usuario y/o contraseña incorrectos.");
-        return;
-    }
-
-    alert(`¡Bienvenido, ${validUser.firstname} ${validUser.lastname}!`);
-    localStorage.setItem("login_success", JSON.stringify(validUser));
-    window.location.href = "index.html";
+    fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+    })
+        .then(response => {
+            if (!response.ok) {
+                return response.text().then(text => { throw new Error(text); });
+            }
+            return response.json();
+        })
+        .then(user => {
+            localStorage.setItem("usuarioActual", JSON.stringify(user));
+            alert(`¡Bienvenido, ${user.nombreCliente} ${user.apellido || ''}!`);
+            window.location.href = "/index.html";
+        })
+        .catch(error => {
+            alert("Error: " + error.message);
+        });
 });
 
-document.getElementById('forgotPasswordForm').addEventListener('submit', function(event) {
+document.getElementById('forgotPasswordForm').addEventListener('submit', function (event) {
     event.preventDefault();
     const email = document.getElementById('resetEmail').value;
     alert(`Se ha enviado un enlace de restablecimiento a: ${email}`);
