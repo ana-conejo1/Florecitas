@@ -31,7 +31,7 @@ function validarFormulario() {
 
     if (!passwordRegex.test(password)) {
         isValid = false;
-        errorMessage += 'La contraseña debe tener entre 8 y 20 caracteres, con al menos una mayúscula y un número. <br>';
+        errorMessage += 'La contraseña debe tener entre 8 y 20 caracteres. <br> Debe contener por lo menos una Mayuscula. <br> Debe contener por lo menos una numero. <br> No incluir caracteres especiales (ñ,%,#) <br>';
     }
 
     if (password !== confirmPassword) {
