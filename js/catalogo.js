@@ -19,10 +19,10 @@ fetch(urlProductos)
             let luzIcon, riegoIcon, temperaturaIcon, toxicidadIcon;
 
             switch (producto.luz) {
-                case 'directa':
+                case 'Directa':
                     luzIcon = 'bi bi-brightness-high-fill';
                     break;
-                case 'indirecta':
+                case 'Sombra':
                     luzIcon = 'bi bi-umbrella';
                     break;
                 default:
@@ -30,13 +30,13 @@ fetch(urlProductos)
             }
 
             switch (producto.riego) {
-                case 'abundante':
+                case 'Abundante':
                     riegoIcon = 'bi bi-droplet-fill';
                     break;
-                case 'moderado':
+                case 'Moderado':
                     riegoIcon = 'bi bi-droplet-half';
                     break;
-                case 'minimo':
+                case 'Minimo':
                     riegoIcon = 'bi bi-droplet';
                     break;
                 default:
@@ -44,24 +44,21 @@ fetch(urlProductos)
             }
 
             switch (producto.temperatura) {
-                case 'calido':
+                case 'Cálida (16-27°C)':
                     temperaturaIcon = 'bi bi-thermometer-sun';
                     break;
-                case 'fresca':
+                case 'Fresca (-5 a 16°C)':
                     temperaturaIcon = 'bi bi-thermometer-low';
-                    break;
-                case 'frio':
-                    temperaturaIcon = 'bi bi-thermometer-snow';
                     break;
                 default:
                     temperaturaIcon = 'bi bi-thermometer';
             }
 
             switch (producto.toxicidad) {
-                case 'toxico':
+                case 'Toxica':
                     toxicidadIcon = 'bi bi-heartbreak';
                     break;
-                case 'no':
+                case 'No Toxica':
                     toxicidadIcon = 'bi bi-heart-fill';
                     break;
                 default:
