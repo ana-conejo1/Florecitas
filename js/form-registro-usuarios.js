@@ -50,6 +50,7 @@ function validarFormulario() {
         alertModal.show();
     }else {
         alert('¡Registro Exitoso!'); 
+        window.location.href = "/html/login.html";
     }
 
     return isValid;
