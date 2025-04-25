@@ -1,58 +1,33 @@
 const urlProductos = `http://localhost:8080/api/perseflora/producto`;
-const productContainer = document.getElementById('product-list');
-let data = [];
+const productList = document.getElementById('product-list');
 
 fetch(urlProductos)
     .then(response => {
         if (!response.ok) {
-            throw new Error('Error al cargar el archivo JSON');
+            throw new Error('Error al obtener los productos');
         }
         return response.json();
     })
-    .then(jsonData => {
-        data = jsonData.productos; // Ahora data es el array de productos
-        showAllProducts();
-    })
-    .catch(error => {
-        console.error('Error al cargar los productos:', error);
-    });
+    .then(productos => {
+        if (productos.length === 0) {
+            productList.innerHTML = '<div class="alert alert-info">No hay productos registrados</div>';
+            return;
+        }
 
-// Función para mostrar todos los productos
-function showAllProducts() {
-    renderProducts(data);
-}
+        productos.forEach(producto => {
+            // Mapeo de iconos para luz, riego, temperatura y toxicidad
+            let luzIcon, riegoIcon, temperaturaIcon, toxicidadIcon;
 
-// Función para filtrar productos por categoría
-function showProducts(category) {
-    let filteredProducts = [];
-
-    // Mapeo de categorías (para hacer coincidir los botones con las categorías del JSON)
-    const categoryMap = {
-        'minimal': 'Minimal Suc',
-        'kawaii': 'Verde Kawaii',
-        'detalles': 'Detalles vivos'
-    };
-
-    const categoryToFilter = categoryMap[category];
-
-    if (categoryToFilter) {
-        filteredProducts = data.filter(product =>
-            product.category === categoryToFilter
-        );
-    }
-
-    renderProducts(filteredProducts);
-}
-
-// Función para renderizar los productos
-function renderProducts(products) {
-    const catalogo = document.getElementById('product-list');
-    catalogo.innerHTML = '';
-
-    products.forEach(producto => {
-        if (producto.imagen && producto.info && producto.nombreComun && producto.nombreCientifico && producto.precio) {
-            // Función para cambiar los iconos
-            let riegoIcon, luzIcon, temperaturaIcon, toxicidadIcon;
+            switch (producto.luz) {
+                case 'directa':
+                    luzIcon = 'bi bi-brightness-high-fill';
+                    break;
+                case 'indirecta':
+                    luzIcon = 'bi bi-umbrella';
+                    break;
+                default:
+                    luzIcon = 'bi bi-umbrella';
+            }
 
             switch (producto.riego) {
                 case 'abundante':
@@ -66,17 +41,6 @@ function renderProducts(products) {
                     break;
                 default:
                     riegoIcon = 'bi bi-droplet';
-            }
-
-            switch (producto.luz) {
-                case 'directa':
-                    luzIcon = 'bi bi-brightness-high-fill';
-                    break;
-                case 'indirecta':
-                    luzIcon = 'bi bi-umbrella';
-                    break;
-                default:
-                    luzIcon = 'bi bi-umbrella';
             }
 
             switch (producto.temperatura) {
@@ -104,43 +68,37 @@ function renderProducts(products) {
                     toxicidadIcon = 'bi bi-heart';
             }
 
+            // Crear la card para cada producto
             const card = document.createElement('div');
             card.classList.add('me-3', 'mb-4');
             card.innerHTML = `
-                    <div class="card front rounded-4" style="width: 18rem;">
-                        <div class="card-body d-flex justify-content-center pt-4">
-                            <i class="${luzIcon} pe-3"></i>
-                            <i class="${riegoIcon} pe-3"></i>
-                            <i class="${temperaturaIcon} pe-3"></i>
-                            <i class="${toxicidadIcon}"></i>
-                        </div>
-                        <img src="${producto.imagen}" class="card-img-top" alt="Imagen del producto">
-                        <!-- Parte Trasera -->
-                        <div class="back rounded-4 pb-3" style="width: 18rem;">
-                            <div class="card-body text-center">
-                                <p class="card-text text-white">${producto.info}</p>
-                                <p class="card-text text-white">${producto.detallesRiego}</p>
-                            </div>
-                            <button class="btn btn-primary mx-auto" 
-                                onclick="agregarAlCarrito(this)" 
-                                
-                                data-nombre="${producto.nombreComun}" 
-                                data-precio="${producto.precio}">
-                                Añadir al carrito
-                            </button>
-                        </div>
+                <div class="card front rounded-4" style="width: 18rem;">
+                    <div class="card-body d-flex justify-content-center pt-4">
+                        <i class="${luzIcon} pe-3"></i>
+                        <i class="${riegoIcon} pe-3"></i>
+                        <i class="${temperaturaIcon} pe-3"></i>
+                        <i class="${toxicidadIcon}"></i>
                     </div>
-                    <h6 class="ps-3">${producto.nombreComun}</h6>
-                    <p class="ps-3">${producto.nombreCientifico}<br>$${producto.precio}</p>
-                `;
+                    <img src="${producto.imagen}" class="card-img-top" alt="Imagen del producto">
+                    <!-- Parte Trasera -->
+                    <div class="back rounded-4 pb-3" style="width: 18rem;">
+                        <div class="card-body text-center">
+                            <p class="card-text text-white">${producto.info}</p>
+                            <p class="card-text text-white">${producto.detallesRiego}</p>
+                        </div>
+                        <button class="btn btn-primary mx-auto" onclick="agregarAlCarrito(this)" data-nombre="${producto.nombreProducto}" data-precio="${producto.precio}">
+                            Añadir al carrito
+                        </button>
+                    </div>
+                </div>
+                <h6 class="ps-3">${producto.nombreProducto}</h6>
+                <p class="ps-3">${producto.nombreCientifico}<br>$${producto.precio}</p>
+            `;
 
-            catalogo.appendChild(card);
-        } else {
-            console.error('Producto incompleto', producto);
-        }
+            productList.appendChild(card); // Añadir la card a la lista de productos
+        });
+    })
+    .catch(error => {
+        console.error("❌ Error al obtener productos:", error);
+        productList.innerHTML = '<div class="alert alert-danger">No se pudieron cargar los productos.</div>';
     });
-}
-
-// Hacemos las funciones accesibles globalmente
-window.showProducts = showProducts;
-window.showAllProducts = showAllProducts;
