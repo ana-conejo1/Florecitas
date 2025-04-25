@@ -26,20 +26,21 @@ agregar.addEventListener('click', (e) => {
     }
 
     const producto = {
-        nombreProducto,
-        nombreCientifico,
-        unidadesInventario: cantidad,
-        precio,
-        peso,
-        categoria,
-        luz,
-        temperatura,
-        riego,
-        detallesRiego,
-        imagen,
-        toxicidad,
-        info
+        nombreProducto: nombreProducto,
+        nombreCientifico: nombreCientifico,
+        cantidad: cantidad,
+        precio: precio,
+        peso: peso,
+        categoria: categoria,
+        luz: luz,
+        temperatura: temperatura,
+        riego: riego,
+        detallesRiego: detallesRiego,
+        imagen: imagen,
+        toxicidad: toxicidad,
+        info: info
     };
+
 
     fetch('http://localhost:8080/api/perseflora/producto', {
         method: 'POST',
@@ -137,21 +138,23 @@ function activarBotonesEditar() {
                 if (!res.ok) throw new Error("Producto no encontrado");
                 const producto = await res.json();
 
+                // Llenar los campos del modal con los datos del producto
                 document.getElementById('editId').value = producto.idProducto;
-                document.getElementById('nombreComun').value = producto.nombreProducto;
-                document.getElementById('nombreCientifico').value = producto.nombreCientifico;
-                document.getElementById('peso').value = producto.peso;
-                document.getElementById('unidadesInventario').value = producto.unidadesInventario;
-                document.getElementById('precio').value = producto.precio;
-                document.getElementById('luz').value = producto.luz;
-                document.getElementById('temperatura').value = producto.temperatura;
-                document.getElementById('riego').value = producto.riego;
-                document.getElementById('detallesRiego').value = producto.detallesRiego;
-                document.getElementById('imagen').value = producto.imagen;
-                document.getElementById('info').value = producto.info;
-                document.getElementById('category').value = producto.categoria;
-                document.getElementById('toxicidad').value = producto.toxicidad;
+                document.getElementById('nombreComunEdit').value = producto.nombreProducto;
+                document.getElementById('nombreCientificoEdit').value = producto.nombreCientifico;
+                document.getElementById('pesoEdit').value = producto.peso;
+                document.getElementById('unidadesInventarioEdit').value = producto.unidadesInventario;
+                document.getElementById('precioEdit').value = producto.precio;
+                document.getElementById('luzEdit').value = producto.luz;
+                document.getElementById('temperaturaEdit').value = producto.temperatura;
+                document.getElementById('riegoEdit').value = producto.riego;
+                document.getElementById('detallesRiegoEdit').value = producto.detallesRiego;
+                document.getElementById('imagenEdit').value = producto.imagen;
+                document.getElementById('editInfo').value = producto.info;
+                document.getElementById('editCategory').value = producto.categoria;
+                document.getElementById('toxicidadEdit').value = producto.toxicidad;
 
+                // Mostrar el modal
                 new bootstrap.Modal(document.getElementById('editModal')).show();
 
             } catch (error) {
@@ -161,7 +164,7 @@ function activarBotonesEditar() {
     });
 }
 
-document.getElementById('editForm').addEventListener('submit', async function (e) {
+document.getElementById('editForm').addEventListener('#guardar', async function (e) {
     e.preventDefault();
 
     const id = document.getElementById('editId').value;
@@ -176,8 +179,8 @@ document.getElementById('editForm').addEventListener('submit', async function (e
         riego: document.getElementById('riego').value,
         detallesRiego: document.getElementById('detallesRiego').value,
         imagen: document.getElementById('imagen').value,
-        info: document.getElementById('info').value,
-        categoria: document.getElementById('category').value,
+        info: document.getElementById('edit').value,
+        categoria: document.getElementById('editcategory').value,
         toxicidad: document.getElementById('toxicidad').value
     };
 
@@ -197,8 +200,6 @@ document.getElementById('editForm').addEventListener('submit', async function (e
         console.error("Error al actualizar producto:", error);
     }
 });
-
-
 
 
 //Borra boton

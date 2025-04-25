@@ -79,11 +79,11 @@
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-12 mb-3">
-                    <label for="riego" class="form-label">Toxicidad</label>
+                    <label for="toxicidad" class="form-label">Toxicidad</label>
                     <select class="form-select" id="toxicidad" required>
-                        <option value="" disabled selected>Seleccione el tipo de riego</option>
-                        <option value="Abundante">Toxica</option>
-                        <option value="Moderado">No Toxica</option>
+                        <option value="" disabled selected>Seleccione la toxicidad</option>
+                        <option value="Tóxica">Tóxica</option>
+                        <option value="No Tóxica">No Tóxica</option>
                     </select>
                 </div>
                 <div class="col-lg-4 col-md-12 mb-3">
@@ -123,29 +123,29 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Nombre Común</label>
-                                    <input type="text" class="form-control" id="nombreComun" required>
+                                    <input type="text" class="form-control" id="nombreComunEdit" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Nombre Científico</label>
-                                    <input type="text" class="form-control" id="nombreCientifico" required>
+                                    <input type="text" class="form-control" id="nombreCientificoEdit" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Peso (g)</label>
-                                    <input type="number" class="form-control" id="peso" required>
+                                    <input type="number" class="form-control" id="pesoEdit" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Unidades en Inventario</label>
-                                    <input type="number" class="form-control" id="unidadesInventario" required>
+                                    <input type="number" class="form-control" id="unidadesInventarioEdit" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Precio</label>
-                                    <input type="number" class="form-control" id="precio" required>
+                                    <input type="number" class="form-control" id="precioEdit" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Tipo de Luz</label>
-                                    <select class="form-select" id="luz" required>
+                                    <select class="form-select" id="luzEdit" required>
                                         <option value="" disabled selected>Seleccione tipo de luz</option>
                                         <option value="Directa">Directa</option>
                                         <option value="Abundante">Abundante</option>
@@ -154,7 +154,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Temperatura</label>
-                                    <select class="form-select" id="temperatura" required>
+                                    <select class="form-select" id="temperaturaEdit" required>
                                         <option value="" disabled selected>Seleccione temperatura</option>
                                         <option value="Cálida (16-27°C)">Cálida (16-27°C)</option>
                                         <option value="Fresca (-5 a 16°C)">Fresca (-5 a 16°C)</option>
@@ -162,7 +162,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Tipo de Riego</label>
-                                    <select class="form-select" id="riego" required>
+                                    <select class="form-select" id="riegoEdit" required>
                                         <option value="" disabled selected>Seleccione tipo de riego</option>
                                         <option value="Abundante">Abundante</option>
                                         <option value="Moderado">Moderado</option>
@@ -171,11 +171,11 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Detalles de Riego</label>
-                                    <textarea class="form-control" id="detallesRiego" required></textarea>
+                                    <textarea class="form-control" id="detallesRiegoEdit" required></textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Imagen URL</label>
-                                    <input type="url" class="form-control" id="imagen">
+                                    <input type="url" class="form-control" id="imagenEdit">
                                 </div>
                             </div>
                         </div>
@@ -185,7 +185,9 @@
                                     <label class="form-label">Información</label>
                                     <textarea class="form-control" id="editInfo" required></textarea>
                                 </div>
-                                <div class="mb-3">
+                            </div>
+                            <div class="row">
+                                <div class="col-6 mb-3">
                                     <label class="form-label">Categoría</label>
                                     <select class="form-select" id="editCategory" required>
                                         <option value="" disabled selected>Seleccione categoría</option>
@@ -194,11 +196,19 @@
                                         <option value="Detalles Vivos">Detalles Vivos</option>
                                     </select>
                                 </div>
+                                <div class="col-6 mb-3">
+                                    <label class="form-label">Toxicidad</label>
+                                    <select class="form-select" id="toxicidadEdit" required>
+                                        <option value="" disabled selected>Seleccione </option>
+                                        <option value="Minimal Suc">Toxica</option>
+                                        <option value="Verde Kawaii">No Toxica</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <button type="submit" id="submit" class="btn btn-primary">Guardar Cambios</button>
+                            <button type="submit" id="guardar" class="btn btn-primary">Guardar Cambios</button>
                         </div>
                     </form>
                 </div>
