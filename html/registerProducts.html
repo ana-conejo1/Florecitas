@@ -108,103 +108,98 @@
     </div>
 
     <!-- Modal de Edición Completo -->
-    <!-- Cambia el modal para manejar mejor el foco -->
+    
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Editar Producto</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="modal-content">
+            <form id="editForm">
+              <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Editar Producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+              </div>
+              <div class="modal-body">
+                <input type="hidden" id="editId">
+      
+                <div class="row">
+                  <div class="col-md-6">
+                    <label class="form-label">Nombre Común</label>
+                    <input type="text" class="form-control" id="editNombreComun" required>
+      
+                    <label class="form-label mt-2">Nombre Científico</label>
+                    <input type="text" class="form-control" id="editNombreCientifico" required>
+      
+                    <label class="form-label mt-2">Peso (g)</label>
+                    <input type="number" class="form-control" id="editPeso" required>
+      
+                    <label class="form-label mt-2">Unidades en Inventario</label>
+                    <input type="number" class="form-control" id="editUnidadesInventario" required>
+      
+                    <label class="form-label mt-2">Precio</label>
+                    <input type="number" class="form-control" id="editPrecio" required>
+                  </div>
+      
+                  <div class="col-md-6">
+                    <label class="form-label">Tipo de Luz</label>
+                    <select class="form-select" id="editLuz" required>
+                      <option value="" disabled selected>Seleccione tipo de luz</option>
+                      <option value="Directa">Directa</option>
+                      <option value="Abundante">Abundante</option>
+                      <option value="Sombra">Sombra</option>
+                    </select>
+      
+                    <label class="form-label mt-2">Temperatura</label>
+                    <select class="form-select" id="editTemperatura" required>
+                      <option value="" disabled selected>Seleccione temperatura</option>
+                      <option value="Cálida (16-27°C)">Cálida (16-27°C)</option>
+                      <option value="Fresca (-5 a 16°C)">Fresca (-5 a 16°C)</option>
+                    </select>
+      
+                    <label class="form-label mt-2">Tipo de Riego</label>
+                    <select class="form-select" id="editRiego" required>
+                      <option value="" disabled selected>Seleccione tipo de riego</option>
+                      <option value="Abundante">Abundante</option>
+                      <option value="Moderado">Moderado</option>
+                      <option value="Mínimo">Mínimo</option>
+                    </select>
+      
+                    <label class="form-label mt-2">Detalles de Riego</label>
+                    <textarea class="form-control" id="editDetallesRiego" required></textarea>
+      
+                    <label class="form-label mt-2">Imagen URL</label>
+                    <input type="url" class="form-control" id="editImagen">
+                  </div>
                 </div>
-                <div class="modal-body">
-                    <form id="editForm">
-                        <input type="hidden" id="editId">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label">Nombre Común</label>
-                                    <input type="text" class="form-control" id="nombreComun" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Nombre Científico</label>
-                                    <input type="text" class="form-control" id="nombreCientifico" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Peso (g)</label>
-                                    <input type="number" class="form-control" id="peso" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Unidades en Inventario</label>
-                                    <input type="number" class="form-control" id="unidadesInventario" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Precio</label>
-                                    <input type="number" class="form-control" id="precio" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label">Tipo de Luz</label>
-                                    <select class="form-select" id="luz" required>
-                                        <option value="" disabled selected>Seleccione tipo de luz</option>
-                                        <option value="Directa">Directa</option>
-                                        <option value="Abundante">Abundante</option>
-                                        <option value="Sombra">Sombra</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Temperatura</label>
-                                    <select class="form-select" id="temperatura" required>
-                                        <option value="" disabled selected>Seleccione temperatura</option>
-                                        <option value="Cálida (16-27°C)">Cálida (16-27°C)</option>
-                                        <option value="Fresca (-5 a 16°C)">Fresca (-5 a 16°C)</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Tipo de Riego</label>
-                                    <select class="form-select" id="riego" required>
-                                        <option value="" disabled selected>Seleccione tipo de riego</option>
-                                        <option value="Abundante">Abundante</option>
-                                        <option value="Moderado">Moderado</option>
-                                        <option value="Mínimo">Mínimo</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Detalles de Riego</label>
-                                    <textarea class="form-control" id="detallesRiego" required></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Imagen URL</label>
-                                    <input type="url" class="form-control" id="imagen">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="mb-3">
-                                    <label class="form-label">Información</label>
-                                    <textarea class="form-control" id="editInfo" required></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Categoría</label>
-                                    <select class="form-select" id="editCategory" required>
-                                        <option value="" disabled selected>Seleccione categoría</option>
-                                        <option value="Minimal Suc">Minimal Suc</option>
-                                        <option value="Verde Kawaii">Verde Kawaii</option>
-                                        <option value="Detalles Vivos">Detalles Vivos</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <button type="submit" id="submit" class="btn btn-primary">Guardar Cambios</button>
-                        </div>
-                    </form>
+      
+                <div class="row mt-3">
+                  <div class="col-12">
+                    <label class="form-label">Información</label>
+                    <textarea class="form-control" id="editInfo" required></textarea>
+      
+                    <label class="form-label mt-2">Categoría</label>
+                    <select class="form-select" id="editCategory" required>
+                      <option value="" disabled selected>Seleccione categoría</option>
+                      <option value="Minimal Suc">Minimal Suc</option>
+                      <option value="Verde Kawaii">Verde Kawaii</option>
+                      <option value="Detalles Vivos">Detalles Vivos</option>
+                    </select>
+      
+                    <label class="form-label mt-2">Toxicidad</label>
+                    <select class="form-select" id="editToxicidad" required>
+                      <option value="" disabled selected>Seleccione toxicidad</option>
+                      <option value="Toxica">Tóxica</option>
+                      <option value="No Toxica">No Tóxica</option>
+                    </select>
+                  </div>
                 </div>
-            </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+              </div>
+            </form>
+          </div>
         </div>
-    </div>
+      </div>
 
     <!--Pie de pagina-->
     <footer>
