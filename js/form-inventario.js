@@ -91,6 +91,9 @@ fetch(urlProductos)
                     <th>Precio</th>
                     <th>Inventario</th>
                     <th>Categoría</th>
+                    <th>Detalles de riego</th>
+                    <th>informacion</th>
+                    <th>Tipo de luz</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -100,12 +103,15 @@ fetch(urlProductos)
             const imagen = producto.imagen ? producto.imagen : '/assets/pictures/logo.png';
             return `
                     <tr>
-                        <td><img src="${imagen}" alt="${producto.nombreComun}" style="width: 80px; height: auto;"></td>
-                        <td>${producto.nombreComun}</td>
+                        <td><img src="${imagen}" alt="${producto.nombreProducto}" style="width: 80px; height: auto;"></td>
+                        <td>${producto.nombreProducto}</td>
                         <td><em>${producto.nombreCientifico}</em></td>
                         <td>$${producto.precio.toFixed(2)}</td>
                         <td>${producto.unidadesInventario}</td>
                         <td>${producto.categoria}</td>
+                        <td>${producto.luz}</td>
+                        <td>${producto.detallesRiego}</td>
+                        <td>${producto.info}</td>
                         <td>
                             <button class="btn btn-sm btn-outline-primary edit-btn" data-id="${producto.id}">
                                 <i class="bi bi-pencil"></i>
@@ -126,3 +132,4 @@ fetch(urlProductos)
         console.error("❌ Error al obtener productos:", error);
         productContainer.innerHTML = '<div class="alert alert-danger">No se pudieron cargar los productos.</div>';
     });
+
